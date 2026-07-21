@@ -29,8 +29,8 @@ Eigene Changes ins Repository pushen:
 Das listet einem alle Files auf, die man angepasst hat. Wenn da irgendwas dabei ist, was einem seltsam vorkommt, Fabian oder mich fragen
 4. folgende 2 Commands ausführen
 
-	``git add .``
-	``git commit -m "Message einfügen"``
+	git add .
+	git commit -m "Message einfügen"
 
 5. folgenden Command ausführen
 	``git push``
