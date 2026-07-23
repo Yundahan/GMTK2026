@@ -12,6 +12,7 @@ public class BGMManager : MonoBehaviour
         {
           {"Scene1", "Sound/AhriTheme" },
           {"Scene2", "Sound/ACallToArmsTirionFordring"},
+          {"AndrikScene", "Sound/ACallToArmsTirionFordring"},
         };
 
     private void Awake()
