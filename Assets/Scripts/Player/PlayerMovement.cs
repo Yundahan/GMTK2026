@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     // The direction in which the character moves, 0 if no movement
     private float move;
     private bool isFalling = false;
+    private bool doubleJump = false;
 
     private void Awake()
     {
@@ -43,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
         if (rigidBody.linearVelocity.y < 0 && !IsGrounded())
         {
             isFalling = true;
-        } else
+        }
+        else
         {
             // Player was falling last frame, but isnt anymore, so we landed
             if (isFalling)
@@ -55,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(float horizontalAxis)
     {
-        float xSpeed =  SPEED * horizontalAxis;
+        float xSpeed = SPEED * horizontalAxis;
         Vector3 targetVelocity = new Vector3(xSpeed, rigidBody.linearVelocity.y, 0);
         rigidBody.linearVelocity = Vector3.SmoothDamp(rigidBody.linearVelocity, targetVelocity, ref velocity, IsGrounded() ? SMOOTHING : AIR_SMOOTHING);
     }
@@ -69,7 +71,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded())
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector3(0, JUMP_FORCE, 0));
+            rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
+            doubleJump = true;
+        }
+        else if (doubleJump && !IsGrounded())
+        {
+            rigidBody.linearVelocityY = 0;
+            rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
+            doubleJump = false;
         }
     }
 
