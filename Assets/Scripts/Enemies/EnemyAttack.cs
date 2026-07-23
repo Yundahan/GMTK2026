@@ -3,12 +3,11 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField]
-    private Collider2D damageArea;
-    [SerializeField]
     private int damage = 1;
+    [SerializeField]
+    private bool damageActive = true;
 
     private PlayerHealth playerHealth;
-    private bool damageActive = true;
 
     void Start()
     {
@@ -17,7 +16,7 @@ public class EnemyAttack : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        if (damageActive && damageArea.IsTouching(playerHealth.GetHitbox()))
+        if (damageActive)
         {
             playerHealth.UpdateHealth(-damage);
         }

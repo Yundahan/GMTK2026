@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyBehaviorOne : MonoBehaviour
 {
-    private enum AttackState
+    private enum State
     {
         IDLE,
         WINDUP,
@@ -20,7 +20,7 @@ public class EnemyBehaviorOne : MonoBehaviour
     private float attackWindupTime = 1f;
 
     private Vector3 targetPosition;
-    private AttackState attackState = AttackState.IDLE;
+    private State attackState = State.IDLE;
     private float windUpStartTime = -10000f;
 
     void Start()
@@ -30,14 +30,14 @@ public class EnemyBehaviorOne : MonoBehaviour
 
     void Update()
     {
-        if (attackState == AttackState.IDLE && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
+        if (attackState == State.IDLE && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
         {
             windUpStartTime = Time.time;
-            attackState = AttackState.WINDUP;
+            attackState = State.WINDUP;
         }
-        if (attackState == AttackState.WINDUP && windUpStartTime + attackWindupTime < Time.time)
+        if (attackState == State.WINDUP && windUpStartTime + attackWindupTime < Time.time)
         {
-            attackState = AttackState.ATTACKING;
+            attackState = State.ATTACKING;
             targetPosition = player.transform.position;
             Vector3 direction = targetPosition - transform.position;
             direction.Normalize();
@@ -48,7 +48,7 @@ public class EnemyBehaviorOne : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (attackState == AttackState.ATTACKING)
+        if (attackState == State.ATTACKING)
         {
             float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
             Vector3 movementVector = targetPosition - transform.position;
@@ -58,7 +58,7 @@ public class EnemyBehaviorOne : MonoBehaviour
             if (movementVector.magnitude >= distanceToTarget - 0.001f)
             {
                 transform.position = targetPosition;
-                attackState = AttackState.IDLE;
+                attackState = State.IDLE;
             } else
             {
                 transform.position += movementVector;

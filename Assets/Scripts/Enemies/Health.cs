@@ -4,11 +4,14 @@ public class Health : MonoBehaviour
 {
 
     [SerializeField] private int health = 100;
+
+    private bool invulnerable = false;
+
     public void Damage(int amount)
     {
-        if (amount < 0)
+        if (amount < 0 || invulnerable)
         {
-            throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
+            return;
         }
 
         this.health -= amount;
@@ -24,5 +27,10 @@ public class Health : MonoBehaviour
     {
         Debug.Log("I am Dead!");
         Destroy(gameObject);
+    }
+
+    public void SetInvulnerability(bool value)
+    {
+        invulnerable = value;
     }
 }

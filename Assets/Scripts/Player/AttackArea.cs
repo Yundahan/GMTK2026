@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class AttackArea : MonoBehaviour
 {
+    [SerializeField]
     private int damage = 5;
 
     void OnTriggerEnter2D(Collider2D collider)
