@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalAxis < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-        } else
+        } else if (horizontalAxis > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
