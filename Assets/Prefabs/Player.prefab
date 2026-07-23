@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8332172650677249928}
   - component: {fileID: -380594589805855008}
+  - component: {fileID: 155843628176164034}
+  - component: {fileID: 8663128943594594061}
   - component: {fileID: 1594173797006831353}
   - component: {fileID: 7250445168129318132}
   - component: {fileID: 8503293370247355942}
@@ -50,6 +52,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   feetCollider: {fileID: 678365130612628718}
   SPEED: 12.74
+--- !u!114 &155843628176164034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521983596917254775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0221a772ab2e04092eae73148d5078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+--- !u!114 &8663128943594594061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521983596917254775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d3f17c974de8645ada97b98d33f0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  hitbox: {fileID: 8503293370247355942}
+  invulnerabilityTimer: 0.5
 --- !u!212 &1594173797006831353
 SpriteRenderer:
   serializedVersion: 2

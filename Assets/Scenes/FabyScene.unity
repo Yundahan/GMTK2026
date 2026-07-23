@@ -119,28 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &29475692 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5521983596917254775, guid: ad01aa2549cd6ed418711d8dc87d07d6, type: 3}
-  m_PrefabInstance: {fileID: 4569514878262213673}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &29475697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8332172650677249928, guid: ad01aa2549cd6ed418711d8dc87d07d6, type: 3}
   m_PrefabInstance: {fileID: 4569514878262213673}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &29475698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 29475692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c0221a772ab2e04092eae73148d5078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
 --- !u!1001 &196747817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1066,10 +1049,6 @@ PrefabInstance:
       propertyPath: smoothTime
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7728767584973716539, guid: c8b05962e28f94f438493c4e909ef243, type: 3}
-      propertyPath: cameraOffset.z
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 8530966302073189884, guid: c8b05962e28f94f438493c4e909ef243, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1230,10 +1209,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8332172650677249928, guid: ad01aa2549cd6ed418711d8dc87d07d6, type: 3}
       insertIndex: 0
       addedObject: {fileID: 1057057417}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5521983596917254775, guid: ad01aa2549cd6ed418711d8dc87d07d6, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 29475698}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad01aa2549cd6ed418711d8dc87d07d6, type: 3}
 --- !u!1001 &5597488413147803201
 PrefabInstance:

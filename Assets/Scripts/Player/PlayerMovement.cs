@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
     void FixedUpdate()
     {
         Move(move);

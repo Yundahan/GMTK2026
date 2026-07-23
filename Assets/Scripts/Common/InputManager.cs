@@ -14,8 +14,6 @@ public class InputManager : MonoBehaviour
 
     private InputAction moveAction;
 
-    string guid = null;
-
     private void Awake()
     {
         if (instance == null)
@@ -37,26 +35,10 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            Debug.Log(Simulation.Instance().IncreaseECount());
-        }
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             uiManager.ToggleMenu();
             Simulation.Instance().ToggleSimulation();
-        }
-        if (Keyboard.current.xKey.wasPressedThisFrame)
-        {
-            guid = uiManager.ShowTextInGameGUI(new Vector2(0f, 1f), new Vector2(250f, -120f), "hier ist ein text");
-        }
-        if (Keyboard.current.cKey.wasPressedThisFrame)
-        {
-            uiManager.RemoveTextInGameGUI(guid);
-        }
-        if (Keyboard.current.vKey.wasPressedThisFrame)
-        {
-            uiManager.RemoveAllTextsInGameGUI();
         }
 
         if (player != null)

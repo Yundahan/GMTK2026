@@ -3,15 +3,25 @@ using UnityEngine;
 
 public class EnemyBehaviorOne : MonoBehaviour
 {
+    private enum AttackState
+    {
+        IDLE,
+        WINDUP,
+        ATTACKING
+    }
+
     private PlayerMovement player;
 
     [SerializeField]
     private float detectionRange = 10f;
     [SerializeField]
     private float speed = 5f;
+    [SerializeField]
+    private float attackWindupTime = 1f;
 
     private Vector3 targetPosition;
-    private bool attacking = false;
+    private AttackState attackState = AttackState.IDLE;
+    private float windUpStartTime = -10000f;
 
     void Start()
     {
@@ -20,26 +30,35 @@ public class EnemyBehaviorOne : MonoBehaviour
 
     void Update()
     {
-        if (!attacking && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
+        if (attackState == AttackState.IDLE && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
         {
-            attacking = true;
+            windUpStartTime = Time.time;
+            attackState = AttackState.WINDUP;
+        }
+        if (attackState == AttackState.WINDUP && windUpStartTime + attackWindupTime < Time.time)
+        {
+            attackState = AttackState.ATTACKING;
             targetPosition = player.transform.position;
+            Vector3 direction = targetPosition - transform.position;
+            direction.Normalize();
+            float zRotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, zRotation - 90f);
         }
     }
 
     void FixedUpdate()
     {
-        if (attacking)
+        if (attackState == AttackState.ATTACKING)
         {
             float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
             Vector3 movementVector = targetPosition - transform.position;
             movementVector.Normalize();
             movementVector *= speed * Time.fixedDeltaTime;
 
-            if (movementVector.magnitude > distanceToTarget)
+            if (movementVector.magnitude >= distanceToTarget - 0.001f)
             {
                 transform.position = targetPosition;
-                attacking = false;
+                attackState = AttackState.IDLE;
             } else
             {
                 transform.position += movementVector;
