@@ -14,6 +14,7 @@ public class BGMManager : MonoBehaviour
           {"Scene2", "Sound/ACallToArmsTirionFordring"},
           {"AndrikScene", "Sound/ACallToArmsTirionFordring"},
           {"FabyScene", "Sound/ACallToArmsTirionFordring"},
+          {"LinoScene", "Sound/ACallToArmsTirionFordring"},
         };
 
     private void Awake()
