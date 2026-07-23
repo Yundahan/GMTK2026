@@ -4,17 +4,12 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
+    [SerializeField]
     private GameObject attackArea = default;
 
     private bool attacking = false;
     private float timeToAttack = 0.25f;
     private float timer = 0f;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        attackArea = transform.GetChild(0).gameObject;
-    }
 
     // Update is called once per frame
     void Update()
