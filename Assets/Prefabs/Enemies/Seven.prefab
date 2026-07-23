@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4358054972426510247}
   - component: {fileID: 4894697837059588567}
   - component: {fileID: 1117406235804713789}
+  - component: {fileID: -2509474102193487331}
   - component: {fileID: 3610353431065502524}
   m_Layer: 0
   m_Name: Seven
@@ -123,6 +124,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   health: 100
+--- !u!114 &-2509474102193487331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332705838569470449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655bce897ed02ef41aabf4de9859b04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyNumber
+  number: 7
 --- !u!60 &3610353431065502524
 PolygonCollider2D:
   m_ObjectHideFlags: 0

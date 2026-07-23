@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 548906813}
   - component: {fileID: 548906815}
   - component: {fileID: 548906814}
+  - component: {fileID: 548906816}
   m_Layer: 0
   m_Name: Eight
   m_TagString: Untagged
@@ -427,6 +428,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   health: 100
+--- !u!114 &548906816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548906810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655bce897ed02ef41aabf4de9859b04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyNumber
+  number: 8
 --- !u!1 &587605635
 GameObject:
   m_ObjectHideFlags: 0
