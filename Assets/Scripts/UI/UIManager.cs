@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class UIManager : MonoBehaviour
     private GameObject gameUI;
     [SerializeField]
     private GameObject menuUI;
+    [SerializeField]
+    private Image healthBar;
 
     private Dictionary<string, GameObject> currentTextsInGameGUI = new Dictionary<string, GameObject>();
 
@@ -66,5 +69,10 @@ public class UIManager : MonoBehaviour
         }
 
         currentTextsInGameGUI.Clear();
+    }
+
+    public void SetHealthBar(float healthFraction)
+    {
+        healthBar.fillAmount = healthFraction;
     }
 }

@@ -7,9 +7,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private float invulnerabilityTimer = 1f;
 
+    private UIManager uiManager;
+
     private int maxHealth = 100;
     private int currentHealth = 100;
     private float lastDamageTime = -10000f;
+
+    void Start()
+    {
+        uiManager = FindFirstObjectByType<UIManager>();
+    }
 
     public void UpdateHealth(int delta)
     {
@@ -21,6 +28,9 @@ public class PlayerHealth : MonoBehaviour
             }
 
             currentHealth = Mathf.Min(currentHealth + delta, maxHealth);
+            float healthFraction = (float)currentHealth / (float)maxHealth;
+            healthFraction = Mathf.Clamp01(healthFraction);
+            uiManager.SetHealthBar(healthFraction);
         }
     }
 
