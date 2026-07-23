@@ -13,6 +13,7 @@ public class BGMManager : MonoBehaviour
           {"Scene1", "Sound/AhriTheme" },
           {"Scene2", "Sound/ACallToArmsTirionFordring"},
           {"AndrikScene", "Sound/ACallToArmsTirionFordring"},
+          {"FabyScene", "Sound/ACallToArmsTirionFordring"},
         };
 
     private void Awake()
@@ -71,7 +72,7 @@ public class BGMManager : MonoBehaviour
     {
         string[] pathArray = bgmFilePath.Split('/');
         string fileName = pathArray[pathArray.Length - 1];
-        return bgmAudioSource.clip!= null && fileName == bgmAudioSource.clip.name;
+        return bgmAudioSource.clip != null && fileName == bgmAudioSource.clip.name;
     }
 
     public static BGMManager Instance()

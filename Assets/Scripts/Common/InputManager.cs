@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
     private static InputManager instance;
 
     private PlayerMovement player;
+    private PlayerAttack playerAttack;
     private UIManager uiManager;
 
     private InputAction moveAction;
@@ -67,11 +68,20 @@ public class InputManager : MonoBehaviour
                 player.Jump();
             }
         }
+
+        if (playerAttack != null)
+        {
+            if (Keyboard.current.kKey.wasPressedThisFrame)
+            {
+                playerAttack.Attack();
+            }
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         player = GameObject.FindFirstObjectByType<PlayerMovement>();
+        playerAttack = GameObject.FindFirstObjectByType<PlayerAttack>();
         uiManager = GameObject.FindFirstObjectByType<UIManager>();
     }
 
