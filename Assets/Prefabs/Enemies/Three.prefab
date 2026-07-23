@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5b90ae997a9064fbaa1f502c3af3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  fallingOverDuration: 1
+  fallingOverDuration: 0.5
   invulnerableDuration: 3
   standingUpDuration: 1
   cooldown: 2

@@ -20,7 +20,7 @@ public class EnemyBehaviorOne : MonoBehaviour
     private float attackWindupTime = 1f;
 
     private Vector3 targetPosition;
-    private State attackState = State.IDLE;
+    private State state = State.IDLE;
     private float windUpStartTime = -10000f;
 
     void Start()
@@ -30,14 +30,14 @@ public class EnemyBehaviorOne : MonoBehaviour
 
     void Update()
     {
-        if (attackState == State.IDLE && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
+        if (state == State.IDLE && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
         {
             windUpStartTime = Time.time;
-            attackState = State.WINDUP;
+            state = State.WINDUP;
         }
-        if (attackState == State.WINDUP && windUpStartTime + attackWindupTime < Time.time)
+        if (state == State.WINDUP && windUpStartTime + attackWindupTime < Time.time)
         {
-            attackState = State.ATTACKING;
+            state = State.ATTACKING;
             targetPosition = player.transform.position;
             Vector3 direction = targetPosition - transform.position;
             direction.Normalize();
@@ -48,7 +48,7 @@ public class EnemyBehaviorOne : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (attackState == State.ATTACKING)
+        if (state == State.ATTACKING)
         {
             float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
             Vector3 movementVector = targetPosition - transform.position;
@@ -58,7 +58,7 @@ public class EnemyBehaviorOne : MonoBehaviour
             if (movementVector.magnitude >= distanceToTarget - 0.001f)
             {
                 transform.position = targetPosition;
-                attackState = State.IDLE;
+                state = State.IDLE;
             } else
             {
                 transform.position += movementVector;
