@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   hitbox: {fileID: 8503293370247355942}
-  invulnerabilityTimer: 0.5
+  invulnerabilityTimer: 1
 --- !u!212 &1594173797006831353
 SpriteRenderer:
   serializedVersion: 2

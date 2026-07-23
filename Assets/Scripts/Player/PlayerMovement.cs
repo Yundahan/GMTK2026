@@ -62,11 +62,14 @@ public class PlayerMovement : MonoBehaviour
         float xSpeed = SPEED * horizontalAxis;
         Vector3 targetVelocity = new Vector3(xSpeed, rigidBody.linearVelocity.y, 0);
         rigidBody.linearVelocity = Vector3.SmoothDamp(rigidBody.linearVelocity, targetVelocity, ref velocity, IsGrounded() ? SMOOTHING : AIR_SMOOTHING);
-    }
 
-    public void SetMove(float value)
-    {
-        this.move = value;
+        if (horizontalAxis < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        } else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     public void Jump()

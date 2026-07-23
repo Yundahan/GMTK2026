@@ -21,7 +21,6 @@ public class PlayerHealth : MonoBehaviour
             }
 
             currentHealth = Mathf.Min(currentHealth + delta, maxHealth);
-            Debug.Log(currentHealth);
         }
     }
 

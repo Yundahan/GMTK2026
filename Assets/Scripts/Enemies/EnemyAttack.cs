@@ -17,10 +17,9 @@ public class EnemyAttack : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        Debug.Log("collision");
         if (damageActive && damageArea.IsTouching(playerHealth.GetHitbox()))
         {
-            playerHealth.UpdateHealth(damage);
+            playerHealth.UpdateHealth(-damage);
         }
     }
 
