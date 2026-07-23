@@ -1,13 +1,14 @@
 using System.Collections;
+using UnityEditor.EditorTools;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
     private static InputManager instance;
 
-    private PlayerBehaviour player;
+    private PlayerMovement player;
     private UIManager uiManager;
 
     private InputAction moveAction;
@@ -59,13 +60,18 @@ public class InputManager : MonoBehaviour
 
         if (player != null)
         {
-            player.Move(moveAction.ReadValue<Vector2>());
+            player.Move(moveAction.ReadValue<Vector2>().x);
+
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                player.Jump();
+            }
         }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        player = GameObject.FindFirstObjectByType<PlayerBehaviour>();
+        player = GameObject.FindFirstObjectByType<PlayerMovement>();
         uiManager = GameObject.FindFirstObjectByType<UIManager>();
     }
 
