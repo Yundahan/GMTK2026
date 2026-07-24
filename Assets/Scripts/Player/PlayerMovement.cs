@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (IsGrounded())
+        if (IsGrounded() || !IsTouchingWall())
         {
             rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
             doubleJump = true;
