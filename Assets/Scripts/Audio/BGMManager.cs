@@ -10,11 +10,8 @@ public class BGMManager : MonoBehaviour
 
     private Dictionary<string, string> sceneToBGMMapping = new Dictionary<string, string>
         {
-          {"Scene1", "Sound/AhriTheme" },
-          {"Scene2", "Sound/ACallToArmsTirionFordring"},
-          {"AndrikScene", "Sound/ACallToArmsTirionFordring"},
-          {"FabyScene", "Sound/ACallToArmsTirionFordring"},
-          {"LinoScene", "Sound/ACallToArmsTirionFordring"},
+          {"default", "Sound/Bilderbuchabenteuer" },
+          {"AndrikScene", "Sound/AhriTheme" }
         };
 
     private void Awake()
@@ -40,13 +37,26 @@ public class BGMManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         string activeSceneName = SceneLoader.Instance().GetActiveSceneName();
-
-        if (!IsTrackCurrentlyPlaying(sceneToBGMMapping[activeSceneName]))
+        if (sceneToBGMMapping.ContainsKey(activeSceneName))
         {
-            AudioClip clip = Resources.Load<AudioClip>(sceneToBGMMapping[activeSceneName]);
-            bgmAudioSource.clip = clip;
-            bgmAudioSource.Play();
+            if (!IsTrackCurrentlyPlaying(sceneToBGMMapping[activeSceneName]))
+            {
+                AudioClip clip = Resources.Load<AudioClip>(sceneToBGMMapping[activeSceneName]);
+                bgmAudioSource.clip = clip;
+                bgmAudioSource.Play();
+            }
         }
+        else
+        {
+            if (!IsTrackCurrentlyPlaying(sceneToBGMMapping["default"]))
+            {
+                AudioClip clip = Resources.Load<AudioClip>(sceneToBGMMapping["default"]);
+                bgmAudioSource.clip = clip;
+                bgmAudioSource.Play();
+            }
+        }
+
+       
     }
 
     /// <summary>
@@ -56,7 +66,14 @@ public class BGMManager : MonoBehaviour
     /// <param name="bgmFilePath">File path of the new BGM.</param>
     public void SetBGMForScene(string sceneName, string bgmFilePath)
     {
-        sceneToBGMMapping[sceneName] = bgmFilePath;
+        if (sceneToBGMMapping.ContainsKey(sceneName))
+            {
+            sceneToBGMMapping[sceneName] = bgmFilePath;
+            }
+        else
+        {
+            sceneToBGMMapping["default"] = bgmFilePath;
+        }
 
         if (SceneLoader.Instance().GetActiveSceneName() == sceneName
             && !IsTrackCurrentlyPlaying(bgmFilePath))
@@ -70,7 +87,9 @@ public class BGMManager : MonoBehaviour
     /// </summary>
     /// <param name="bgmFilePath">Path of the BGM file.</param>
     public bool IsTrackCurrentlyPlaying(string bgmFilePath)
-    {
+    {   
+
+        
         string[] pathArray = bgmFilePath.Split('/');
         string fileName = pathArray[pathArray.Length - 1];
         return bgmAudioSource.clip != null && fileName == bgmAudioSource.clip.name;
