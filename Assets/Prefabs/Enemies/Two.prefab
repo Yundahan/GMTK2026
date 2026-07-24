@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   damage: 25
-  damageActive: 1
+  damageActive: 0
 --- !u!1 &3790356773617017600
 GameObject:
   m_ObjectHideFlags: 0

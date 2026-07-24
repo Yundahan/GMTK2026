@@ -21,7 +21,7 @@ public class EnemyAttack : MonoBehaviour
             playerHealth.UpdateHealth(-damage);
         }
     }
-
+        
     public void SetDamageActive(bool value)
     {
         damageActive = value;

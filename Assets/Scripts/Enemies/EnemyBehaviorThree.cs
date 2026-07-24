@@ -63,11 +63,6 @@ public class EnemyBehaviorThree : MonoBehaviour
         ChangeState(State.FALLING_OVER);
     }
 
-    public void OnPlayerLeftDetection()
-    {
-        // NOOP
-    }
-
     private void ChangeState(State state)
     {
         this.state = state;
