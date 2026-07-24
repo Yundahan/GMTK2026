@@ -37,10 +37,6 @@ public class PlayerMovement : MonoBehaviour
     // The direction in which the character moves, 0 if no movement
     private float move;
     private bool isFalling = false;
-    private bool doubleJump = false;
-
-    private bool isTouchingFront;
-    private bool wallSliding;
 
 
     private void Awake()
