@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private float SPEED = 7f;
     [SerializeField]
     private float wallSlidingSpeed = 3f;
+    private int maxJumps = 2;
+    private int jumpsRemaining;
 
     private const int GROUND_LAYER = 6;
     private const int WALL_LAYER = 7;
@@ -101,16 +103,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (IsGrounded() || !IsTouchingWall())
+        Debug.Log(jumpsRemaining);
+        if (IsGrounded() && jumpsRemaining > 1)
         {
             rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
-            doubleJump = true;
+            jumpsRemaining--;
         }
-        else if (doubleJump && !IsGrounded())
+        else if (!IsGrounded() && jumpsRemaining > 1)
         {
             rigidBody.linearVelocityY = 0;
             rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
-            doubleJump = false;
+            jumpsRemaining--;
         }
     }
 
@@ -120,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (collider.IsTouching(feetCollider))
             {
+                jumpsRemaining = maxJumps;
                 return true;
             }
         }
@@ -142,5 +146,13 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.position = spawnPoint;
         velocity = Vector3.zero;
+    }
+
+    void OnCollisionEnter2D(Collision2D collider)
+    {
+        if (collider.gameObject.layer == WALL_LAYER)
+        {
+            jumpsRemaining = maxJumps; // reset remaining jumps when hitting a wall
+        }
     }
 }
