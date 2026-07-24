@@ -7,27 +7,30 @@ public class EnemyBehaviorEight : MonoBehaviour
         IDLE,
         OPENING,
         OPEN,
+        SNAPPING,
         CLOSING
     }
 
-    private PlayerHealth playerHealth;
-
     [SerializeField]
-    private Collider2D snapArea;
+    private DetectionArea outerDetectionArea;
+    [SerializeField]
+    private DetectionArea innerDetectionArea;
+    [SerializeField]
+    private Transform leftSnapper;
+    [SerializeField]
+    private Transform rightSnapper;
+
     [SerializeField]
     private float openingDuration = 1f;
     [SerializeField]
-    private float closingDuration = 0.3f;
+    private float snappingDuration = 0.3f;
+    [SerializeField]
+    private float closingDuration = 1f;
     [SerializeField]
     private float cooldown = 2f;
 
     private State state = State.IDLE;
     private float lastStateChangeTime = -10000f;
-
-    void Start()
-    {
-        playerHealth = FindFirstObjectByType<PlayerHealth>();
-    }
 
     void Update()
     {
@@ -35,10 +38,13 @@ public class EnemyBehaviorEight : MonoBehaviour
         {
             ChangeState(State.OPEN);
             GetComponent<Health>().SetInvulnerability(true);
+            GetComponent<Collider2D>().enabled = false;
         }
-        if (state == State.OPEN && snapArea.IsTouching(playerHealth.GetHitbox()))
+        if (state == State.SNAPPING && lastStateChangeTime + snappingDuration < Time.time)
         {
-            ChangeState(State.CLOSING);
+            ChangeState(State.IDLE);
+            GetComponent<Health>().SetInvulnerability(false);
+            GetComponent<Collider2D>().enabled = true;
         }
         if (state == State.CLOSING && lastStateChangeTime + closingDuration < Time.time)
         {
@@ -47,25 +53,105 @@ public class EnemyBehaviorEight : MonoBehaviour
         }
     }
 
-    public void OnPlayerDetected()
+    void FixedUpdate()
     {
-        if (state != State.IDLE || lastStateChangeTime + cooldown > Time.time)
+        if (state == State.SNAPPING)
         {
-            return;
+            float rotationDelta = Time.fixedDeltaTime * 90 / snappingDuration;
+            leftSnapper.Rotate(new Vector3(0, 0, -rotationDelta));
+            rightSnapper.Rotate(new Vector3(0, 0, rotationDelta));
         }
-
-        ChangeState(State.OPENING);
     }
 
-    public void OnPlayerLeftDetection()
+    public void OnPlayerDetected(DetectionArea area)
     {
-        // NOOP? Or closing again
-        // wie ist das mit damage während die 8 zu ist wenn man einfach dagegen läuft, yes or no damage
+        if (area == outerDetectionArea)
+        {
+            if ((state != State.IDLE && state != State.CLOSING) || lastStateChangeTime + cooldown > Time.time)
+            {
+                return;
+            }
+
+            ChangeState(State.OPENING);
+        } else if (area == innerDetectionArea)
+        {
+            if (state != State.OPEN)
+            {
+                return;
+            }
+
+            ChangeState(State.SNAPPING);
+        }
+    }
+
+    public void OnPlayerLeftDetection(DetectionArea area)
+    {
+        if (area == outerDetectionArea)
+        {
+            if ((state != State.OPEN && state != State.OPENING))
+            {
+                return;
+            }
+
+            ChangeState(State.CLOSING);
+        }
     }
 
     private void ChangeState(State state)
     {
+        switch (state)
+        {
+            case State.CLOSING:
+                if (this.state == State.OPEN)
+                {
+                    lastStateChangeTime = Time.time;
+                }
+                else if (this.state == State.OPENING)
+                {
+                    float timeSinceOpeningStart = Time.time - lastStateChangeTime;
+                    float timeLeftToClose = closingDuration - timeSinceOpeningStart;
+                    lastStateChangeTime = Time.time - timeLeftToClose;
+                }
+                break;
+            case State.OPENING:
+                if (this.state == State.IDLE)
+                {
+                    lastStateChangeTime = Time.time;
+                }
+                else if (this.state == State.CLOSING)
+                {
+                    float timeSinceClosingStart = Time.time - lastStateChangeTime;
+                    float timeLeftToOpen = openingDuration - timeSinceClosingStart;
+                    lastStateChangeTime = Time.time - timeLeftToOpen;
+                }
+                break;
+            case State.IDLE:
+                if (this.state == State.CLOSING)
+                {
+                    lastStateChangeTime = -10000f;
+                }
+                else
+                {
+                    lastStateChangeTime = Time.time;
+                }
+                break;
+            default:
+                lastStateChangeTime = Time.time;
+                break;
+        }
+
+        if (state == State.SNAPPING)
+        {
+            leftSnapper.gameObject.SetActive(true);
+            rightSnapper.gameObject.SetActive(true);
+        } else
+        {
+            leftSnapper.rotation = Quaternion.identity;
+            rightSnapper.rotation = Quaternion.identity;
+            leftSnapper.gameObject.SetActive(false);
+            rightSnapper.gameObject.SetActive(false);
+        }
+
         this.state = state;
-        lastStateChangeTime = Time.time;
     }
 }
