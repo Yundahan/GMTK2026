@@ -58,6 +58,7 @@ public class EnemyBehaviorNine : MonoBehaviour
             {
                 verticalVelocity = 0;
                 horizontalVelocity = 0f;
+                spriteTransform.rotation = Quaternion.identity;
                 ChangeState(State.IDLE);
             } else
             {

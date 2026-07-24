@@ -11,11 +11,10 @@ public class EnemyBehaviorThree : MonoBehaviour
     }
 
     [SerializeField]
-    private Sprite idleSprite;
+    private SpriteRenderer idleSpriteRenderer;
     [SerializeField]
-    private Sprite invulnerableSprite;
+    private SpriteRenderer invulnerableSprite;
 
-    private SpriteRenderer spriteRenderer;
 
     [SerializeField]
     private float fallingOverDuration = 0.5f;
@@ -29,24 +28,21 @@ public class EnemyBehaviorThree : MonoBehaviour
     private State state = State.IDLE;
     private float lastStateChangeTime = -10000f;
 
-    void Start()
-    {
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-    }
-
     void Update()
     {
         if (state == State.FALLING_OVER && lastStateChangeTime + fallingOverDuration < Time.time)
         {
             ChangeState(State.INVULNERABLE);
             GetComponent<Health>().SetInvulnerability(true);
-            spriteRenderer.sprite = invulnerableSprite;
+            idleSpriteRenderer.enabled = false;
+            invulnerableSprite.enabled = true;
         }
         if (state == State.INVULNERABLE && lastStateChangeTime + invulnerableDuration < Time.time)
         {
             ChangeState(State.STANDING_UP);
             GetComponent<Health>().SetInvulnerability(false);
-            spriteRenderer.sprite = idleSprite;
+            idleSpriteRenderer.enabled = true;
+            invulnerableSprite.enabled = false;
         }
         if (state == State.STANDING_UP && lastStateChangeTime + standingUpDuration < Time.time)
         {
