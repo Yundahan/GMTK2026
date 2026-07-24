@@ -34,13 +34,6 @@ public class Pathing : MonoBehaviour
         }
     }
 
-    private void FlipScale()
-    {
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
-    }
-
     private void WalkPattern()
     {
         if (IsGroundAhead(transform.right) && transform.localScale.x > 0) //check right
@@ -50,7 +43,7 @@ public class Pathing : MonoBehaviour
         }
         else if (transform.localScale.x > 0)
         {
-            FlipScale();
+            TransformUtils.FlipScale(transform);
         }
         if (IsGroundAhead(-transform.right) && transform.localScale.x < 0) // check left
         {
@@ -59,7 +52,7 @@ public class Pathing : MonoBehaviour
         }
         else if (transform.localScale.x < 0)
         {
-            FlipScale();
+            TransformUtils.FlipScale(transform);
         }
     }
 }

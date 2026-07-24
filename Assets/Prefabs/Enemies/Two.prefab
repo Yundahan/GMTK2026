@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1db5ee1cfa53b448bcd4606a41ab90f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBehaviourTwo
-  attackCooldown: 2
+  attackCooldown: 0.5
   attackWindupTime: 0.5
   boxSize: {x: 1, y: 1}
   castDist: 1

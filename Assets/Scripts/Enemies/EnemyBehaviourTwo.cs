@@ -6,14 +6,10 @@ public class EnemyBehaviourTwo : MonoBehaviour
     private enum State
     {
         IDLE,
-        WINDUP,
+        CHARGE,
         SLAPPIN
     }
 
-    [SerializeField]
-    private float attackCooldown = 2f;
-    [SerializeField]
-    private float attackWindupTime = 0.5f;
     [SerializeField]
     private Vector2 boxSize; //with a 1x1 sized object  x=1 and y=1 
     [SerializeField]
@@ -24,9 +20,19 @@ public class EnemyBehaviourTwo : MonoBehaviour
     private float chargeSpeed = 15f;
 
     private State attackState = State.IDLE;
-    private float lastStateChangeTime = -10000f;
     private bool isPathing = true;
     private bool isCharging = false;
+
+    private PlayerHealth playerHealth;
+    private EnemyAttack enemyAttack;
+    private Collider2D enemyAttackCollider;
+
+    void Start()
+    {
+        playerHealth = FindFirstObjectByType<PlayerHealth>();
+        enemyAttack = FindFirstObjectByType<EnemyAttack>();
+        enemyAttackCollider = GetComponentInChildren<EnemyAttack>().GetComponent<Collider2D>();
+    }
 
     void Update()
     {
@@ -38,19 +44,15 @@ public class EnemyBehaviourTwo : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (attackState == State.WINDUP && lastStateChangeTime + attackWindupTime < Time.time)
+        if (attackState == State.CHARGE)
         {
             attackState = State.SLAPPIN;
-            lastStateChangeTime = Time.time;
-            GetComponentInChildren<EnemyAttack>().SetDamageActive(true);
-            Debug.Log("Slappin!");
+            enemyAttack.SetDamageActive(true);
         }
-        else if (attackState == State.SLAPPIN)
+        else if (attackState == State.SLAPPIN && enemyAttackCollider.IsTouching(playerHealth.GetHitbox())) //check if in slappin state and able to slap player
         {
             attackState = State.IDLE;
-            lastStateChangeTime = Time.time;
-            GetComponentInChildren<EnemyAttack>().SetDamageActive(false);
-            Debug.Log("Idlin");
+            enemyAttack.SetDamageActive(false);
         }
     }
 
@@ -59,50 +61,40 @@ public class EnemyBehaviourTwo : MonoBehaviour
         isPathing = GetComponent<Pathing>().isPathing = false;
         isCharging = true;
 
-        if (attackState == State.IDLE && lastStateChangeTime + attackCooldown < Time.time)
+        if (attackState == State.IDLE)
         {
-            attackState = State.WINDUP;
-            lastStateChangeTime = Time.time;
-            Debug.Log("Windup START");
+            attackState = State.CHARGE;
         }
 
     }
 
     public void OnPlayerLeftDetection()
     {
-        //NOOP
         isCharging = false;
         isPathing = GetComponent<Pathing>().isPathing = true;
-
     }
 
-    public void chargeToLastKnownPlayerDirection()
+    private void chargeToLastKnownPlayerDirection()
     {
+
         if (IsGroundAhead(transform.right) && transform.localScale.x > 0) //check right
         {
             //charge right
             transform.Translate(chargeSpeed * Time.deltaTime * Vector2.right);
         }
-        else if (transform.localScale.x > 0)
+        else if (transform.localScale.x > 0 && !enemyAttackCollider.IsTouching(playerHealth.GetHitbox()))
         {
-            FlipScale();
+            TransformUtils.FlipScale(transform);
         }
         if (IsGroundAhead(-transform.right) && transform.localScale.x < 0) // check left
         {
             //charge left
             transform.Translate(chargeSpeed * Time.deltaTime * -Vector2.right);
         }
-        else if (transform.localScale.x < 0)
+        else if (transform.localScale.x < 0 && !enemyAttackCollider.IsTouching(playerHealth.GetHitbox()))
         {
-            FlipScale();
+            TransformUtils.FlipScale(transform);
         }
-    }
-
-    private void FlipScale()
-    {
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
     }
 
     private bool IsGroundAhead(Vector3 direction)
