@@ -25,12 +25,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float AIR_SMOOTHING = 0.2f;
 
-
-
     private List<Collider2D> groundColliders = new();
     private List<Collider2D> wallColliders = new();
     private Rigidbody2D rigidBody;
-
+    private PlayerSFX playerSFX;
 
     private Vector3 velocity = Vector3.zero;
     private Vector2 spawnPoint;
@@ -38,10 +36,10 @@ public class PlayerMovement : MonoBehaviour
     private float move;
     private bool isFalling = false;
 
-
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        playerSFX = GetComponent<PlayerSFX>();
         spawnPoint = transform.position;
 
         foreach (Collider2D collider2D in FindObjectsByType<Collider2D>(FindObjectsSortMode.None))
@@ -103,11 +101,13 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
             jumpsRemaining--;
+            playerSFX.PlayAudioClip(PlayerSFX.SfxType.JUMP);
         }
         else if (!IsGrounded() && jumpsRemaining > 1)
         {
             rigidBody.linearVelocityY = 0;
             rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
+            playerSFX.PlayAudioClip(PlayerSFX.SfxType.DOUBLE_JUMP);
             jumpsRemaining--;
         }
     }

@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 3898283132639674311}
   - component: {fileID: 8950571058337873905}
   - component: {fileID: 6132258464393965891}
+  - component: {fileID: 276465989128007482}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -784,6 +785,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &276465989128007482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521983596917254775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 392843cd699115d4a9a0120b00826f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSFX
 --- !u!1 &5941591171424263317
 GameObject:
   m_ObjectHideFlags: 0
