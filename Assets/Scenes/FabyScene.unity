@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 9268172}
   - component: {fileID: 9268171}
   - component: {fileID: 9268170}
+  - component: {fileID: 9268174}
   m_Layer: 0
   m_Name: TargetDummy
   m_TagString: Untagged
@@ -271,6 +272,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9268174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9268169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655bce897ed02ef41aabf4de9859b04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyNumber
+  number: 3
 --- !u!1 &361985514
 GameObject:
   m_ObjectHideFlags: 0
