@@ -45,7 +45,7 @@ public class InputManager : MonoBehaviour
         {
             player.Move(moveAction.ReadValue<Vector2>().x);
 
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.wKey.wasPressedThisFrame)
             {
                 player.Jump();
             }
