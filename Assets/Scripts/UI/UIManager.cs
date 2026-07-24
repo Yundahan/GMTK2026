@@ -24,6 +24,10 @@ public class UIManager : MonoBehaviour
     {
         gameUI.SetActive(!gameUI.activeSelf);
         menuUI.SetActive(!menuUI.activeSelf);
+        if (!menuUI.activeSelf)
+        {
+            menuUI.GetComponent<BannerAnimation>().Reset();
+        }
     }
 
     public void ActivateDeathMenu()
