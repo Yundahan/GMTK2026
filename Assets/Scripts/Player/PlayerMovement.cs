@@ -7,7 +7,12 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private Collider2D feetCollider;
+    [SerializeField]
     private Collider2D frontCollider;
+    [SerializeField]
+    private float SPEED = 7f;
+    [SerializeField]
+    private float wallSlidingSpeed = 3f;
 
     private const int GROUND_LAYER = 6;
     private const int WALL_LAYER = 7;
@@ -15,12 +20,13 @@ public class PlayerMovement : MonoBehaviour
     private const float SMOOTHING = 0.1f;
     private const float AIR_SMOOTHING = 0.2f;
 
+
+
     private List<Collider2D> groundColliders = new();
     private List<Collider2D> wallColliders = new();
     private Rigidbody2D rigidBody;
 
-    [SerializeField]
-    private float SPEED = 7f;
+
     private Vector3 velocity = Vector3.zero;
     private Vector2 spawnPoint;
     // The direction in which the character moves, 0 if no movement
@@ -66,6 +72,12 @@ public class PlayerMovement : MonoBehaviour
                 isFalling = false;
             }
         }
+
+        if (IsTouchingWall() && !IsGrounded())
+        {
+            rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocityX, Mathf.Clamp(rigidBody.linearVelocityY, -wallSlidingSpeed, float.MaxValue));
+        }
+
     }
 
     public void Move(float horizontalAxis)
@@ -108,11 +120,10 @@ public class PlayerMovement : MonoBehaviour
                 return true;
             }
         }
-
         return false;
     }
 
-    public bool IsTouchingOnWall()
+    public bool IsTouchingWall()
     {
         foreach (Collider2D collider in wallColliders)
         {

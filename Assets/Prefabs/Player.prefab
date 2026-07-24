@@ -228,7 +228,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   feetCollider: {fileID: 678365130612628718}
+  frontCollider: {fileID: 210903930142930737}
   SPEED: 12.74
+  wallSlidingSpeed: 3
 --- !u!114 &155843628176164034
 MonoBehaviour:
   m_ObjectHideFlags: 0
