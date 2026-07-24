@@ -27,13 +27,11 @@ public class EnemyBehaviorFive : MonoBehaviour
         if (state == State.LEFT_SLAP && lastStateChangeTime + halfSlapDuration < Time.time)
         {
             leftAttackArea.GetComponent<EnemyAttack>().SetDamageActive(true);
-            leftAttackArea.GetComponent<SpriteRenderer>().enabled = true;//JUST FOR VISUALISATION
             ChangeState(State.LEFT_STANDING_UP);
         }
         else if (state == State.LEFT_STANDING_UP)
         {
             leftAttackArea.GetComponent<EnemyAttack>().SetDamageActive(false);
-            leftAttackArea.GetComponent<SpriteRenderer>().enabled = false;//JUST FOR VISUALISATION
 
             if (lastStateChangeTime + halfSlapDuration < Time.time)
             {
@@ -43,13 +41,11 @@ public class EnemyBehaviorFive : MonoBehaviour
         else if (state == State.RIGHT_SLAP && lastStateChangeTime + halfSlapDuration < Time.time)
         {
             rightAttackArea.GetComponent<EnemyAttack>().SetDamageActive(true);
-            rightAttackArea.GetComponent<SpriteRenderer>().enabled = true;//JUST FOR VISUALISATION
             ChangeState(State.RIGHT_STANDING_UP);
         }
         else if (state == State.RIGHT_STANDING_UP)
         {
             rightAttackArea.GetComponent<EnemyAttack>().SetDamageActive(false);
-            rightAttackArea.GetComponent<SpriteRenderer>().enabled = false;//JUST FOR VISUALISATION
 
             if (lastStateChangeTime + halfSlapDuration < Time.time)
             {
