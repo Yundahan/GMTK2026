@@ -383,9 +383,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.7, y: 0}
-      - {x: 1.5, y: -0.5}
-      - {x: 1.5, y: 0.5}
+    - - {x: 1.0846565, y: 3.2695804}
+      - {x: 1.0680646, y: 0.64029753}
+      - {x: 4.708844, y: 0.016249537}
+      - {x: 4.789826, y: 4.0023994}
   m_UseDelaunayMesh: 1
 --- !u!114 &4261420091139640796
 MonoBehaviour:
@@ -624,7 +625,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.013667226, y: 2.231024}
+  m_Offset: {x: -0.013667226, y: 2.115554}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -634,7 +635,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.5658615, y: 4.416347}
+  m_Size: {x: 2.5658615, y: 4.647287}
   m_EdgeRadius: 0
 --- !u!95 &3898283132639674311
 Animator:
@@ -894,7 +895,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.18964499}
+  m_Offset: {x: 0, y: -0.28}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -904,7 +905,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.4176724, y: 0.28357875}
+  m_Size: {x: 2.4176724, y: 0.22}
   m_EdgeRadius: 0
 --- !u!1 &7894877686180873717
 GameObject:
