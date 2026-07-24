@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 26849f3f3b4ec434aac7277682d6dbd6
+guid: 7f0d0984ccfd0f449b931200a68e6ae4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5179856999165072732
-    second: six3_0
+      213: -8943915320659924152
+    second: six3 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: six3_0
+      name: six3 1_0
       rect:
         serializedVersion: 2
         x: 29
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c551e862f7c82e740800000000000000
-      internalID: 5179856999165072732
+      spriteID: 84b24ea1764d0e380800000000000000
+      internalID: -8943915320659924152
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      six3_0: 5179856999165072732
+      six3 1_0: -8943915320659924152
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
