@@ -101,6 +101,11 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
+    public List<Collider2D> GetGroundColliders()
+    {
+        return groundColliders;
+    }
+
     public void Reset()
     {
         this.transform.position = spawnPoint;
