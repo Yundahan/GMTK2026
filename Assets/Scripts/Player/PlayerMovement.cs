@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private const int GROUND_LAYER = 6;
     private const int WALL_LAYER = 7;
     [SerializeField]
-    private float JUMP_FORCE = 150f;
+    private float JUMP_FORCE = 200f;
     [SerializeField]
     private float SMOOTHING = 0.1f;
     [SerializeField]
