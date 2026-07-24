@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   idleSprite: {fileID: -7615024201171835229, guid: 8fb895f9b5508454ea0b4b67de11c097, type: 3}
-  invulnerableSprite: {fileID: 5420104140098733289, guid: ec7db66bedd16af4fba9bd62a30f0548, type: 3}
+  invulnerableSprite: {fileID: 21300000, guid: 40ecf8136fff1a44fb895504b8e670b4, type: 3}
   fallingOverDuration: 0.5
   invulnerableDuration: 3
   standingUpDuration: 1
