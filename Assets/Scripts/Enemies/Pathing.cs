@@ -9,8 +9,16 @@ public class Pathing : MonoBehaviour
     [SerializeField]
     private float castDist; // with a 1x1 sized object castDist = 1 
     [SerializeField]
+    private float rayDist = 1f;
+    [SerializeField]
     private LayerMask groundLayer;
+    private int wallLayer;
     public float moveSpeed = 5f;
+
+    void Start()
+    {
+        wallLayer = LayerMask.GetMask("Wall");
+    }
 
 
     void Update()
@@ -21,22 +29,9 @@ public class Pathing : MonoBehaviour
         }
 
     }
-
-    private bool IsGroundAhead(Vector3 direction)
-    {
-        if (Physics2D.BoxCast(transform.position + direction, boxSize, 0, -transform.up, castDist, groundLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     private void WalkPattern()
     {
-        if (IsGroundAhead(transform.right) && transform.localScale.x > 0) //check right
+        if (IsGroundAhead(transform.right) && !IsWallOrGroundAhead(transform.right) && transform.localScale.x > 0) //check right
         {
             //move right
             transform.Translate(moveSpeed * Time.deltaTime * Vector2.right);
@@ -45,7 +40,7 @@ public class Pathing : MonoBehaviour
         {
             TransformUtils.FlipScale(transform);
         }
-        if (IsGroundAhead(-transform.right) && transform.localScale.x < 0) // check left
+        if (IsGroundAhead(-transform.right) && !IsWallOrGroundAhead(-transform.right) && transform.localScale.x < 0) // check left
         {
             //move left
             transform.Translate(moveSpeed * Time.deltaTime * -Vector2.right);
@@ -54,5 +49,22 @@ public class Pathing : MonoBehaviour
         {
             TransformUtils.FlipScale(transform);
         }
+    }
+    private bool IsGroundAhead(Vector3 direction)
+    {
+        return Physics2D.BoxCast(transform.position + direction, boxSize, 0, -transform.up, castDist, groundLayer);
+    }
+
+    private bool IsWallOrGroundAhead(Vector3 direction)
+    {
+        if (Physics2D.Raycast(transform.position, direction, rayDist, wallLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return Physics2D.Raycast(transform.position, direction, rayDist, groundLayer);
+        }
+
     }
 }

@@ -99,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        Debug.Log(jumpsRemaining);
         if (IsGrounded() && jumpsRemaining > 1)
         {
             rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
