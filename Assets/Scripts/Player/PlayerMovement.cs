@@ -65,10 +65,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (horizontalAxis < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            FlipScale();
         } else if (horizontalAxis > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            FlipScale();
         }
     }
 
@@ -104,5 +104,12 @@ public class PlayerMovement : MonoBehaviour
     {
         this.transform.position = spawnPoint;
         velocity = Vector3.zero;
+    }
+
+    private void FlipScale()
+    {
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
 }

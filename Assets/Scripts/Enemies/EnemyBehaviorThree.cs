@@ -26,20 +26,17 @@ public class EnemyBehaviorThree : MonoBehaviour
     {
         if (state == State.FALLING_OVER && lastStateChangeTime + fallingOverDuration < Time.time)
         {
-            state = State.INVULNERABLE;
-            lastStateChangeTime = Time.time;
+            ChangeState(State.INVULNERABLE);
             GetComponent<Health>().SetInvulnerability(true);
         }
         if (state == State.INVULNERABLE && lastStateChangeTime + invulnerableDuration < Time.time)
         {
-            state = State.STANDING_UP;
-            lastStateChangeTime = Time.time;
+            ChangeState(State.STANDING_UP);
             GetComponent<Health>().SetInvulnerability(false);
         }
         if (state == State.STANDING_UP && lastStateChangeTime + standingUpDuration < Time.time)
         {
-            state = State.IDLE;
-            lastStateChangeTime = Time.time;
+            ChangeState(State.IDLE);
         }
     }
 
@@ -63,12 +60,17 @@ public class EnemyBehaviorThree : MonoBehaviour
             return;
         }
 
-        state = State.FALLING_OVER;
-        lastStateChangeTime = Time.time;
+        ChangeState(State.FALLING_OVER);
     }
 
     public void OnPlayerLeftDetection()
     {
         // NOOP
+    }
+
+    private void ChangeState(State state)
+    {
+        this.state = state;
+        lastStateChangeTime = Time.time;
     }
 }

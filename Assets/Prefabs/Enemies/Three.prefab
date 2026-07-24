@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3872803363135181921}
   - component: {fileID: 2031091940578730564}
   - component: {fileID: 1916097482652268781}
+  - component: {fileID: -9129479986045247343}
   - component: {fileID: 3303426932436663913}
   m_Layer: 0
   m_Name: Three
@@ -48,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5b90ae997a9064fbaa1f502c3af3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  fallingOverDuration: 1
+  fallingOverDuration: 0.5
   invulnerableDuration: 3
   standingUpDuration: 1
   cooldown: 2
@@ -65,6 +66,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   health: 100
+--- !u!114 &-9129479986045247343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939604451537366009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655bce897ed02ef41aabf4de9859b04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyNumber
+  number: 3
 --- !u!60 &3303426932436663913
 PolygonCollider2D:
   m_ObjectHideFlags: 0
