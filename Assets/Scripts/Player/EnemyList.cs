@@ -17,14 +17,14 @@ public class EnemyList : MonoBehaviour
         allEnemies.Remove(enemy);
     }
 
-    public int GetHighestNumber()
+    public bool IsHighestNumber(int number)
     {
         if (!allEnemies.Any())
         {
-            return 0;
+            return true;
         }
 
-        return allEnemies[^1].GetNumber();
+        return number >= allEnemies[^1].GetNumber();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
