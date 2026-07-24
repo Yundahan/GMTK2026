@@ -13,7 +13,7 @@ public class DetectionArea : MonoBehaviour
     {
         if (collider == playerCollider)
         {
-            transform.parent.BroadcastMessage("OnPlayerDetected");
+            transform.parent.BroadcastMessage("OnPlayerDetected", this, SendMessageOptions.DontRequireReceiver);
         }
     }
 
@@ -21,7 +21,7 @@ public class DetectionArea : MonoBehaviour
     {
         if (collider == playerCollider)
         {
-            transform.parent.BroadcastMessage("OnPlayerLeftDetection");
+            transform.parent.BroadcastMessage("OnPlayerLeftDetection", this, SendMessageOptions.DontRequireReceiver);
         }
     }
 }
