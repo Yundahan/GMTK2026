@@ -99,13 +99,6 @@ public class EnemyBehaviourTwo : MonoBehaviour
 
     private bool IsGroundAhead(Vector3 direction)
     {
-        if (Physics2D.BoxCast(transform.position + direction, boxSize, 0, -transform.up, castDist, groundLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return Physics2D.BoxCast(transform.position + direction, boxSize, 0, -transform.up, castDist, groundLayer);
     }
 }
