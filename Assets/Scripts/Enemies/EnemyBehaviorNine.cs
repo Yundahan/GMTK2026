@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class EnemyBehaviorNine : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class EnemyBehaviorNine : MonoBehaviour
         FLYING
     }
 
+    [SerializeField]
+    private Transform spriteTransform;
+
     private PlayerMovement playerMovement;
 
     [SerializeField]
@@ -19,14 +23,15 @@ public class EnemyBehaviorNine : MonoBehaviour
     [SerializeField]
     private float gravity = 9.81f;
     [SerializeField]
+    private float rotationsPerSecond = 3f;
+    [SerializeField]
     private LayerMask groundLayer;
 
     private State state = State.IDLE;
     private float lastStateChangeTime = -10000f;
-    [SerializeField]
     private float horizontalVelocity = 0f;
-    [SerializeField]
     private float verticalVelocity = 0f;
+    private float rotationDelta = 0f;
 
     void Start()
     {
@@ -47,6 +52,7 @@ public class EnemyBehaviorNine : MonoBehaviour
         {
             Vector3 movementDelta = new(horizontalVelocity * Time.fixedDeltaTime, verticalVelocity * Time.fixedDeltaTime, 0f);
             transform.position = transform.position + movementDelta;
+            spriteTransform.Rotate(new Vector3(0, 0, rotationDelta));
 
             if (verticalVelocity < 0f && Physics2D.Raycast(transform.position, -transform.up, 1f, groundLayer))
             {
@@ -89,6 +95,15 @@ public class EnemyBehaviorNine : MonoBehaviour
 
         verticalVelocity = gravity * timeUntilTarget * 1.1f;
         horizontalVelocity = deltaX / timeUntilTarget;
+
+        if (deltaX > 0)
+        {
+            rotationDelta = -Time.fixedDeltaTime * 360 * rotationsPerSecond;
+        } else
+        {
+            rotationDelta = Time.fixedDeltaTime * 360 * rotationsPerSecond;
+        }
+
         return true;
     }
 

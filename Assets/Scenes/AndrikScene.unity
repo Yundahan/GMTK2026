@@ -2021,6 +2021,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3906672162996275516, guid: 64b6836c6b4a8bd42b7f1ff949fa1863, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906672162996275516, guid: 64b6836c6b4a8bd42b7f1ff949fa1863, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906672162996275516, guid: 64b6836c6b4a8bd42b7f1ff949fa1863, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.53
       objectReference: {fileID: 0}
@@ -2286,8 +2294,8 @@ SceneRoots:
   - {fileID: 4215939444713504089}
   - {fileID: 9128602350368525198}
   - {fileID: 5244924116387640997}
+  - {fileID: 313754177}
   - {fileID: 6726128212551650309}
   - {fileID: 8614252669581269714}
   - {fileID: 4548869592445555024}
-  - {fileID: 313754177}
   - {fileID: 59441059947032839}
