@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject menuUI;
     [SerializeField]
+    private GameObject deathMenuUI;
+
+    [SerializeField]
     private Image healthBar;
 
     private Dictionary<string, GameObject> currentTextsInGameGUI = new Dictionary<string, GameObject>();
@@ -21,6 +24,25 @@ public class UIManager : MonoBehaviour
     {
         gameUI.SetActive(!gameUI.activeSelf);
         menuUI.SetActive(!menuUI.activeSelf);
+    }
+
+    public void ActivateDeathMenu()
+    {
+        gameUI.SetActive(false);
+        deathMenuUI.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (menuUI.activeSelf || deathMenuUI.activeSelf)
+        {
+            Time.timeScale = 0; // freeze everything
+        }
+        else
+        {
+            Time.timeScale = 1; // unfreeze everything
+        }
+
     }
 
     /// <summary>

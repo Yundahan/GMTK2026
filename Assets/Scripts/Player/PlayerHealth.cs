@@ -1,3 +1,4 @@
+using UnityEditor.UI;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -32,10 +33,19 @@ public class PlayerHealth : MonoBehaviour
             healthFraction = Mathf.Clamp01(healthFraction);
             uiManager.SetHealthBar(healthFraction);
         }
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     public Collider2D GetHitbox()
     {
         return hitbox;
+    }
+
+    private void Die()
+    {
+        uiManager.ActivateDeathMenu();
     }
 }
