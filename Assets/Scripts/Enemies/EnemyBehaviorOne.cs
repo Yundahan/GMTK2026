@@ -18,6 +18,8 @@ public class EnemyBehaviorOne : MonoBehaviour
     private float speed = 5f;
     [SerializeField]
     private float attackWindupTime = 1f;
+    [SerializeField]
+    private Animator Animator;
 
     private Vector3 targetPosition;
     private State state = State.IDLE;
@@ -59,6 +61,7 @@ public class EnemyBehaviorOne : MonoBehaviour
             {
                 transform.position = targetPosition;
                 ChangeState(State.IDLE);
+                transform.rotation = Quaternion.identity;
             }
             else
             {
@@ -78,13 +81,19 @@ public class EnemyBehaviorOne : MonoBehaviour
         switch (state)
         {
             case State.IDLE:
-                // hier stuff machen
+                Animator.SetBool("isTransforming", false);
+                Animator.SetBool("isAttacking", false);
+                Animator.SetBool("isChilling", true);
                 break;
             case State.WINDUP:
-                // hier stuff machen
+                Animator.SetBool("isTransforming", true);
+                Animator.SetBool("isAttacking", false);
+                Animator.SetBool("isChilling", false);
                 break;
             case State.ATTACKING:
-                // hier stuff machen
+                Animator.SetBool("isTransforming", false);
+                Animator.SetBool("isAttacking", true);
+                Animator.SetBool("isChilling", false);
                 break;
         }
     }

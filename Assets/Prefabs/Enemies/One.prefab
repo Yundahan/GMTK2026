@@ -463,7 +463,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   detectionRange: 10
   speed: 10
-  attackWindupTime: 1
+  attackWindupTime: 0.667
+  Animator: {fileID: 6829103120403886522}
 --- !u!114 &8561445265330058337
 MonoBehaviour:
   m_ObjectHideFlags: 0
