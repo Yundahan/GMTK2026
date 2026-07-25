@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(FlyingPathing))]
 public class EnemyBehaviorOne : MonoBehaviour
@@ -30,6 +31,7 @@ public class EnemyBehaviorOne : MonoBehaviour
     private State state = State.IDLE;
     private float lastStateChange = -10000f;
     private Vector3 offset = new(0f, 2f, 0f);
+    private Quaternion targetRotation;
 
     void Start()
     {
@@ -63,7 +65,18 @@ public class EnemyBehaviorOne : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (state == State.ATTACKING)
+        if (state == State.IDLE && Quaternion.Angle(Quaternion.identity, transform.rotation) > 0.1f)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, Time.time * 0.01f);
+        }
+        else if (state == State.WINDUP)
+        {
+            Vector3 direction = player.transform.position + offset - transform.position;
+            float zRotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            targetRotation = Quaternion.Euler(0f, 0f, zRotation - 90f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.time * 0.01f);
+        }
+        else if (state == State.ATTACKING)
         {
             float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
             Vector3 movementVector = targetPosition - transform.position;
@@ -73,8 +86,7 @@ public class EnemyBehaviorOne : MonoBehaviour
             if (movementVector.magnitude >= distanceToTarget - 0.001f)
             {
                 transform.position = targetPosition;
-                ChangeState(State.WINDDOWN);             
-                transform.rotation = Quaternion.identity;
+                ChangeState(State.WINDDOWN);
             }
             else
             {
