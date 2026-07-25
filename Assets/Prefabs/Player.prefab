@@ -752,8 +752,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   hitbox: {fileID: 8503293370247355942}
   invulnerabilityTimer: 1
-  knockBackForce: 10
+  knockBackForce: 20
   maxHealth: 100
+  knockbackDuration: 0.2
+  knockbackHeight: 1.5
 --- !u!114 &4875182658297345990
 MonoBehaviour:
   m_ObjectHideFlags: 0

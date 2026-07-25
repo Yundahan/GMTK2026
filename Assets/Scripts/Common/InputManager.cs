@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
 
     private InputAction moveAction;
 
+
     private void Awake()
     {
         if (instance == null)
