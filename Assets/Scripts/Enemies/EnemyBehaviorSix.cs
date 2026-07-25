@@ -11,6 +11,10 @@ public class EnemyBehaviorSix : MonoBehaviour
     }
 
     [SerializeField]
+    private SpriteRenderer idleSpriteRenderer;
+    [SerializeField]
+    private SpriteRenderer rollingSpriteRenderer;
+    [SerializeField]
     private DetectionArea leftDetectionArea;
     [SerializeField]
     private DetectionArea rightDetectionArea;
@@ -68,7 +72,8 @@ public class EnemyBehaviorSix : MonoBehaviour
 
         Vector3 movementDelta = new(horizontalMovement, verticalVelocity * Time.fixedDeltaTime, 0f);
 
-        if (!Physics2D.Raycast(transform.position, movementDelta, movementDelta.magnitude, groundLayer))
+        if (!Physics2D.Raycast(transform.position, movementDelta, movementDelta.magnitude, groundLayer) &&
+            !Physics2D.Raycast(transform.position, movementDelta, movementDelta.magnitude, wallLayer))
         {
             transform.position = transform.position + movementDelta;
         }
@@ -93,7 +98,8 @@ public class EnemyBehaviorSix : MonoBehaviour
 
     public void UpdateVerticalVelocity(float elapsedTime)
     {
-        bool isGrounded = Physics2D.Raycast(transform.position, -transform.up, 3f, groundLayer);
+        bool isGrounded = Physics2D.Raycast(transform.position, -transform.up, 3f, groundLayer) || 
+            Physics2D.Raycast(transform.position, -transform.up, 3f, wallLayer);
         verticalVelocity = isGrounded ? 0 : verticalVelocity - gravity * elapsedTime;
     }
 
@@ -102,10 +108,14 @@ public class EnemyBehaviorSix : MonoBehaviour
         if (state == State.IDLE)
         {
             GetComponent<Pathing>().isPathing = true;
+            idleSpriteRenderer.enabled = true;
+            rollingSpriteRenderer.enabled = false;
         }
         else
         {
             GetComponent<Pathing>().isPathing = false;
+            idleSpriteRenderer.enabled = false;
+            rollingSpriteRenderer.enabled = true;
         }
 
         this.state = state;

@@ -27,6 +27,7 @@ public class EnemyBehaviorNine : MonoBehaviour
 
     private State state = State.IDLE;
     private int groundLayer;
+    private int wallLayer;
     private float lastStateChangeTime = -10000f;
     private float horizontalVelocity = 0f;
     private float verticalVelocity = 0f;
@@ -36,6 +37,7 @@ public class EnemyBehaviorNine : MonoBehaviour
     {
         playerMovement = FindFirstObjectByType<PlayerMovement>();
         groundLayer = LayerMask.GetMask("Ground");
+        wallLayer = LayerMask.GetMask("Wall");
     }
 
     void FixedUpdate()
@@ -54,7 +56,8 @@ public class EnemyBehaviorNine : MonoBehaviour
             transform.position = transform.position + movementDelta;
             spriteTransform.Rotate(new Vector3(0, 0, rotationDelta));
 
-            if (verticalVelocity < 0f && Physics2D.Raycast(transform.position, -transform.up, 4f, groundLayer))
+            if (verticalVelocity < 0f && (Physics2D.Raycast(transform.position, -transform.up, 4f, groundLayer) || 
+                Physics2D.Raycast(transform.position, -transform.up, 4f, wallLayer)))
             {
                 verticalVelocity = 0;
                 horizontalVelocity = 0f;

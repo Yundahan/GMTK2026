@@ -15,7 +15,6 @@ public class EnemyBehaviorThree : MonoBehaviour
     [SerializeField]
     private SpriteRenderer invulnerableSprite;
 
-
     [SerializeField]
     private float fallingOverDuration = 0.5f;
     [SerializeField]
