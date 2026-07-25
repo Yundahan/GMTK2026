@@ -16,6 +16,8 @@ public class EnemyBehaviorSix : MonoBehaviour
     private DetectionArea rightDetectionArea;
     [SerializeField]
     private Transform spriteTransform;
+    [SerializeField]
+    private Animator animator;
 
     [SerializeField]
     private float rollingDuration = 2f;
@@ -114,13 +116,14 @@ public class EnemyBehaviorSix : MonoBehaviour
         switch (state)
         {
             case State.IDLE:
-                // hier stuff machen
+                animator.SetBool("isIdle", true);
+                animator.SetBool("isTuckingout", true);
                 break;
             case State.ROLLING_LEFT:
-                // hier stuff machen
+                animator.SetBool("isTucking", true);
                 break;
             case State.ROLLING_RIGHT:
-                // hier stuff machen
+                animator.SetBool("isTucking", true);
                 break;
         }
     }
