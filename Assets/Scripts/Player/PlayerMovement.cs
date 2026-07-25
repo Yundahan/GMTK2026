@@ -120,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
                 rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
                 jumpsRemaining--;
                 playerSFX.PlayAudioClip(PlayerSFX.SfxType.JUMP);
+                animator.SetBool("isJumping", true);
             }
             else if (!IsGrounded() && jumpsRemaining > 1)
             {
@@ -127,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
                 rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
                 playerSFX.PlayAudioClip(PlayerSFX.SfxType.DOUBLE_JUMP);
                 jumpsRemaining--;
+                animator.SetBool("isJumping", true);
             }
         }
     }
