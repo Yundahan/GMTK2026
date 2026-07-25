@@ -86,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   idleSpriteRenderer: {fileID: 4622695529828081347}
   rollingSpriteRenderer: {fileID: 8143393833174119767}
-  spriteTransform: {fileID: 6377178750578192672}
+  spriteTransform: {fileID: 591496696982237655}
   animator: {fileID: 8020469528735236138}
   chargeTime: 0.5
   cooldown: 2
@@ -647,7 +647,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.29, y: 0.7, z: 0}
-  m_LocalScale: {x: 0.56, y: 0.56, z: 0.79999995}
+  m_LocalScale: {x: 1, y: 1, z: 0.79999995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2780648380159719972}

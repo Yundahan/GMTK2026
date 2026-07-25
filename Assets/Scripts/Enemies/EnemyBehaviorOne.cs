@@ -29,6 +29,7 @@ public class EnemyBehaviorOne : MonoBehaviour
     private Vector3 targetPosition;
     private State state = State.IDLE;
     private float lastStateChange = -10000f;
+    private Vector3 offset = new(0f, 2f, 0f);
 
     void Start()
     {
@@ -39,7 +40,7 @@ public class EnemyBehaviorOne : MonoBehaviour
 
     void Update()
     {
-        if ((state == State.WINDDOWN || state == State.IDLE) && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
+        if ((state == State.WINDDOWN || state == State.IDLE) && Vector3.Distance(transform.position, player.transform.position + offset) < detectionRange)
         {
             lastStateChange = Time.time;
             ChangeState(State.WINDUP);
@@ -47,7 +48,7 @@ public class EnemyBehaviorOne : MonoBehaviour
         if (state == State.WINDUP && lastStateChange + attackWindupTime < Time.time)
         {
             ChangeState(State.ATTACKING);
-            targetPosition = player.transform.position;
+            targetPosition = player.transform.position + offset;
             Vector3 direction = targetPosition - transform.position;
             direction.Normalize();
             float zRotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
