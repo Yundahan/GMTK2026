@@ -10,16 +10,15 @@ public class Pathing : MonoBehaviour
     private float castDist; // with a 1x1 sized object castDist = 1 
     [SerializeField]
     private float rayDist = 1f;
-    [SerializeField]
-    private LayerMask groundLayer;
+    private int groundLayer;
     private int wallLayer;
     public float moveSpeed = 5f;
 
     void Start()
     {
         wallLayer = LayerMask.GetMask("Wall");
+        groundLayer = LayerMask.GetMask("Ground");
     }
-
 
     void Update()
     {
@@ -27,8 +26,8 @@ public class Pathing : MonoBehaviour
         {
             WalkPattern();
         }
-
     }
+
     private void WalkPattern()
     {
         if (IsGroundAhead(transform.right) && !IsWallOrGroundAhead(transform.right) && transform.localScale.x > 0) //check right
@@ -50,6 +49,7 @@ public class Pathing : MonoBehaviour
             TransformUtils.FlipScale(transform);
         }
     }
+
     private bool IsGroundAhead(Vector3 direction)
     {
         return Physics2D.BoxCast(transform.position + direction, boxSize, 0, -transform.up, castDist, groundLayer);
@@ -65,6 +65,5 @@ public class Pathing : MonoBehaviour
         {
             return Physics2D.Raycast(transform.position, direction, rayDist, groundLayer);
         }
-
     }
 }

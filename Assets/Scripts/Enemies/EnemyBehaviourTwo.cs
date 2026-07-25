@@ -15,11 +15,10 @@ public class EnemyBehaviourTwo : MonoBehaviour
     [SerializeField]
     private float castDist; // with a 1x1 sized object castDist = 1 
     [SerializeField]
-    private LayerMask groundLayer;
-    [SerializeField]
     private float chargeSpeed = 15f;
 
     private State attackState = State.IDLE;
+    private int groundLayer;
     private bool isPathing = true;
     private bool isCharging = false;
 
@@ -32,6 +31,7 @@ public class EnemyBehaviourTwo : MonoBehaviour
         playerHealth = FindFirstObjectByType<PlayerHealth>();
         enemyAttack = FindFirstObjectByType<EnemyAttack>();
         enemyAttackCollider = GetComponentInChildren<EnemyAttack>().GetComponent<Collider2D>();
+        groundLayer = LayerMask.GetMask("Ground");
     }
 
     void Update()

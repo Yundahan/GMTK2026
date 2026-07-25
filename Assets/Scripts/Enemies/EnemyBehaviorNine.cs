@@ -24,10 +24,9 @@ public class EnemyBehaviorNine : MonoBehaviour
     private float gravity = 9.81f;
     [SerializeField]
     private float rotationsPerSecond = 3f;
-    [SerializeField]
-    private LayerMask groundLayer;
 
     private State state = State.IDLE;
+    private int groundLayer;
     private float lastStateChangeTime = -10000f;
     private float horizontalVelocity = 0f;
     private float verticalVelocity = 0f;
@@ -36,6 +35,7 @@ public class EnemyBehaviorNine : MonoBehaviour
     void Start()
     {
         playerMovement = FindFirstObjectByType<PlayerMovement>();
+        groundLayer = LayerMask.GetMask("Ground");
     }
 
     void FixedUpdate()

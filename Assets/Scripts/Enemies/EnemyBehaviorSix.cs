@@ -16,8 +16,6 @@ public class EnemyBehaviorSix : MonoBehaviour
     private DetectionArea rightDetectionArea;
     [SerializeField]
     private Transform spriteTransform;
-    [SerializeField]
-    private LayerMask groundLayer;
 
     [SerializeField]
     private float rollingDuration = 2f;
@@ -31,8 +29,14 @@ public class EnemyBehaviorSix : MonoBehaviour
     private float gravity = 9.81f;
 
     private State state = State.IDLE;
+    private int groundLayer;
     private float lastStateChangeTime = -10000f;
     private float verticalVelocity = 0f;
+
+    void Start()
+    {
+        groundLayer = LayerMask.GetMask("Ground");
+    }
 
     void FixedUpdate()
     {
