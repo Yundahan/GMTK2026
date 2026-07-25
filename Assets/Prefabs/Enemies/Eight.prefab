@@ -749,7 +749,7 @@ MonoBehaviour:
   rightSnapper: {fileID: 1086333844878112491}
   openingDuration: 1
   snappingDuration: 0.3
-  closingDuration: 0.3
+  closingDuration: 1
   cooldown: 2
 --- !u!114 &6040347656386443348
 MonoBehaviour:
