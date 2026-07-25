@@ -4,15 +4,15 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField]
     private float lifeSpan = 5f;
-    [SerializeField]
-    private LayerMask groundLayer;
+    private const int GROUND_LAYER = 6;
+    private const int WALL_LAYER = 7;
 
     private Vector3 direction;
     private float spawnTime = 0f;
 
     void FixedUpdate()
     {
-        if (Physics2D.Raycast(transform.position, direction, direction.magnitude, groundLayer) || spawnTime + lifeSpan < Time.time)
+        if (spawnTime + lifeSpan < Time.time)
         {
             Destroy(gameObject);
         }
@@ -24,5 +24,13 @@ public class Projectile : MonoBehaviour
     {
         this.direction = direction;
         this.spawnTime = Time.time;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.layer == GROUND_LAYER || collider.gameObject.layer == WALL_LAYER)
+        {
+            Destroy(gameObject);
+        }
     }
 }
