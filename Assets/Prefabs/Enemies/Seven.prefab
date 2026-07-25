@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1056996326118710811}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7321127, w: 0.6811836}
-  m_LocalPosition: {x: 0.47108763, y: -2.8651974, z: 0}
+  m_LocalPosition: {x: 0.4710876, y: -2.8651974, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -228,7 +228,7 @@ Transform:
   m_GameObject: {fileID: 7332705838569470449}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.09, y: -3.43, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -310,6 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   projectile: {fileID: 3773691905062255662, guid: 078a021d45e84cf4e8e559e2146167d4, type: 3}
+  animator: {fileID: 6053556536328856373}
   projectileSpeed: 7
   windupDuration: 1
   cooldown: 1
@@ -491,7 +492,7 @@ Transform:
   m_GameObject: {fileID: 8272919836815961384}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.999642, w: 0.026756985}
-  m_LocalPosition: {x: 1.4342268, y: 1.1457744, z: 0}
+  m_LocalPosition: {x: 1.434227, y: 1.145774, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
