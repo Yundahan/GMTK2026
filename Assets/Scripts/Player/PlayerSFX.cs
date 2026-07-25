@@ -11,16 +11,10 @@ public class PlayerSFX : MonoBehaviour
 
     private AudioSource audioSource;
 
-    private Dictionary<SfxType, int> trackCount = new Dictionary<SfxType, int>
+    private Dictionary<SfxType, SFXData> clipData = new Dictionary<SfxType, SFXData>
     {
-        { SfxType.JUMP, 12 },
-        { SfxType.DOUBLE_JUMP, 10 }
-    };
-
-    private Dictionary<SfxType, string> trackBaseName = new Dictionary<SfxType, string>
-    {
-        { SfxType.JUMP, "Sound/SFX/Jump" },
-        { SfxType.DOUBLE_JUMP, "Sound/SFX/DoubleJump" }
+        { SfxType.JUMP, new SFXData(12, "Sound/SFX/Jump", 1f) },
+        { SfxType.DOUBLE_JUMP, new SFXData(10, "Sound/SFX/DoubleJump", 1f) }
     };
 
     void Start()
@@ -30,8 +24,15 @@ public class PlayerSFX : MonoBehaviour
 
     public void PlayAudioClip(SfxType type)
     {
-        int randomCount = Random.Range(1, trackCount[type]);
-        string clipName = trackBaseName[type] + randomCount;
+        SFXData sfxData = clipData[type];
+
+        if (Random.Range(0f, 1f) > sfxData.GetClipPlayChance())
+        {
+            return;
+        }
+
+        int randomCount = Random.Range(1, sfxData.GetNumberOfClips());
+        string clipName = sfxData.GetClipBaseName() + randomCount;
         AudioClip clip = Resources.Load<AudioClip>(clipName);
         audioSource.clip = clip;
         audioSource.Play();
