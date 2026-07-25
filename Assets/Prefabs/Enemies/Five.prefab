@@ -310,7 +310,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1375696214127680603, guid: f114a58db0785b8408dc7c5807256170, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -381,6 +381,7 @@ MonoBehaviour:
   castDist: 2
   moveSpeed: 5
   rayDist: 1
+  initialDirection: 1
 --- !u!95 &4127507920509710380
 Animator:
   serializedVersion: 7
