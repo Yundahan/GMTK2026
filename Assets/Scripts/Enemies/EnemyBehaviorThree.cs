@@ -52,14 +52,16 @@ public class EnemyBehaviorThree : MonoBehaviour
 
     void FixedUpdate()
     {
+        float scaleFactor = transform.localScale.x > 0 ? 1f : -1f;
+
         if (state == State.FALLING_OVER)
         {
-            float rotationDelta = Time.fixedDeltaTime * 90 / fallingOverDuration;
+            float rotationDelta = scaleFactor * Time.fixedDeltaTime * 90 / fallingOverDuration;
             transform.Rotate(new Vector3(0, 0, rotationDelta));
             transform.position -= Time.fixedDeltaTime * 0.8f * Vector3.up;
         } else if (state == State.STANDING_UP)
         {
-            float rotationDelta = Time.fixedDeltaTime * 90 / standingUpDuration;
+            float rotationDelta = scaleFactor * Time.fixedDeltaTime * 90 / standingUpDuration;
             transform.Rotate(new Vector3(0, 0, -rotationDelta));
             transform.position += Time.fixedDeltaTime * 0.4f * Vector3.up;
         }
@@ -77,6 +79,15 @@ public class EnemyBehaviorThree : MonoBehaviour
 
     private void ChangeState(State state)
     {
+        if (state == State.IDLE)
+        {
+            GetComponent<Pathing>().isPathing = true;
+        }
+        else
+        {
+            GetComponent<Pathing>().isPathing = false;
+        }
+
         this.state = state;
         lastStateChangeTime = Time.time;
         SetAnimationVariables(state);

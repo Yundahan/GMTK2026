@@ -11,6 +11,8 @@ public class Pathing : MonoBehaviour
     public float moveSpeed = 5f;
     [SerializeField]
     private float rayDist = 1f;
+    [SerializeField]
+    private float initialDirection = 1f;//1f is right, -1f is left
     private int groundLayer;
     private int wallLayer;
 
@@ -30,21 +32,21 @@ public class Pathing : MonoBehaviour
 
     private void WalkPattern()
     {
-        if (IsGroundAhead(transform.right) && !IsWallOrGroundAhead(transform.right) && transform.localScale.x > 0) //check right
+        if (IsGroundAhead(transform.right) && !IsWallOrGroundAhead(transform.right) && initialDirection * transform.localScale.x > 0) //check right
         {
             //move right
             transform.Translate(moveSpeed * Time.deltaTime * Vector2.right);
         }
-        else if (transform.localScale.x > 0)
+        else if (initialDirection * transform.localScale.x > 0)
         {
             TransformUtils.FlipScale(transform);
         }
-        if (IsGroundAhead(-transform.right) && !IsWallOrGroundAhead(-transform.right) && transform.localScale.x < 0) // check left
+        if (IsGroundAhead(-transform.right) && !IsWallOrGroundAhead(-transform.right) && initialDirection * transform.localScale.x < 0) // check left
         {
             //move left
             transform.Translate(moveSpeed * Time.deltaTime * -Vector2.right);
         }
-        else if (transform.localScale.x < 0)
+        else if (initialDirection * transform.localScale.x < 0)
         {
             TransformUtils.FlipScale(transform);
         }

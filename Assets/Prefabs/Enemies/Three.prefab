@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 2031091940578730564}
   - component: {fileID: 1916097482652268781}
   - component: {fileID: -9129479986045247343}
+  - component: {fileID: 7947871350791287190}
   - component: {fileID: 8400091766778260642}
   m_Layer: 0
   m_Name: Three
@@ -592,6 +593,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNumber
   number: 3
+--- !u!114 &7947871350791287190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939604451537366009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4d044557c78004f8d2737e35dc38bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pathing
+  isPathing: 1
+  boxSize: {x: 2, y: 2}
+  castDist: 2
+  moveSpeed: 3
+  rayDist: 1
+  initialDirection: -1
 --- !u!61 &8400091766778260642
 BoxCollider2D:
   m_ObjectHideFlags: 0
