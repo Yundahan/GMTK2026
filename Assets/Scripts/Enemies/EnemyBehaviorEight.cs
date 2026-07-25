@@ -19,6 +19,8 @@ public class EnemyBehaviorEight : MonoBehaviour
     private Transform leftSnapper;
     [SerializeField]
     private Transform rightSnapper;
+    [SerializeField]
+    private Animator animator;
 
     [SerializeField]
     private float openingDuration = 1f;
@@ -171,19 +173,39 @@ public class EnemyBehaviorEight : MonoBehaviour
         switch (state)
         {
             case State.IDLE:
-                // hier stuff machen
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isOpening", false);
+                animator.SetBool("isWaiting", false);
+                animator.SetBool("isSnapping", false);
+                animator.SetBool("isClosing", false);
                 break;
             case State.OPENING:
-                // hier stuff machen
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isOpening", true);
+                animator.SetBool("isWaiting", false);
+                animator.SetBool("isSnapping", false);
+                animator.SetBool("isClosing", false);
                 break;
             case State.OPEN:
-                // hier stuff machen
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isOpening", false);
+                animator.SetBool("isWaiting", true);
+                animator.SetBool("isSnapping", false);
+                animator.SetBool("isClosing", false);
                 break;
             case State.SNAPPING:
-                // hier stuff machen
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isOpening", false);
+                animator.SetBool("isWaiting", false);
+                animator.SetBool("isSnapping", true);
+                animator.SetBool("isClosing", false);
                 break;
             case State.CLOSING:
-                // hier stuff machen
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isOpening", false);
+                animator.SetBool("isWaiting", false);
+                animator.SetBool("isSnapping", false);
+                animator.SetBool("isClosing", true);
                 break;
         }
     }
