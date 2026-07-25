@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class EnemyBehaviorFour : MonoBehaviour
 {
+    [SerializeField]
+    private Animator animator;
     public void OnPlayerDetected()
     {
         GetComponentInChildren<EnemyAttack>().SetDamageActive(true);
-        //hier stuff machen für attack animation
+        animator.SetBool("isAttacking", true);
+        animator.SetBool("isIdle", false);
+        animator.SetBool("isRetracting", false);
     }
 
     public void OnPlayerLeftDetection()
     {
         GetComponentInChildren<EnemyAttack>().SetDamageActive(false);
-        //hier stuff machen für idle animation
+        animator.SetBool("isRetracting", true);
+        animator.SetBool("isIdle", true);
+        animator.SetBool("isAttacking", false);
     }
 }
