@@ -18,15 +18,38 @@ public class PlayerHealth : MonoBehaviour
     private float lastDamageTime = -10000f;
 
     private PlayerSFX playerSFX;
+    private PlayerMovement playerMovement;
     private Rigidbody2D rigidBody;
     private Vector3 enemyPos;
+
+    [SerializeField]
+    private float knockbackDuration = 0.1f;
+    [SerializeField]
+    private float knockbackHeight = 1f;
+    private float knockbackTimer = -10000f;
+
 
     void Start()
     {
         uiManager = FindFirstObjectByType<UIManager>();
         playerSFX = GetComponent<PlayerSFX>();
+        playerMovement = GetComponent<PlayerMovement>();
         rigidBody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+    }
+
+    void Update()
+    {
+        if (knockbackTimer + knockbackDuration < Time.time)
+        {
+            playerMovement.SetControlActive(true);
+        }
+        else
+        {
+            Vector3 direction = (transform.position - enemyPos).normalized;
+            Vector3 directionPlusY = new Vector3(direction.x, direction.y + knockbackHeight, direction.z);
+            transform.Translate(knockBackForce * Time.deltaTime * directionPlusY);
+        }
     }
 
     public void UpdateHealth(int delta)
@@ -37,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 lastDamageTime = Time.time;
             }
-            Knockback(GetEnemyPos());
+            Knockback();
             currentHealth = Mathf.Min(currentHealth + delta, maxHealth);
             float healthFraction = (float)currentHealth / (float)maxHealth;
             healthFraction = Mathf.Clamp01(healthFraction);
@@ -60,15 +83,16 @@ public class PlayerHealth : MonoBehaviour
         uiManager.ActivateDeathMenu();
     }
 
-    private void Knockback(Vector3 enemyPos)
+    private void Knockback()
     {
-        rigidBody.AddForce((rigidBody.transform.position - enemyPos) * knockBackForce);
-
+        // move back and don't allow inputs
+        playerMovement.SetControlActive(false);
+        rigidBody.linearVelocityX = 0f;
+        rigidBody.linearVelocityY = 0f;
+        knockbackTimer = Time.time;
     }
+
+
 
     public void SetEnemyPos(Vector3 enemyPos) => this.enemyPos = enemyPos;
-    private Vector3 GetEnemyPos()
-    {
-        return enemyPos;
-    }
 }

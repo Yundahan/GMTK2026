@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     // The direction in which the character moves, 0 if no movement
     private float move;
     private bool isFalling = false;
+    private bool controlsActive = true;
 
     private void Awake()
     {
@@ -82,35 +83,45 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(float horizontalAxis)
     {
-        float xSpeed = SPEED * horizontalAxis;
-        Vector3 targetVelocity = new Vector3(xSpeed, rigidBody.linearVelocity.y, 0);
-        rigidBody.linearVelocity = Vector3.SmoothDamp(rigidBody.linearVelocity, targetVelocity, ref velocity, IsGrounded() ? SMOOTHING : AIR_SMOOTHING);
-        if (rigidBody.linearVelocityX > 0) //if moving direction right look right
+        if (controlsActive)
         {
-            TransformUtils.SetTargetDirection(transform, transform.localScale.x);
+            float xSpeed = SPEED * horizontalAxis;
+            Vector3 targetVelocity = new Vector3(xSpeed, rigidBody.linearVelocity.y, 0);
+            rigidBody.linearVelocity = Vector3.SmoothDamp(rigidBody.linearVelocity, targetVelocity, ref velocity, IsGrounded() ? SMOOTHING : AIR_SMOOTHING);
+            if (rigidBody.linearVelocityX > 0) //if moving direction right look right
+            {
+                TransformUtils.SetTargetDirection(transform, transform.localScale.x);
+            }
+            else if (rigidBody.linearVelocityX < 0) // if moving direction left look left
+            {
+                TransformUtils.SetTargetDirection(transform, transform.localScale.x * -1);
+            }
         }
-        else if (rigidBody.linearVelocityX < 0) // if moving direction left look left
-        {
-            TransformUtils.SetTargetDirection(transform, transform.localScale.x * -1);
-        }
-
     }
 
     public void Jump()
     {
-        if (IsGrounded() && jumpsRemaining > 1)
+        if (controlsActive)
         {
-            rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
-            jumpsRemaining--;
-            playerSFX.PlayAudioClip(PlayerSFX.SfxType.JUMP);
+            if (IsGrounded() && jumpsRemaining > 1)
+            {
+                rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
+                jumpsRemaining--;
+                playerSFX.PlayAudioClip(PlayerSFX.SfxType.JUMP);
+            }
+            else if (!IsGrounded() && jumpsRemaining > 1)
+            {
+                rigidBody.linearVelocityY = 0;
+                rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
+                playerSFX.PlayAudioClip(PlayerSFX.SfxType.DOUBLE_JUMP);
+                jumpsRemaining--;
+            }
         }
-        else if (!IsGrounded() && jumpsRemaining > 1)
-        {
-            rigidBody.linearVelocityY = 0;
-            rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
-            playerSFX.PlayAudioClip(PlayerSFX.SfxType.DOUBLE_JUMP);
-            jumpsRemaining--;
-        }
+    }
+
+    public void SetControlActive(bool b)
+    {
+        controlsActive = b;
     }
 
     public bool IsGrounded()
