@@ -6,7 +6,9 @@ public class PlayerSFX : MonoBehaviour
     public enum SfxType
     {
         JUMP,
-        DOUBLE_JUMP
+        DOUBLE_JUMP,
+        LAND,
+        ONHIT
     }
 
     private AudioSource audioSource;
@@ -14,7 +16,9 @@ public class PlayerSFX : MonoBehaviour
     private Dictionary<SfxType, SFXData> clipData = new Dictionary<SfxType, SFXData>
     {
         { SfxType.JUMP, new SFXData(12, "Sound/SFX/Jump", 1f) },
-        { SfxType.DOUBLE_JUMP, new SFXData(10, "Sound/SFX/DoubleJump", 1f) }
+        { SfxType.DOUBLE_JUMP, new SFXData(10, "Sound/SFX/DoubleJump", 1f) },
+        { SfxType.LAND, new SFXData (8, "Sound/SFX/Land", 0.3f)},
+        { SfxType.ONHIT, new SFXData (7, "Sound/SFX/OnHit", 1f)}
     };
 
     void Start()

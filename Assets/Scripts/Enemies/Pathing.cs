@@ -9,10 +9,11 @@ public class Pathing : MonoBehaviour
     [SerializeField]
     private float castDist; // with a 1x1 sized object castDist = 1 
     [SerializeField]
+    public float moveSpeed = 5f;
+    [SerializeField]
     private float rayDist = 1f;
     private int groundLayer;
     private int wallLayer;
-    public float moveSpeed = 5f;
 
     void Start()
     {

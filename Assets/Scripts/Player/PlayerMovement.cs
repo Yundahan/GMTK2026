@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
             if (isFalling)
             {
                 isFalling = false;
+                playerSFX.PlayAudioClip(PlayerSFX.SfxType.LAND);
             }
         }
 
