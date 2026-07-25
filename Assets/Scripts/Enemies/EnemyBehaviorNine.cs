@@ -123,14 +123,20 @@ public class EnemyBehaviorNine : MonoBehaviour
         if (state == State.IDLE)
         {
             GetComponent<Pathing>().isPathing = true;
-            idleSpriteRenderer.enabled = true;
-            rollingSpriteRenderer.enabled = false;
         }
         else
         {
             GetComponent<Pathing>().isPathing = false;
+        }
+        if (state == State.FLYING)
+        {
             idleSpriteRenderer.enabled = false;
             rollingSpriteRenderer.enabled = true;
+        }
+        else
+        {
+            idleSpriteRenderer.enabled = true;
+            rollingSpriteRenderer.enabled = false;
         }
 
         this.state = state;
