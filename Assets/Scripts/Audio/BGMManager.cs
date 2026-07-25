@@ -11,7 +11,10 @@ public class BGMManager : MonoBehaviour
     private Dictionary<string, string> sceneToBGMMapping = new Dictionary<string, string>
         {
           {"default", "Sound/Bilderbuchabenteuer" },
-          {"AndrikScene", "Sound/AhriTheme" }
+          {"AndrikScene", "Sound/AhriTheme" },
+          {"DirkScene4", "Sound/Zahlentaifun" },
+          {"DirkScene5", "Sound/Zahlentaifun" },
+
         };
 
     private void Awake()
