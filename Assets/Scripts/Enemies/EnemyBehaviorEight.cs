@@ -31,6 +31,7 @@ public class EnemyBehaviorEight : MonoBehaviour
     [SerializeField]
     private float cooldown = 2f;
 
+    [SerializeField]
     private State state = State.IDLE;
     private float lastStateChangeTime = -10000f;
 
@@ -90,7 +91,7 @@ public class EnemyBehaviorEight : MonoBehaviour
     {
         if (area == outerDetectionArea)
         {
-            if ((state != State.OPEN && state != State.OPENING))
+            if (state != State.OPEN && state != State.OPENING)
             {
                 return;
             }

@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     private const float minOpacity = 0.2f;
 
     private int maxHealth;
+    [SerializeField]
     private bool invulnerable = false;
 
     private EnemySFX enemySFX;
@@ -19,7 +20,8 @@ public class Health : MonoBehaviour
     {
         enemySFX= GetComponent<EnemySFX>();
     }
-        void Start()
+
+    void Start()
     {
         enemyList = FindFirstObjectByType<EnemyList>();
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
