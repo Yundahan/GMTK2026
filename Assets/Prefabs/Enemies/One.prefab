@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c851fde1f433b749bb5ec9c52887232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  damage: 25
+  damage: 15
   damageActive: 1
 --- !u!60 &6569096329325499103
 PolygonCollider2D:
@@ -463,8 +463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   detectionRange: 20
-  speed: 10
-  attackWindupTime: 0.667
+  speed: 15
+  attackWindupTime: 2
   attackWinddownTime: 1
   animator: {fileID: 6829103120403886522}
 --- !u!114 &8561445265330058337
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c739a0266eba043a64ad3be2260b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  health: 100
+  health: 50
 --- !u!114 &3304802108829487407
 MonoBehaviour:
   m_ObjectHideFlags: 0
