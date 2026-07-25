@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
     private int maxHealth = 100;
     private int currentHealth = 100;
     private float lastDamageTime = -10000f;
-    
+
     private PlayerSFX playerSFX;
 
     void Start()
@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
             float healthFraction = (float)currentHealth / (float)maxHealth;
             healthFraction = Mathf.Clamp01(healthFraction);
             uiManager.SetHealthBar(healthFraction);
-            playerSFX.PlayAudioClip((PlayerSFX.SfxType.ONHIT));
+            playerSFX.PlayAudioClip(PlayerSFX.SfxType.ONHIT);
         }
         if (currentHealth <= 0)
         {
