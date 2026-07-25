@@ -461,9 +461,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   feetCollider: {fileID: 678365130612628718}
   frontCollider: {fileID: 210903930142930737}
-  SPEED: 12.74
+  SPEED: 40
   wallSlidingSpeed: 3
-  JUMP_FORCE: 200
+  JUMP_FORCE: 360
   SMOOTHING: 0.1
   AIR_SMOOTHING: 0.2
 --- !u!114 &155843628176164034
@@ -579,7 +579,7 @@ Rigidbody2D:
   m_Mass: 0.16
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 12
   m_Material: {fileID: 6200000, guid: c5db90349d6d06948bc3644cf2abca07, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
