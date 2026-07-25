@@ -20,17 +20,22 @@ public class Projectile : MonoBehaviour
         transform.position += Time.fixedDeltaTime * direction;
     }
 
-    public void Init(Vector3 direction)
-    {
-        this.direction = direction;
-        this.spawnTime = Time.time;
-    }
-
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.layer == GROUND_LAYER || collider.gameObject.layer == WALL_LAYER)
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Init(Vector3 direction)
+    {
+        this.direction = direction;
+        this.spawnTime = Time.time;
+    }
+
+    public void PlayerDamaged()
+    {
+        Destroy(gameObject);
     }
 }
