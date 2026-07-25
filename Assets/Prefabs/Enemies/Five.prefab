@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c851fde1f433b749bb5ec9c52887232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  damage: 5
+  damage: 25
   damageActive: 0
 --- !u!61 &7816216035035317595
 BoxCollider2D:
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c851fde1f433b749bb5ec9c52887232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  damage: 5
+  damage: 25
   damageActive: 0
 --- !u!61 &2272322922252566308
 BoxCollider2D:
