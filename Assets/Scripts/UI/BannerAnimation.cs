@@ -51,7 +51,7 @@ public class BannerAnimation : MonoBehaviour
 
         if (gameObject.activeSelf && bannerHead.rectTransform.anchoredPosition.y >= 459)
         {
-            bannerHead.rectTransform.anchoredPosition = new Vector2(bannerHead.rectTransform.anchoredPosition.x, bannerHead.rectTransform.anchoredPosition.y - 1);
+            bannerHead.rectTransform.anchoredPosition = new Vector2(bannerHead.rectTransform.anchoredPosition.x, bannerHead.rectTransform.anchoredPosition.y - 0.5f);
         }
     }
 
@@ -60,7 +60,7 @@ public class BannerAnimation : MonoBehaviour
         bannerLeft.rectTransform.anchoredPosition = new Vector2(bannerLeftStartPosX, bannerLeftStartPosY);
         bannerMiddle.rectTransform.anchoredPosition = new Vector2(bannerMiddleStartPosX, bannerMiddleStartPosY);
         bannerRight.rectTransform.anchoredPosition = new Vector2(bannerRightStartPosX, bannerRightStartPosY);
-        bannerHead.rectTransform.anchoredPosition = new Vector2(bannerMiddleStartPosX, bannerMiddleStartPosY);
+        bannerHead.rectTransform.anchoredPosition = new Vector2(bannerHeadStartPosX, bannerHeadStartPosY);
     }
 
 }
