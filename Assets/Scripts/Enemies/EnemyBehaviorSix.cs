@@ -60,13 +60,13 @@ public class EnemyBehaviorSix : MonoBehaviour
         if (state == State.ROLLING_LEFT)
         {
             horizontalMovement = -rollingSpeed * Time.fixedDeltaTime * scaleFactor;
-            float rotationDelta = Time.fixedDeltaTime * 360 * rotationsPerSecond * scaleFactor;
+            float rotationDelta = -Time.fixedDeltaTime * 360 * rotationsPerSecond * scaleFactor;
             spriteTransform.Rotate(new Vector3(0, 0, rotationDelta));
 
         } else if (state == State.ROLLING_RIGHT)
         {
             horizontalMovement = rollingSpeed * Time.fixedDeltaTime * scaleFactor;
-            float rotationDelta = -Time.fixedDeltaTime * 360 * rotationsPerSecond * scaleFactor;
+            float rotationDelta = Time.fixedDeltaTime * 360 * rotationsPerSecond * scaleFactor;
             spriteTransform.Rotate(new Vector3(0, 0, rotationDelta));
         }
 
