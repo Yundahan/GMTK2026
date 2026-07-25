@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaeae97048300c643b0883a9beb66751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackArea
-  damage: 5
+  damage: 25
 --- !u!1 &5521983596917254775
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   hitbox: {fileID: 8503293370247355942}
   invulnerabilityTimer: 1
+  maxHealth: 100
 --- !u!114 &4875182658297345990
 MonoBehaviour:
   m_ObjectHideFlags: 0

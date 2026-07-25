@@ -18,6 +18,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (damageActive && collider == playerHealth.GetHitbox())
         {
+            playerHealth.SetEnemyPos(transform.position);
             playerHealth.UpdateHealth(-damage);
         }
     }
