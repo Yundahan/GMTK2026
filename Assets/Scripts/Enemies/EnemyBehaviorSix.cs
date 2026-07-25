@@ -118,12 +118,17 @@ public class EnemyBehaviorSix : MonoBehaviour
             case State.IDLE:
                 animator.SetBool("isIdle", true);
                 animator.SetBool("isTuckingout", true);
+                animator.SetBool("isTucking", false);
                 break;
             case State.ROLLING_LEFT:
                 animator.SetBool("isTucking", true);
+                animator.SetBool("isTuckingout", false);
+                animator.SetBool("isIdle", false);
                 break;
             case State.ROLLING_RIGHT:
                 animator.SetBool("isTucking", true);
+                animator.SetBool("isTuckingout", false);
+                animator.SetBool("isIdle", false);
                 break;
         }
     }
