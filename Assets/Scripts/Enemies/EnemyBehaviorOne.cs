@@ -7,7 +7,8 @@ public class EnemyBehaviorOne : MonoBehaviour
     {
         IDLE,
         WINDUP,
-        ATTACKING
+        ATTACKING,
+        WINDDOWN
     }
 
     private PlayerMovement player;
@@ -19,11 +20,13 @@ public class EnemyBehaviorOne : MonoBehaviour
     [SerializeField]
     private float attackWindupTime = 1f;
     [SerializeField]
+    private float attackWinddownTime = 1f;
+    [SerializeField]
     private Animator animator;
 
     private Vector3 targetPosition;
     private State state = State.IDLE;
-    private float windUpStartTime = -10000f;
+    private float lastStateChange = -10000f;
 
     void Start()
     {
@@ -32,12 +35,12 @@ public class EnemyBehaviorOne : MonoBehaviour
 
     void Update()
     {
-        if (state == State.IDLE && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
+        if (state == State.WINDDOWN || state == State.IDLE && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
         {
-            windUpStartTime = Time.time;
+            lastStateChange = Time.time;
             ChangeState(State.WINDUP);
         }
-        if (state == State.WINDUP && windUpStartTime + attackWindupTime < Time.time)
+        if (state == State.WINDUP && lastStateChange + attackWindupTime < Time.time)
         {
             ChangeState(State.ATTACKING);
             targetPosition = player.transform.position;
@@ -45,6 +48,11 @@ public class EnemyBehaviorOne : MonoBehaviour
             direction.Normalize();
             float zRotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, zRotation - 90f);
+        }
+        if (state == State.WINDDOWN && lastStateChange + attackWinddownTime < Time.time)
+        {
+            lastStateChange = Time.time;
+            ChangeState(State.IDLE);
         }
     }
 
@@ -60,7 +68,7 @@ public class EnemyBehaviorOne : MonoBehaviour
             if (movementVector.magnitude >= distanceToTarget - 0.001f)
             {
                 transform.position = targetPosition;
-                ChangeState(State.IDLE);             
+                ChangeState(State.WINDDOWN);             
                 transform.rotation = Quaternion.identity;
             }
             else
@@ -94,6 +102,9 @@ public class EnemyBehaviorOne : MonoBehaviour
                 animator.SetBool("isTransforming", false);
                 animator.SetBool("isAttacking", true);
                 animator.SetBool("isChilling", false);
+                break;
+            case State.WINDDOWN:
+                // winddown animation
                 break;
         }
     }
