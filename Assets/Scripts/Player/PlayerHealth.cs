@@ -12,8 +12,9 @@ public class PlayerHealth : MonoBehaviour
 
     private UIManager uiManager;
 
+    [SerializeField]
     private int maxHealth = 100;
-    private int currentHealth = 100;
+    private int currentHealth;
     private float lastDamageTime = -10000f;
 
     private PlayerSFX playerSFX;
@@ -25,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
         uiManager = FindFirstObjectByType<UIManager>();
         playerSFX = GetComponent<PlayerSFX>();
         rigidBody = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
     public void UpdateHealth(int delta)

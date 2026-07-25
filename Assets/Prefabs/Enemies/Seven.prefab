@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 1117406235804713789}
   - component: {fileID: -2509474102193487331}
   - component: {fileID: 8525921276562020581}
+  - component: {fileID: 2704176017546413903}
   - component: {fileID: 3610353431065502524}
   - component: {fileID: 5923009826633006950}
   - component: {fileID: 6053556536328856373}
@@ -451,6 +452,20 @@ MonoBehaviour:
   moveSpeed: 7
   rayDist: 1
   initialDirection: 1
+--- !u!114 &2704176017546413903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332705838569470449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c851fde1f433b749bb5ec9c52887232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  damage: 1
+  damageActive: 1
 --- !u!60 &3610353431065502524
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -481,7 +496,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
