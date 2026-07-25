@@ -156,10 +156,10 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -1.3582693, y: 17.733873}
       - {x: -20.239544, y: 12.404276}
-      - {x: -14.914063, y: 2.482247}
+      - {x: -21.418045, y: -5.7227726}
       - {x: -4.8799167, y: -2.384609}
       - {x: 3.0227327, y: -2.5336487}
-      - {x: 14.713782, y: 3.4287822}
+      - {x: 22.86877, y: -6.3271875}
       - {x: 19.20619, y: 12.750761}
   m_UseDelaunayMesh: 1
 --- !u!1 &2210642935153299393
@@ -229,7 +229,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5063555571497407587}
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   projectile: {fileID: 3773691905062255662, guid: 078a021d45e84cf4e8e559e2146167d4, type: 3}
   animator: {fileID: 6053556536328856373}
-  projectileSpeed: 7
+  projectileSpeed: 15
   windupDuration: 1
   cooldown: 1
   winddownDuration: 1

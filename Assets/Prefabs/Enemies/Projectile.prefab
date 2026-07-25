@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3223859471329680486}
   - component: {fileID: 51892970356040084}
   - component: {fileID: 5050539820435476011}
-  - component: {fileID: 4780007727193853721}
   - component: {fileID: 4508703945969877908}
+  - component: {fileID: 4780007727193853721}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6135277952102273564, guid: 1b1f2e777e26f9d4490ab4f29a204b26, type: 3}
+  m_Sprite: {fileID: 3139270588618783380, guid: 4c4b16d7379ace747ba6b5dfb0e1559b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,6 +108,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   damage: 10
   damageActive: 1
+--- !u!114 &4508703945969877908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773691905062255662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc343e3955940c40b91d0ad58d7f3ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  lifeSpan: 5
 --- !u!61 &4780007727193853721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -142,11 +155,11 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.34572053, y: 1.238126}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.34, y: 0.27}
+    oldSize: {x: 0.27, y: 1.34}
     newSize: {x: 4.05, y: 5.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -154,16 +167,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.24026632, y: 1.1926699}
   m_EdgeRadius: 0
---- !u!114 &4508703945969877908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3773691905062255662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dc343e3955940c40b91d0ad58d7f3ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  lifeSpan: 5

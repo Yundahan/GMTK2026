@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
         }
 
         health -= amount;
-        float opacity = 1f - Mathf.Clamp01((float)health / (float)maxHealth) * (1f - minOpacity);
+        float opacity = minOpacity + Mathf.Clamp01((float)health / (float)maxHealth) * (1f - minOpacity);
 
         foreach (SpriteRenderer sr in spriteRenderers)
         {
