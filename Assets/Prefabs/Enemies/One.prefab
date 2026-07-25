@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62081bfae760f845af502bc6a5a27d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  detectionRange: 10
+  detectionRange: 20
   speed: 10
   attackWindupTime: 0.667
   attackWinddownTime: 1
