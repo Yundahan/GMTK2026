@@ -47,23 +47,24 @@ public class EnemyBehaviorSix : MonoBehaviour
 
         UpdateVerticalVelocity(Time.fixedDeltaTime);
         float horizontalMovement = 0f;
+        float scaleFactor = transform.localScale.x > 0 ? 1f : -1f;
 
         if (state == State.ROLLING_LEFT)
         {
-            horizontalMovement = -rollingSpeed * Time.fixedDeltaTime;
-            float rotationDelta = Time.fixedDeltaTime * 360 * rotationsPerSecond;
+            horizontalMovement = -rollingSpeed * Time.fixedDeltaTime * scaleFactor;
+            float rotationDelta = Time.fixedDeltaTime * 360 * rotationsPerSecond * scaleFactor;
             spriteTransform.Rotate(new Vector3(0, 0, rotationDelta));
 
         } else if (state == State.ROLLING_RIGHT)
         {
-            horizontalMovement = rollingSpeed * Time.fixedDeltaTime;
-            float rotationDelta = -Time.fixedDeltaTime * 360 * rotationsPerSecond;
+            horizontalMovement = rollingSpeed * Time.fixedDeltaTime * scaleFactor;
+            float rotationDelta = -Time.fixedDeltaTime * 360 * rotationsPerSecond * scaleFactor;
             spriteTransform.Rotate(new Vector3(0, 0, rotationDelta));
         }
 
-        Vector3 movementDelta = new Vector3(horizontalMovement, verticalVelocity * Time.fixedDeltaTime, 0f);
+        Vector3 movementDelta = new(horizontalMovement, verticalVelocity * Time.fixedDeltaTime, 0f);
 
-        if (!Physics2D.Raycast(transform.position, movementDelta, 1f + movementDelta.magnitude, groundLayer))
+        if (!Physics2D.Raycast(transform.position, movementDelta, movementDelta.magnitude, groundLayer))
         {
             transform.position = transform.position + movementDelta;
         }
@@ -88,12 +89,21 @@ public class EnemyBehaviorSix : MonoBehaviour
 
     public void UpdateVerticalVelocity(float elapsedTime)
     {
-        bool isGrounded = Physics2D.Raycast(transform.position, -transform.up, 1f, groundLayer);
+        bool isGrounded = Physics2D.Raycast(transform.position, -transform.up, 3f, groundLayer);
         verticalVelocity = isGrounded ? 0 : verticalVelocity - gravity * elapsedTime;
     }
 
     private void ChangeState(State state)
     {
+        if (state == State.IDLE)
+        {
+            GetComponent<Pathing>().isPathing = true;
+        }
+        else
+        {
+            GetComponent<Pathing>().isPathing = false;
+        }
+
         this.state = state;
         lastStateChangeTime = Time.time;
         SetAnimationVariables(state);

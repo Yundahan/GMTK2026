@@ -22,6 +22,14 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (damageActive && collision.collider == playerHealth.GetHitbox())
+        {
+            playerHealth.UpdateHealth(-damage);
+        }
+    }
+
     public void SetDamageActive(bool value)
     {
         damageActive = value;
