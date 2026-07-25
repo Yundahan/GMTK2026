@@ -17,6 +17,8 @@ public class EnemyBehaviorFive : MonoBehaviour
     private GameObject leftAttackArea;
     [SerializeField]
     private GameObject rightAttackArea;
+    [SerializeField]
+    private Animator animator;
 
     private State state = State.IDLE;
     private State lastSlapDirection = State.LEFT_SLAP;
@@ -88,19 +90,25 @@ public class EnemyBehaviorFive : MonoBehaviour
         switch (state)
         {
             case State.IDLE:
-                // hier stuff machen
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isFrontslapping", false);
+                animator.SetBool("isBackslapping", false);
                 break;
             case State.LEFT_SLAP:
-                // hier stuff machen
+                animator.SetBool("isBackslapping", true);
+                animator.SetBool("isFrontslapping", false);
+                animator.SetBool("isWalking", false);
                 break;
             case State.RIGHT_SLAP:
-                // hier stuff machen
+                animator.SetBool("isFrontslapping", true);
+                animator.SetBool("isBackslapping", false);
+                animator.SetBool("isWalking", false);
                 break;
             case State.LEFT_STANDING_UP:
-                // hier stuff machen
+                
                 break;
             case State.RIGHT_STANDING_UP:
-                // hier stuff machen
+                
                 break;
         }
     }
