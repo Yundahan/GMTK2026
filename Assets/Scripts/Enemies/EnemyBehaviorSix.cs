@@ -32,12 +32,14 @@ public class EnemyBehaviorSix : MonoBehaviour
 
     private State state = State.IDLE;
     private int groundLayer;
+    private int wallLayer;
     private float lastStateChangeTime = -10000f;
     private float verticalVelocity = 0f;
 
     void Start()
     {
         groundLayer = LayerMask.GetMask("Ground");
+        wallLayer = LayerMask.GetMask("Wall");
     }
 
     void FixedUpdate()
