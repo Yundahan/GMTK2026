@@ -12,7 +12,14 @@ public class Health : MonoBehaviour
     private int maxHealth;
     private bool invulnerable = false;
 
-    void Start()
+    private EnemySFX enemySFX;
+
+
+    private void Awake()
+    {
+        enemySFX= GetComponent<EnemySFX>();
+    }
+        void Start()
     {
         enemyList = FindFirstObjectByType<EnemyList>();
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -36,6 +43,7 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
+            enemySFX.PlayAudioClip(EnemySFX.SfxType.ONKILL);
             Die();
         }
 
