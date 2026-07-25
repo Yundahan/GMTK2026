@@ -524,6 +524,7 @@ GameObject:
   - component: {fileID: 1916097482652268781}
   - component: {fileID: -9129479986045247343}
   - component: {fileID: 7947871350791287190}
+  - component: {fileID: 4471697411552126623}
   - component: {fileID: 8400091766778260642}
   m_Layer: 0
   m_Name: Three
@@ -611,6 +612,20 @@ MonoBehaviour:
   moveSpeed: 3
   rayDist: 1
   initialDirection: -1
+--- !u!114 &4471697411552126623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939604451537366009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c851fde1f433b749bb5ec9c52887232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  damage: 5
+  damageActive: 1
 --- !u!61 &8400091766778260642
 BoxCollider2D:
   m_ObjectHideFlags: 0
