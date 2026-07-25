@@ -104,7 +104,7 @@ public class EnemyBehaviorOne : MonoBehaviour
                 animator.SetBool("isChilling", false);
                 break;
             case State.WINDDOWN:
-                // winddown animation
+                animator.SetBool("isGoingback", true);
                 break;
         }
     }
