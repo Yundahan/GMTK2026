@@ -17,8 +17,11 @@ public class EnemyBehaviourTwo : MonoBehaviour
     [SerializeField]
     private float chargeSpeed = 15f;
 
+    private float rayDist = 1f;
     private State attackState = State.IDLE;
     private int groundLayer;
+    private int wallLayer;
+
     private bool isPathing = true;
     private bool isCharging = false;
 
@@ -31,6 +34,7 @@ public class EnemyBehaviourTwo : MonoBehaviour
         playerHealth = FindFirstObjectByType<PlayerHealth>();
         enemyAttack = FindFirstObjectByType<EnemyAttack>();
         enemyAttackCollider = GetComponentInChildren<EnemyAttack>().GetComponent<Collider2D>();
+        wallLayer = LayerMask.GetMask("Wall");
         groundLayer = LayerMask.GetMask("Ground");
     }
 
@@ -77,7 +81,7 @@ public class EnemyBehaviourTwo : MonoBehaviour
     private void chargeToLastKnownPlayerDirection()
     {
 
-        if (IsGroundAhead(transform.right) && transform.localScale.x > 0) //check right
+        if (IsGroundAhead(transform.right) && !IsWallOrGroundAhead(transform.right) && transform.localScale.x > 0) //check right
         {
             //charge right
             transform.Translate(chargeSpeed * Time.deltaTime * Vector2.right);
@@ -86,7 +90,7 @@ public class EnemyBehaviourTwo : MonoBehaviour
         {
             TransformUtils.FlipScale(transform);
         }
-        if (IsGroundAhead(-transform.right) && transform.localScale.x < 0) // check left
+        if (IsGroundAhead(-transform.right) && !IsWallOrGroundAhead(-transform.right) && transform.localScale.x < 0) // check left
         {
             //charge left
             transform.Translate(chargeSpeed * Time.deltaTime * -Vector2.right);
@@ -106,6 +110,18 @@ public class EnemyBehaviourTwo : MonoBehaviour
     {
         this.attackState = state;
         SetAnimationVariables(state);
+    }
+
+    private bool IsWallOrGroundAhead(Vector3 direction)
+    {
+        if (Physics2D.Raycast(transform.position, direction, rayDist, wallLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return Physics2D.Raycast(transform.position, direction, rayDist, groundLayer);
+        }
     }
 
     private void SetAnimationVariables(State state)
