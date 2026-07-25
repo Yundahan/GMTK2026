@@ -9,23 +9,19 @@ public class PlayerHealth : MonoBehaviour
     private float invulnerabilityTimer = 1f;
     [SerializeField]
     private float knockBackForce = 10f;
-
-    private UIManager uiManager;
-
-    [SerializeField]
-    private int maxHealth = 100;
-    private int currentHealth;
-    private float lastDamageTime = -10000f;
-
-    private PlayerSFX playerSFX;
-    private PlayerMovement playerMovement;
-    private Rigidbody2D rigidBody;
-    private Vector3 enemyPos;
-
     [SerializeField]
     private float knockbackDuration = 0.1f;
     [SerializeField]
     private float knockbackHeight = 1f;
+    private UIManager uiManager;
+    [SerializeField]
+    private int maxHealth = 100;
+    private int currentHealth;
+    private float lastDamageTime = -10000f;
+    private PlayerSFX playerSFX;
+    private PlayerMovement playerMovement;
+    private Rigidbody2D rigidBody;
+    private Vector3 enemyPos;
     private float knockbackTimer = -10000f;
 
 
@@ -42,10 +38,12 @@ public class PlayerHealth : MonoBehaviour
     {
         if (knockbackTimer + knockbackDuration < Time.time)
         {
+            // allow controls
             playerMovement.SetControlActive(true);
         }
         else
         {
+            // move player
             Vector3 direction = (transform.position - enemyPos).normalized;
             Vector3 directionPlusY = new Vector3(direction.x, direction.y + knockbackHeight, direction.z);
             transform.Translate(knockBackForce * Time.deltaTime * directionPlusY);
@@ -85,14 +83,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void Knockback()
     {
-        // move back and don't allow inputs
+        // stop movement and don't allow Inputs
         playerMovement.SetControlActive(false);
         rigidBody.linearVelocityX = 0f;
         rigidBody.linearVelocityY = 0f;
         knockbackTimer = Time.time;
     }
-
-
 
     public void SetEnemyPos(Vector3 enemyPos) => this.enemyPos = enemyPos;
 }
