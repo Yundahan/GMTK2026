@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 887889111576694661}
   - component: {fileID: 6864681223966596976}
   - component: {fileID: 4993480133943362546}
+  - component: {fileID: 8103562219159547613}
   - component: {fileID: 6226521650428256465}
   m_Layer: 0
   m_Name: Nine
@@ -114,13 +115,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spriteTransform: {fileID: 6377178750578192672}
-  chargeTime: 1
+  chargeTime: 0.5
   cooldown: 2
-  gravity: 9.81
-  rotationsPerSecond: 3
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  gravity: 15
+  rotationsPerSecond: 4
 --- !u!114 &887889111576694661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +159,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   damage: 1
   damageActive: 1
+--- !u!114 &8103562219159547613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113639268121766871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4d044557c78004f8d2737e35dc38bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pathing
+  isPathing: 1
+  boxSize: {x: 2, y: 2}
+  castDist: 2
+  moveSpeed: 5
+  rayDist: 1
 --- !u!58 &6226521650428256465
 CircleCollider2D:
   m_ObjectHideFlags: 0

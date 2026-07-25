@@ -96,13 +96,14 @@ public class EnemyBehaviorNine : MonoBehaviour
 
         verticalVelocity = gravity * timeUntilTarget * 1.1f;
         horizontalVelocity = deltaX / timeUntilTarget;
+        float scaleFactor = transform.localScale.x > 0 ? 1f : -1f;
 
         if (deltaX > 0)
         {
-            rotationDelta = -Time.fixedDeltaTime * 360 * rotationsPerSecond;
+            rotationDelta = -Time.fixedDeltaTime * scaleFactor * 360 * rotationsPerSecond;
         } else
         {
-            rotationDelta = Time.fixedDeltaTime * 360 * rotationsPerSecond;
+            rotationDelta = Time.fixedDeltaTime * scaleFactor * 360 * rotationsPerSecond;
         }
 
         return true;
@@ -110,6 +111,15 @@ public class EnemyBehaviorNine : MonoBehaviour
 
     private void ChangeState(State state)
     {
+        if (state == State.IDLE)
+        {
+            GetComponent<Pathing>().isPathing = true;
+        }
+        else
+        {
+            GetComponent<Pathing>().isPathing = false;
+        }
+
         this.state = state;
         lastStateChangeTime = Time.time;
         SetAnimationVariables(state);
