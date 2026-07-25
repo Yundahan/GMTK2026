@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float SPEED = 7f;
     [SerializeField]
+    private Animator animator;
+    [SerializeField]
     private float wallSlidingSpeed = 3f;
     private const int maxJumps = 2;
     private int jumpsRemaining;
@@ -63,6 +65,9 @@ public class PlayerMovement : MonoBehaviour
         if (rigidBody.linearVelocity.y < 0 && !IsGrounded())
         {
             isFalling = true;
+            animator.SetBool("isFalling", true);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isSliding", false);
         }
         else
         {
@@ -71,12 +76,17 @@ public class PlayerMovement : MonoBehaviour
             {
                 isFalling = false;
                 playerSFX.PlayAudioClip(PlayerSFX.SfxType.LAND);
+                animator.SetBool("isFalling", false);
+                animator.SetBool("isSliding", false);
+                animator.SetBool("isJumping", false);
             }
         }
 
         if (IsTouchingWall() && !IsGrounded())
         {
             rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocityX, Mathf.Clamp(rigidBody.linearVelocityY, -wallSlidingSpeed, float.MaxValue));
+            animator.SetBool("isSliding", true);
+            animator.SetBool("isFalling", false);
         }
 
     }
@@ -91,10 +101,12 @@ public class PlayerMovement : MonoBehaviour
             if (rigidBody.linearVelocityX > 0) //if moving direction right look right
             {
                 TransformUtils.SetTargetDirection(transform, transform.localScale.x);
+                animator.SetBool("isWalking", true);
             }
             else if (rigidBody.linearVelocityX < 0) // if moving direction left look left
             {
                 TransformUtils.SetTargetDirection(transform, transform.localScale.x * -1);
+                animator.SetBool("isWalking", true);
             }
         }
     }
@@ -108,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
                 rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
                 jumpsRemaining--;
                 playerSFX.PlayAudioClip(PlayerSFX.SfxType.JUMP);
+                animator.SetBool("isJumping", true);
             }
             else if (!IsGrounded() && jumpsRemaining > 1)
             {
@@ -115,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
                 rigidBody.AddForce(new Vector3(0, JUMP_FORCE, 0));
                 playerSFX.PlayAudioClip(PlayerSFX.SfxType.DOUBLE_JUMP);
                 jumpsRemaining--;
+                animator.SetBool("isJumping", true);
             }
         }
     }
@@ -131,6 +145,7 @@ public class PlayerMovement : MonoBehaviour
             if (collider.IsTouching(feetCollider))
             {
                 jumpsRemaining = maxJumps;
+                animator.SetBool("isWalking", false);
                 return true;
             }
         }

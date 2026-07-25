@@ -8,7 +8,8 @@ public class PlayerSFX : MonoBehaviour
         JUMP,
         DOUBLE_JUMP,
         LAND,
-        ONHIT
+        ONHIT,
+        ONKILL
     }
 
     private AudioSource audioSource;
@@ -18,7 +19,8 @@ public class PlayerSFX : MonoBehaviour
         { SfxType.JUMP, new SFXData(12, "Sound/SFX/Jump", 1f) },
         { SfxType.DOUBLE_JUMP, new SFXData(10, "Sound/SFX/DoubleJump", 1f) },
         { SfxType.LAND, new SFXData (8, "Sound/SFX/Land", 0.3f)},
-        { SfxType.ONHIT, new SFXData (7, "Sound/SFX/OnHit", 1f)}
+        { SfxType.ONHIT, new SFXData (7, "Sound/SFX/OnHit", 1f)},
+        { SfxType.ONKILL, new SFXData(9, "Sound/SFX/OnKillGeneric", 1f) }
     };
 
     void Start()
