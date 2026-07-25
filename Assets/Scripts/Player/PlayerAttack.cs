@@ -5,6 +5,8 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField]
     private GameObject attackArea = default;
+    [SerializeField]
+    private Animator animator;
 
     private bool attacking = false;
     [SerializeField]
@@ -22,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
                 timer = 0;
                 attacking = false;
                 attackArea.SetActive(attacking);
+                animator.SetBool("isAttacking", false);
             }
         }
     }
@@ -30,5 +33,6 @@ public class PlayerAttack : MonoBehaviour
     {
         attacking = true;
         attackArea.SetActive(attacking);
+        animator.SetBool("isAttacking", true);
     }
 }

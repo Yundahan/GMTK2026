@@ -107,6 +107,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 TransformUtils.SetTargetDirection(transform, transform.localScale.x * -1);
                 animator.SetBool("isWalking", true);
+            } 
+
+            if (Mathf.Abs(horizontalAxis) <= 0.01f)
+            {
+                animator.SetBool("isWalking", false);
             }
         }
     }
@@ -145,7 +150,6 @@ public class PlayerMovement : MonoBehaviour
             if (collider.IsTouching(feetCollider))
             {
                 jumpsRemaining = maxJumps;
-                animator.SetBool("isWalking", false);
                 return true;
             }
         }
