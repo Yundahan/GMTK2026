@@ -16,8 +16,11 @@ public class EnemyList : MonoBehaviour
     private bool allEnemiesDead = false;
     private float allEnemiesDeadTime = -10000f;
 
+    private PlayerSFX playerSFX;
+
     void Awake()
     {
+        playerSFX = GetComponent<PlayerSFX>();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -33,6 +36,7 @@ public class EnemyList : MonoBehaviour
     public void RemoveEnemyFromList(EnemyNumber enemy)
     {
         allEnemies.Remove(enemy);
+        playerSFX.PlayAudioClip(PlayerSFX.SfxType.ONKILL);
 
         if (allEnemies.Count == 0)
         {
