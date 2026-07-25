@@ -12,6 +12,10 @@ public class EnemyBehaviorNine : MonoBehaviour
     }
 
     [SerializeField]
+    private SpriteRenderer idleSpriteRenderer;
+    [SerializeField]
+    private SpriteRenderer rollingSpriteRenderer;
+    [SerializeField]
     private Transform spriteTransform;
     [SerializeField]
     private Animator animator;
@@ -119,10 +123,14 @@ public class EnemyBehaviorNine : MonoBehaviour
         if (state == State.IDLE)
         {
             GetComponent<Pathing>().isPathing = true;
+            idleSpriteRenderer.enabled = true;
+            rollingSpriteRenderer.enabled = false;
         }
         else
         {
             GetComponent<Pathing>().isPathing = false;
+            idleSpriteRenderer.enabled = false;
+            rollingSpriteRenderer.enabled = true;
         }
 
         this.state = state;
