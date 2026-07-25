@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
     private float knockbackDuration = 0.1f;
     [SerializeField]
     private float knockbackHeight = 1f;
+    [SerializeField]
+    private Animator animator;
     private UIManager uiManager;
     [SerializeField]
     private int maxHealth = 100;
@@ -40,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
         {
             // allow controls
             playerMovement.SetControlActive(true);
+            animator.SetBool("isKnockedback", false);
         }
         else
         {
@@ -47,6 +50,7 @@ public class PlayerHealth : MonoBehaviour
             Vector3 direction = (transform.position - enemyPos).normalized;
             Vector3 directionPlusY = new Vector3(direction.x, direction.y + knockbackHeight, direction.z);
             transform.Translate(knockBackForce * Time.deltaTime * directionPlusY);
+            animator.SetBool("isKnockedback", true);
         }
     }
 
