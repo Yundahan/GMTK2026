@@ -54,7 +54,7 @@ public class EnemyBehaviorNine : MonoBehaviour
             transform.position = transform.position + movementDelta;
             spriteTransform.Rotate(new Vector3(0, 0, rotationDelta));
 
-            if (verticalVelocity < 0f && Physics2D.Raycast(transform.position, -transform.up, 2f, groundLayer))
+            if (verticalVelocity < 0f && Physics2D.Raycast(transform.position, -transform.up, 4f, groundLayer))
             {
                 verticalVelocity = 0;
                 horizontalVelocity = 0f;
