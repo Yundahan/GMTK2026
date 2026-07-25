@@ -59,7 +59,7 @@ public class EnemyBehaviorSix : MonoBehaviour
 
         Vector3 movementDelta = new Vector3(horizontalMovement, verticalVelocity * Time.fixedDeltaTime, 0f);
 
-        if (!Physics2D.Raycast(transform.position, movementDelta, 0.35f + movementDelta.magnitude, groundLayer))
+        if (!Physics2D.Raycast(transform.position, movementDelta, 1f + movementDelta.magnitude, groundLayer))
         {
             transform.position = transform.position + movementDelta;
         }
@@ -84,7 +84,7 @@ public class EnemyBehaviorSix : MonoBehaviour
 
     public void UpdateVerticalVelocity(float elapsedTime)
     {
-        bool isGrounded = Physics2D.Raycast(transform.position, -transform.up, 0.4f, groundLayer);
+        bool isGrounded = Physics2D.Raycast(transform.position, -transform.up, 1f, groundLayer);
         verticalVelocity = isGrounded ? 0 : verticalVelocity - gravity * elapsedTime;
     }
 
@@ -92,5 +92,22 @@ public class EnemyBehaviorSix : MonoBehaviour
     {
         this.state = state;
         lastStateChangeTime = Time.time;
+        SetAnimationVariables(state);
+    }
+
+    private void SetAnimationVariables(State state)
+    {
+        switch (state)
+        {
+            case State.IDLE:
+                // hier stuff machen
+                break;
+            case State.ROLLING_LEFT:
+                // hier stuff machen
+                break;
+            case State.ROLLING_RIGHT:
+                // hier stuff machen
+                break;
+        }
     }
 }

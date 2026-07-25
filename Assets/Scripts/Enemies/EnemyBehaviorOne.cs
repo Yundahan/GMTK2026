@@ -33,11 +33,11 @@ public class EnemyBehaviorOne : MonoBehaviour
         if (state == State.IDLE && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
         {
             windUpStartTime = Time.time;
-            state = State.WINDUP;
+            ChangeState(State.WINDUP);
         }
         if (state == State.WINDUP && windUpStartTime + attackWindupTime < Time.time)
         {
-            state = State.ATTACKING;
+            ChangeState(State.ATTACKING);
             targetPosition = player.transform.position;
             Vector3 direction = targetPosition - transform.position;
             direction.Normalize();
@@ -58,11 +58,34 @@ public class EnemyBehaviorOne : MonoBehaviour
             if (movementVector.magnitude >= distanceToTarget - 0.001f)
             {
                 transform.position = targetPosition;
-                state = State.IDLE;
-            } else
+                ChangeState(State.IDLE);
+            }
+            else
             {
                 transform.position += movementVector;
             }
+        }
+    }
+
+    private void ChangeState(State state)
+    {
+        this.state = state;
+        SetAnimationVariables(state);
+    }
+
+    private void SetAnimationVariables(State state)
+    {
+        switch (state)
+        {
+            case State.IDLE:
+                // hier stuff machen
+                break;
+            case State.WINDUP:
+                // hier stuff machen
+                break;
+            case State.ATTACKING:
+                // hier stuff machen
+                break;
         }
     }
 }

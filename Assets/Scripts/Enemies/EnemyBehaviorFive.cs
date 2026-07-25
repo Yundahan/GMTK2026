@@ -80,5 +80,28 @@ public class EnemyBehaviorFive : MonoBehaviour
 
         this.state = state;
         lastStateChangeTime = Time.time;
+        SetAnimationVariables(state);
+    }
+
+    private void SetAnimationVariables(State state)
+    {
+        switch (state)
+        {
+            case State.IDLE:
+                // hier stuff machen
+                break;
+            case State.LEFT_SLAP:
+                // hier stuff machen
+                break;
+            case State.RIGHT_SLAP:
+                // hier stuff machen
+                break;
+            case State.LEFT_STANDING_UP:
+                // hier stuff machen
+                break;
+            case State.RIGHT_STANDING_UP:
+                // hier stuff machen
+                break;
+        }
     }
 }

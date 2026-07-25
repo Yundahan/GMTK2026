@@ -77,5 +77,25 @@ public class EnemyBehaviorThree : MonoBehaviour
     {
         this.state = state;
         lastStateChangeTime = Time.time;
+        SetAnimationVariables(state);
+    }
+
+    private void SetAnimationVariables(State state)
+    {
+        switch (state)
+        {
+            case State.IDLE:
+                // hier stuff machen
+                break;
+            case State.FALLING_OVER:
+                // hier stuff machen
+                break;
+            case State.INVULNERABLE:
+                // hier stuff machen
+                break;
+            case State.STANDING_UP:
+                // hier stuff machen
+                break;
+        }
     }
 }

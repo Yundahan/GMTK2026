@@ -54,7 +54,7 @@ public class EnemyBehaviorNine : MonoBehaviour
             transform.position = transform.position + movementDelta;
             spriteTransform.Rotate(new Vector3(0, 0, rotationDelta));
 
-            if (verticalVelocity < 0f && Physics2D.Raycast(transform.position, -transform.up, 1f, groundLayer))
+            if (verticalVelocity < 0f && Physics2D.Raycast(transform.position, -transform.up, 2f, groundLayer))
             {
                 verticalVelocity = 0;
                 horizontalVelocity = 0f;
@@ -112,5 +112,22 @@ public class EnemyBehaviorNine : MonoBehaviour
     {
         this.state = state;
         lastStateChangeTime = Time.time;
+        SetAnimationVariables(state);
+    }
+
+    private void SetAnimationVariables(State state)
+    {
+        switch (state)
+        {
+            case State.IDLE:
+                // hier stuff machen
+                break;
+            case State.CHARGING:
+                // hier stuff machen
+                break;
+            case State.FLYING:
+                // hier stuff machen
+                break;
+        }
     }
 }

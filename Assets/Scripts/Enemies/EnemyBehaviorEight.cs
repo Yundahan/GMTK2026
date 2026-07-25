@@ -153,5 +153,28 @@ public class EnemyBehaviorEight : MonoBehaviour
         }
 
         this.state = state;
+        SetAnimationVariables(state);
+    }
+
+    private void SetAnimationVariables(State state)
+    {
+        switch (state)
+        {
+            case State.IDLE:
+                // hier stuff machen
+                break;
+            case State.OPENING:
+                // hier stuff machen
+                break;
+            case State.OPEN:
+                // hier stuff machen
+                break;
+            case State.SNAPPING:
+                // hier stuff machen
+                break;
+            case State.CLOSING:
+                // hier stuff machen
+                break;
+        }
     }
 }

@@ -46,12 +46,12 @@ public class EnemyBehaviourTwo : MonoBehaviour
     {
         if (attackState == State.CHARGE)
         {
-            attackState = State.SLAPPIN;
+            ChangeState(State.SLAPPIN);
             enemyAttack.SetDamageActive(true);
         }
         else if (attackState == State.SLAPPIN && enemyAttackCollider.IsTouching(playerHealth.GetHitbox())) //check if in slappin state and able to slap player
         {
-            attackState = State.IDLE;
+            ChangeState(State.IDLE);
             enemyAttack.SetDamageActive(false);
         }
     }
@@ -63,7 +63,7 @@ public class EnemyBehaviourTwo : MonoBehaviour
 
         if (attackState == State.IDLE)
         {
-            attackState = State.CHARGE;
+            ChangeState(State.CHARGE);
         }
 
     }
@@ -100,5 +100,27 @@ public class EnemyBehaviourTwo : MonoBehaviour
     private bool IsGroundAhead(Vector3 direction)
     {
         return Physics2D.BoxCast(transform.position + direction, boxSize, 0, -transform.up, castDist, groundLayer);
+    }
+
+    private void ChangeState(State state)
+    {
+        this.attackState = state;
+        SetAnimationVariables(state);
+    }
+
+    private void SetAnimationVariables(State state)
+    {
+        switch (state)
+        {
+            case State.IDLE:
+                // hier stuff machen
+                break;
+            case State.CHARGE:
+                // hier stuff machen
+                break;
+            case State.SLAPPIN:
+                // hier stuff machen
+                break;
+        }
     }
 }

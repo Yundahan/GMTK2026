@@ -6,7 +6,8 @@ public class EnemyBehaviorSeven : MonoBehaviour
     private enum State
     {
         IDLE,
-        WINDUP
+        WINDUP,
+        SHOOTING
     }
 
     [SerializeField]
@@ -15,14 +16,14 @@ public class EnemyBehaviorSeven : MonoBehaviour
     private PlayerMovement player;
 
     [SerializeField]
-    private float detectionRange = 10f;
-    [SerializeField]
     private float projectileSpeed = 7f;
+    [SerializeField]
+    private float windupDuration = 1f;
     [SerializeField]
     private float cooldown = 1f;
 
     private State state = State.IDLE;
-    private float windUpStartTime = -10000f;
+    private float lastStateChangeTime = -10000f;
 
     void Start()
     {
@@ -31,19 +32,56 @@ public class EnemyBehaviorSeven : MonoBehaviour
 
     void Update()
     {
-        if (state == State.IDLE && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
+        if (state == State.WINDUP && lastStateChangeTime + windupDuration < Time.time)
         {
-            windUpStartTime = Time.time;
-            state = State.WINDUP;
-        }
-        if (state == State.WINDUP && windUpStartTime + cooldown < Time.time)
+            ChangeState(State.SHOOTING);
+        } else if (state == State.SHOOTING && lastStateChangeTime + cooldown < Time.time)
         {
-            state = State.IDLE;
+            ChangeState(State.SHOOTING);
             Vector3 direction = player.transform.position - transform.position;
             direction.Normalize();
             float zRotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             GameObject instance = Instantiate(projectile, transform.position, Quaternion.Euler(0f, 0f, zRotation - 90f));
             instance.GetComponent<Projectile>().Init(direction * projectileSpeed);
+        }
+    }
+
+    public void OnPlayerDetected()
+    {
+        if (state == State.IDLE)
+        {
+            ChangeState(State.WINDUP);
+        }
+    }
+
+    public void OnPlayerLeftDetection()
+    {
+        if (state == State.SHOOTING)
+        {
+            ChangeState(State.IDLE);
+        }
+    }
+
+    private void ChangeState(State state)
+    {
+        this.state = state;
+        lastStateChangeTime = Time.time;
+        SetAnimationVariables(state);
+    }
+
+    private void SetAnimationVariables(State state)
+    {
+        switch (state)
+        {
+            case State.IDLE:
+                // hier stuff machen
+                break;
+            case State.WINDUP:
+                // hier stuff machen
+                break;
+            case State.SHOOTING:
+                // hier stuff machen
+                break;
         }
     }
 }
