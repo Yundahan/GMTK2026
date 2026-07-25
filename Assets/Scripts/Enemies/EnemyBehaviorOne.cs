@@ -61,6 +61,7 @@ public class EnemyBehaviorOne : MonoBehaviour
             {
                 transform.position = targetPosition;
                 ChangeState(State.IDLE);
+                transform.rotation = Quaternion.identity;
             }
             else
             {
