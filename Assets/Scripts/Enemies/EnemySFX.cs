@@ -33,7 +33,6 @@ public class EnemySFX : MonoBehaviour
         string clipName = sfxData.GetClipBaseName() + randomCount;
         AudioClip clip = Resources.Load<AudioClip>(clipName);
         audioSource.clip = clip;
-        audioSource.volume = 0.8f;
         audioSource.Play();
     }
 }
