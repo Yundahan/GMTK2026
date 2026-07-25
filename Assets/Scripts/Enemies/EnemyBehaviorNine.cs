@@ -87,7 +87,7 @@ public class EnemyBehaviorNine : MonoBehaviour
             deltaX = 0.1f;
         }
 
-        float timeUntilTarget = Mathf.Sqrt(2 * deltaY / gravity);
+        float timeUntilTarget = Mathf.Sqrt(2 * Mathf.Abs(deltaY) / gravity);
 
         if (timeUntilTarget == 0f)
         {
