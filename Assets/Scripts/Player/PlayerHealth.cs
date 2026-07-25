@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         uiManager = FindFirstObjectByType<UIManager>();
+        playerSFX = GetComponent<PlayerSFX>();
     }
 
     public void UpdateHealth(int delta)
