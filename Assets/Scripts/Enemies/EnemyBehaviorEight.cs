@@ -144,12 +144,22 @@ public class EnemyBehaviorEight : MonoBehaviour
         {
             leftSnapper.gameObject.SetActive(true);
             rightSnapper.gameObject.SetActive(true);
-        } else
+        }
+        else
         {
             leftSnapper.rotation = Quaternion.identity;
             rightSnapper.rotation = Quaternion.identity;
             leftSnapper.gameObject.SetActive(false);
             rightSnapper.gameObject.SetActive(false);
+        }
+
+        if (state == State.IDLE)
+        {
+            GetComponent<Pathing>().isPathing = true;
+        }
+        else
+        {
+            GetComponent<Pathing>().isPathing = false;
         }
 
         this.state = state;

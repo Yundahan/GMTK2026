@@ -13,6 +13,7 @@ public static class TransformUtils
   public static void SetTargetDirection(Transform target, float scale)
   {
     Vector3 localScale = target.localScale;
+
     if (scale > 0)
     {
       localScale.x *= 1f;
@@ -21,6 +22,7 @@ public static class TransformUtils
     {
       localScale.x *= -1;
     }
+
     target.localScale = localScale;
   }
 

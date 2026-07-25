@@ -56,10 +56,12 @@ public class EnemyBehaviorThree : MonoBehaviour
         {
             float rotationDelta = Time.fixedDeltaTime * 90 / fallingOverDuration;
             transform.Rotate(new Vector3(0, 0, rotationDelta));
+            transform.position -= Time.fixedDeltaTime * 0.8f * Vector3.up;
         } else if (state == State.STANDING_UP)
         {
             float rotationDelta = Time.fixedDeltaTime * 90 / standingUpDuration;
             transform.Rotate(new Vector3(0, 0, -rotationDelta));
+            transform.position += Time.fixedDeltaTime * 0.4f * Vector3.up;
         }
     }
 
