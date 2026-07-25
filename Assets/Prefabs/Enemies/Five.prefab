@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: -574832951200915779}
   - component: {fileID: 6120895365272575960}
   - component: {fileID: 1722567745836316334}
+  - component: {fileID: 2088764934889564054}
   - component: {fileID: 4127507920509710380}
   - component: {fileID: 7117509216024147912}
   - component: {fileID: 5163090456604472486}
@@ -363,6 +364,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNumber
   number: 5
+--- !u!114 &2088764934889564054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584472996998365391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4d044557c78004f8d2737e35dc38bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pathing
+  isPathing: 1
+  boxSize: {x: 2, y: 2}
+  castDist: 2
+  moveSpeed: 5
+  rayDist: 1
 --- !u!95 &4127507920509710380
 Animator:
   serializedVersion: 7
@@ -894,7 +912,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -2, y: -1}
+  m_Offset: {x: -1.7732542, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -904,7 +922,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4, y: 2}
+  m_Size: {x: 3.5465083, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &7811893455326728613
 GameObject:

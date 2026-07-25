@@ -72,6 +72,15 @@ public class EnemyBehaviorFive : MonoBehaviour
 
     private void ChangeState(State state)
     {
+        if (state == State.IDLE)
+        {
+            GetComponent<Pathing>().isPathing = true;
+        }
+        else
+        {
+            GetComponent<Pathing>().isPathing = false;
+        }
+
         if (state == State.RIGHT_SLAP)
         {
             lastSlapDirection = State.RIGHT_SLAP;
