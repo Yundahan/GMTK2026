@@ -20,7 +20,7 @@ public class EnemyAttack : MonoBehaviour
         {
             playerHealth.SetEnemyPos(transform.position);
             playerHealth.UpdateHealth(-damage);
-            SendMessage("PlayerDamaged");
+            SendMessage("PlayerDamaged", SendMessageOptions.DontRequireReceiver);
         }
     }
 
