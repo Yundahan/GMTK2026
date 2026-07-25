@@ -312,9 +312,9 @@ MonoBehaviour:
   projectile: {fileID: 3773691905062255662, guid: 078a021d45e84cf4e8e559e2146167d4, type: 3}
   animator: {fileID: 6053556536328856373}
   projectileSpeed: 15
-  windupDuration: 1
+  windupDuration: 0.4
   cooldown: 1
-  winddownDuration: 1
+  winddownDuration: 0.4
 --- !u!114 &1117406235804713789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c851fde1f433b749bb5ec9c52887232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  damage: 1
+  damage: 5
   damageActive: 1
 --- !u!95 &6053556536328856373
 Animator:

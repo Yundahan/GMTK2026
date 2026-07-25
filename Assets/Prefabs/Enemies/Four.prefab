@@ -631,7 +631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pathing
   isPathing: 1
   boxSize: {x: 2, y: 2}
-  castDist: 2
+  castDist: 3
   moveSpeed: 5
   rayDist: 1
   initialDirection: 1

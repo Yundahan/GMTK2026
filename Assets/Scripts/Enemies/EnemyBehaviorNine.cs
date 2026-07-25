@@ -12,7 +12,13 @@ public class EnemyBehaviorNine : MonoBehaviour
     }
 
     [SerializeField]
+    private SpriteRenderer idleSpriteRenderer;
+    [SerializeField]
+    private SpriteRenderer rollingSpriteRenderer;
+    [SerializeField]
     private Transform spriteTransform;
+    [SerializeField]
+    private Animator animator;
 
     private PlayerMovement playerMovement;
 
@@ -117,10 +123,14 @@ public class EnemyBehaviorNine : MonoBehaviour
         if (state == State.IDLE)
         {
             GetComponent<Pathing>().isPathing = true;
+            idleSpriteRenderer.enabled = true;
+            rollingSpriteRenderer.enabled = false;
         }
         else
         {
             GetComponent<Pathing>().isPathing = false;
+            idleSpriteRenderer.enabled = false;
+            rollingSpriteRenderer.enabled = true;
         }
 
         this.state = state;
@@ -133,10 +143,14 @@ public class EnemyBehaviorNine : MonoBehaviour
         switch (state)
         {
             case State.IDLE:
-                // hier stuff machen
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isWindup", false);
+                animator.SetBool("isWinddown", true);
                 break;
             case State.CHARGING:
-                // hier stuff machen
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isWindup", true);
+                animator.SetBool("isWinddown", false);
                 break;
             case State.FLYING:
                 // hier stuff machen
