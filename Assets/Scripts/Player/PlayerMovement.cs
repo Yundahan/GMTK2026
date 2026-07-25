@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerSFX))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private float SPEED = 7f;
     [SerializeField]
     private float wallSlidingSpeed = 3f;
-    private int maxJumps = 2;
+    private const int maxJumps = 2;
     private int jumpsRemaining;
 
     private const int GROUND_LAYER = 6;

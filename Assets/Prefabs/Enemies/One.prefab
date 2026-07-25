@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 4037466560450415316}
   - component: {fileID: 8561445265330058337}
   - component: {fileID: 3304802108829487407}
+  - component: {fileID: 7120298486901965431}
   - component: {fileID: 7569139582495579040}
   - component: {fileID: 6829103120403886522}
   - component: {fileID: 545047227301344977}
@@ -464,6 +465,7 @@ MonoBehaviour:
   detectionRange: 10
   speed: 10
   attackWindupTime: 0.667
+  attackWinddownTime: 1
   animator: {fileID: 6829103120403886522}
 --- !u!114 &8561445265330058337
 MonoBehaviour:
@@ -491,6 +493,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   number: 1
+--- !u!114 &7120298486901965431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5405965734822465607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbd353c2731d494792b9570615746a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlyingPathing
+  flyingDistance: 3
+  smoothing: 0.5
+  speed: 2
 --- !u!61 &7569139582495579040
 BoxCollider2D:
   m_ObjectHideFlags: 0

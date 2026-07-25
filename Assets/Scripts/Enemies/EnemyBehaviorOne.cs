@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(FlyingPathing))]
 public class EnemyBehaviorOne : MonoBehaviour
 {
     private enum State
@@ -11,6 +12,7 @@ public class EnemyBehaviorOne : MonoBehaviour
         WINDDOWN
     }
 
+    private FlyingPathing pathing;
     private PlayerMovement player;
 
     [SerializeField]
@@ -31,11 +33,13 @@ public class EnemyBehaviorOne : MonoBehaviour
     void Start()
     {
         player = FindFirstObjectByType<PlayerMovement>();
+        pathing = GetComponent<FlyingPathing>();
+        pathing.Init();
     }
 
     void Update()
     {
-        if (state == State.WINDDOWN || state == State.IDLE && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
+        if ((state == State.WINDDOWN || state == State.IDLE) && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
         {
             lastStateChange = Time.time;
             ChangeState(State.WINDUP);
@@ -82,6 +86,14 @@ public class EnemyBehaviorOne : MonoBehaviour
     {
         this.state = state;
         SetAnimationVariables(state);
+
+        if (state == State.IDLE)
+        {
+            pathing.Init();
+        } else
+        {
+            pathing.SetPathing(false);
+        }
     }
 
     private void SetAnimationVariables(State state)
