@@ -313,7 +313,7 @@ MonoBehaviour:
   animator: {fileID: 6053556536328856373}
   projectileSpeed: 15
   windupDuration: 0.4
-  cooldown: 1
+  cooldown: 2
   winddownDuration: 0.4
 --- !u!114 &1117406235804713789
 MonoBehaviour:
