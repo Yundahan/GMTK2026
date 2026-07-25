@@ -1863,11 +1863,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2780648380159719972, guid: a730fa94b0d8afd4786f4155477142ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.98
+      value: -78.22
       objectReference: {fileID: 0}
     - target: {fileID: 2780648380159719972, guid: a730fa94b0d8afd4786f4155477142ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.88
+      value: -13.63
       objectReference: {fileID: 0}
     - target: {fileID: 2780648380159719972, guid: a730fa94b0d8afd4786f4155477142ba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2269,11 +2269,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8332172650677249928, guid: ad01aa2549cd6ed418711d8dc87d07d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -49.91
+      value: -16.66
       objectReference: {fileID: 0}
     - target: {fileID: 8332172650677249928, guid: ad01aa2549cd6ed418711d8dc87d07d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.51
+      value: -16.26
       objectReference: {fileID: 0}
     - target: {fileID: 8332172650677249928, guid: ad01aa2549cd6ed418711d8dc87d07d6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2330,11 +2330,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2116538632566138556, guid: 1ed3e1333a4120944b6e035d764d1f0d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.5
+      value: -26.17
       objectReference: {fileID: 0}
     - target: {fileID: 2116538632566138556, guid: 1ed3e1333a4120944b6e035d764d1f0d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.6
+      value: -13.94
       objectReference: {fileID: 0}
     - target: {fileID: 2116538632566138556, guid: 1ed3e1333a4120944b6e035d764d1f0d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2799,5 +2799,5 @@ SceneRoots:
   - {fileID: 8614252669581269714}
   - {fileID: 4548869592445555024}
   - {fileID: 59441059947032839}
-  - {fileID: 1519476862}
   - {fileID: 407629512222054234}
+  - {fileID: 1519476862}

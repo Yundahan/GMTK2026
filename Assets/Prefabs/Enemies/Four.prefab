@@ -485,6 +485,7 @@ GameObject:
   - component: {fileID: 1311746168730619340}
   - component: {fileID: 7661001837500741513}
   - component: {fileID: 6095456667402623148}
+  - component: {fileID: 4352923579151560743}
   - component: {fileID: 8975245819701768195}
   - component: {fileID: 1736375286768739073}
   - component: {fileID: 5455261113754204153}
@@ -588,6 +589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   animator: {fileID: 8975245819701768195}
+  idleDuration: 2.5
+  hopDuration: 0.5
 --- !u!114 &7661001837500741513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,6 +617,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNumber
   number: 4
+--- !u!114 &4352923579151560743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7796390121202660663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4d044557c78004f8d2737e35dc38bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pathing
+  isPathing: 1
+  boxSize: {x: 2, y: 2}
+  castDist: 2
+  moveSpeed: 5
+  rayDist: 1
+  initialDirection: 1
 --- !u!95 &8975245819701768195
 Animator:
   serializedVersion: 7

@@ -59,13 +59,7 @@ public class Pathing : MonoBehaviour
 
     private bool IsWallOrGroundAhead(Vector3 direction)
     {
-        if (Physics2D.Raycast(transform.position, direction, rayDist, wallLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return Physics2D.Raycast(transform.position, direction, rayDist, groundLayer);
-        }
+        return Physics2D.Raycast(transform.position, direction, rayDist, wallLayer) &&
+            Physics2D.Raycast(transform.position, direction, rayDist, groundLayer);
     }
 }
