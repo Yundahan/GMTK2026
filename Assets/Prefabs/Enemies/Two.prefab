@@ -1115,7 +1115,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 751d696c082451a4b87da01c4ba94cec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1142,8 +1142,8 @@ MonoBehaviour:
   isPathing: 1
   boxSize: {x: 2, y: 2}
   castDist: 2
-  rayDist: 1
   moveSpeed: 5
+  rayDist: 1
 --- !u!114 &3212004809044340555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,6 +1159,7 @@ MonoBehaviour:
   boxSize: {x: 2, y: 2}
   castDist: 2
   chargeSpeed: 25
+  animator: {fileID: 3424522450541869691}
 --- !u!114 &5031675164717502669
 MonoBehaviour:
   m_ObjectHideFlags: 0
