@@ -77,6 +77,7 @@ public class EnemyBehaviourTwo : MonoBehaviour
     public void OnPlayerLeftDetection()
     {
         isCharging = false;
+        ChangeState(State.IDLE);
         isPathing = GetComponent<Pathing>().isPathing = true;
     }
 
