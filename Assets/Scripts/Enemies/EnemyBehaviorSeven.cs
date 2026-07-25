@@ -7,7 +7,8 @@ public class EnemyBehaviorSeven : MonoBehaviour
     {
         IDLE,
         WINDUP,
-        SHOOTING
+        SHOOTING,
+        WINDDOWN
     }
 
     [SerializeField]
@@ -21,6 +22,8 @@ public class EnemyBehaviorSeven : MonoBehaviour
     private float windupDuration = 1f;
     [SerializeField]
     private float cooldown = 1f;
+    [SerializeField]
+    private float winddownDuration = 1f;
 
     private State state = State.IDLE;
     private float lastStateChangeTime = -10000f;
@@ -35,7 +38,8 @@ public class EnemyBehaviorSeven : MonoBehaviour
         if (state == State.WINDUP && lastStateChangeTime + windupDuration < Time.time)
         {
             ChangeState(State.SHOOTING);
-        } else if (state == State.SHOOTING && lastStateChangeTime + cooldown < Time.time)
+        }
+        else if (state == State.SHOOTING && lastStateChangeTime + cooldown < Time.time)
         {
             ChangeState(State.SHOOTING);
             Vector3 direction = player.transform.position - transform.position;
@@ -43,6 +47,10 @@ public class EnemyBehaviorSeven : MonoBehaviour
             float zRotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             GameObject instance = Instantiate(projectile, transform.position, Quaternion.Euler(0f, 0f, zRotation - 90f));
             instance.GetComponent<Projectile>().Init(direction * projectileSpeed);
+        }
+        else if (state == State.WINDDOWN && lastStateChangeTime + winddownDuration < Time.time)
+        {
+            ChangeState(State.IDLE);
         }
     }
 
@@ -56,10 +64,7 @@ public class EnemyBehaviorSeven : MonoBehaviour
 
     public void OnPlayerLeftDetection()
     {
-        if (state == State.SHOOTING)
-        {
-            ChangeState(State.IDLE);
-        }
+        ChangeState(State.WINDDOWN);
     }
 
     private void ChangeState(State state)

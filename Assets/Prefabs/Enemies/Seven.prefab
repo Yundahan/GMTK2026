@@ -139,7 +139,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -402,7 +402,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   projectile: {fileID: 3773691905062255662, guid: 078a021d45e84cf4e8e559e2146167d4, type: 3}
-  detectionRange: 10
   projectileSpeed: 7
   windupDuration: 1
   cooldown: 1
