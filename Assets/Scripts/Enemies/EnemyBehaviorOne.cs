@@ -19,7 +19,7 @@ public class EnemyBehaviorOne : MonoBehaviour
     [SerializeField]
     private float attackWindupTime = 1f;
     [SerializeField]
-    private Animator Animator;
+    private Animator animator;
 
     private Vector3 targetPosition;
     private State state = State.IDLE;
@@ -60,8 +60,7 @@ public class EnemyBehaviorOne : MonoBehaviour
             if (movementVector.magnitude >= distanceToTarget - 0.001f)
             {
                 transform.position = targetPosition;
-                ChangeState(State.IDLE);
-                Animator.SetBool("isGoingback", true);
+                ChangeState(State.IDLE);             
                 transform.rotation = Quaternion.identity;
             }
             else
@@ -82,19 +81,19 @@ public class EnemyBehaviorOne : MonoBehaviour
         switch (state)
         {
             case State.IDLE:
-                Animator.SetBool("isTransforming", false);
-                Animator.SetBool("isAttacking", false);
-                Animator.SetBool("isChilling", true);
+                animator.SetBool("isTransforming", false);
+                animator.SetBool("isAttacking", false);
+                animator.SetBool("isChilling", true);
                 break;
             case State.WINDUP:
-                Animator.SetBool("isTransforming", true);
-                Animator.SetBool("isAttacking", false);
-                Animator.SetBool("isChilling", false);
+                animator.SetBool("isTransforming", true);
+                animator.SetBool("isAttacking", false);
+                animator.SetBool("isChilling", false);
                 break;
             case State.ATTACKING:
-                Animator.SetBool("isTransforming", false);
-                Animator.SetBool("isAttacking", true);
-                Animator.SetBool("isChilling", false);
+                animator.SetBool("isTransforming", false);
+                animator.SetBool("isAttacking", true);
+                animator.SetBool("isChilling", false);
                 break;
         }
     }
