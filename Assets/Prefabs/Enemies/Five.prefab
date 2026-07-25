@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 7117509216024147912}
   - component: {fileID: 5163090456604472486}
   - component: {fileID: 1785190016236744342}
+  - component: {fileID: 571459332079984316}
   m_Layer: 0
   m_Name: Five
   m_TagString: Untagged
@@ -495,7 +496,7 @@ AudioSource:
   m_GameObject: {fileID: 2584472996998365391}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5775283781977259393, guid: f6f2154d91e903c4e90915845ed6d75c, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
@@ -583,6 +584,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &571459332079984316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584472996998365391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d8909342f81d14fbf205ed4a9cf370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySFX
 --- !u!1 &2801552679848372344
 GameObject:
   m_ObjectHideFlags: 0
