@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b60e1ce438f4c4d4eba077541c80697d
+guid: ba0885e77c6c7734184d89151c9f104f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4983814413522662350
-    second: Banner_oben_0
+      213: -4552140547601228076
+    second: Banner_oben 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Banner_oben_0
+      name: Banner_oben 1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 3840
+        width: 3836
         height: 357
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec37d70cdc01a2540800000000000000
-      internalID: 4983814413522662350
+      spriteID: 4de939c4a4c83d0c0800000000000000
+      internalID: -4552140547601228076
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Banner_oben_0: 4983814413522662350
+      Banner_oben 1_0: -4552140547601228076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
