@@ -13,6 +13,8 @@ public class EnemyBehaviorSeven : MonoBehaviour
 
     [SerializeField]
     private GameObject projectile;
+    [SerializeField]
+    private Animator animator;
 
     private PlayerMovement player;
 
@@ -79,13 +81,28 @@ public class EnemyBehaviorSeven : MonoBehaviour
         switch (state)
         {
             case State.IDLE:
-                // hier stuff machen
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isAttacking", false);
+                animator.SetBool("isWindup", false);
+                animator.SetBool("isWinddown", false);
                 break;
             case State.WINDUP:
-                // hier stuff machen
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isAttacking", false);
+                animator.SetBool("isWindup", true);
+                animator.SetBool("isWinddown", false);
                 break;
             case State.SHOOTING:
-                // hier stuff machen
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isAttacking", true);
+                animator.SetBool("isWindup", false);
+                animator.SetBool("isWinddown", false);
+                break;
+            case State.WINDDOWN:
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isAttacking", false);
+                animator.SetBool("isWindup", false);
+                animator.SetBool("isWinddown", true);
                 break;
         }
     }
