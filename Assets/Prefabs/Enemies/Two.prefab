@@ -1140,8 +1140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBehaviourTwo
   isPathing: 1
-  boxSize: {x: 1, y: 1}
-  castDist: 1
+  boxSize: {x: 2, y: 2}
+  castDist: 2
   rayDist: 1
   groundLayer:
     serializedVersion: 2
@@ -1159,8 +1159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1db5ee1cfa53b448bcd4606a41ab90f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBehaviourTwo
-  boxSize: {x: 1, y: 1}
-  castDist: 1
+  boxSize: {x: 2, y: 2}
+  castDist: 2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1212,7 +1212,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.13956666, y: -1.1238817}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1222,7 +1222,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.1889982, y: 2.3672812}
+  m_Size: {x: 3.3, y: 4.5}
   m_EdgeRadius: 0
 --- !u!95 &3424522450541869691
 Animator:
