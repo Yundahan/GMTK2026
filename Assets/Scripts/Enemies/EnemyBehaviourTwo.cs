@@ -16,6 +16,8 @@ public class EnemyBehaviourTwo : MonoBehaviour
     private float castDist; // with a 1x1 sized object castDist = 1 
     [SerializeField]
     private float chargeSpeed = 15f;
+    [SerializeField]
+    private Animator animator;
 
     private float rayDist = 1f;
     private State attackState = State.IDLE;
@@ -129,13 +131,16 @@ public class EnemyBehaviourTwo : MonoBehaviour
         switch (state)
         {
             case State.IDLE:
-                // hier stuff machen
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isSlapping", false);
                 break;
             case State.CHARGE:
-                // hier stuff machen
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isSlapping", false);
                 break;
             case State.SLAPPIN:
-                // hier stuff machen
+                animator.SetBool("isSlapping", true);
+                animator.SetBool("isWalking", false);
                 break;
         }
     }
