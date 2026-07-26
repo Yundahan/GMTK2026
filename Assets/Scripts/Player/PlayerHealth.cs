@@ -50,7 +50,6 @@ public class PlayerHealth : MonoBehaviour
             Vector3 direction = (transform.position - enemyPos).normalized;
             Vector3 directionPlusY = new Vector3(direction.x, direction.y + knockbackHeight, direction.z);
             transform.Translate(knockBackForce * Time.deltaTime * directionPlusY);
-            Debug.Log("Should play knockback animation");
             animator.SetBool("isKnockedback", true);
         }
     }

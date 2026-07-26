@@ -8,11 +8,14 @@ public class SFXData
 
     private float clipPlayChance;
 
-    public SFXData(int numberOfClips, string clipBaseName, float clipPlayChance)
+    private bool isQuote;
+
+    public SFXData(int numberOfClips, string clipBaseName, float clipPlayChance, bool isQuote)
     {
         this.numberOfClips = numberOfClips;
         this.clipBaseName = clipBaseName;
         this.clipPlayChance = clipPlayChance;
+        this.isQuote = isQuote;
     }
 
     public int GetNumberOfClips()
@@ -27,5 +30,10 @@ public class SFXData
     public float GetClipPlayChance()
     {
         return clipPlayChance;
+    }
+
+    public bool IsQuote()
+    {
+        return isQuote;
     }
 }

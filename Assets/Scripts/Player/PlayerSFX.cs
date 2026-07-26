@@ -11,21 +11,23 @@ public class PlayerSFX : MonoBehaviour
         ONHIT,
         ONKILL
     }
-
+    [SerializeField]
     private AudioSource audioSource;
+    [SerializeField]
+    private AudioSource audioSource2;
 
     private Dictionary<SfxType, SFXData> clipData = new Dictionary<SfxType, SFXData>
     {
-        { SfxType.JUMP, new SFXData(12, "Sound/SFX/Jump", 1f) },
-        { SfxType.DOUBLE_JUMP, new SFXData(10, "Sound/SFX/DoubleJump", 1f) },
-        { SfxType.LAND, new SFXData (8, "Sound/SFX/Land", 0.3f)},
-        { SfxType.ONHIT, new SFXData (7, "Sound/SFX/OnHit", 1f)},
-        { SfxType.ONKILL, new SFXData(2, "Sound/SFX/OnKillGeneric", 1f) }
+        { SfxType.JUMP, new SFXData(12, "Sound/SFX/Jump", 1f, false)},
+        { SfxType.DOUBLE_JUMP, new SFXData(10, "Sound/SFX/DoubleJump", 1f, false) },
+        { SfxType.LAND, new SFXData (8, "Sound/SFX/Land", 0.3f, false)},
+        { SfxType.ONHIT, new SFXData (7, "Sound/SFX/OnHit", 1f, false)},
+        { SfxType.ONKILL, new SFXData(2, "Sound/SFX/OnKillGeneric", 1f, true) }
     };
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
     }
 
     public void PlayAudioClip(SfxType type)
@@ -40,8 +42,20 @@ public class PlayerSFX : MonoBehaviour
         int randomCount = Random.Range(1, sfxData.GetNumberOfClips());
         string clipName = sfxData.GetClipBaseName() + randomCount;
         AudioClip clip = Resources.Load<AudioClip>(clipName);
-        audioSource.clip = clip;
-        audioSource.volume = 0.8f;
-        audioSource.Play();
+
+        if (sfxData.IsQuote())
+        {
+            audioSource2.clip = clip;
+            audioSource2.volume = 1f;
+            audioSource2.Play();
+        }
+        else
+        {
+            audioSource.clip = clip;
+            audioSource.volume = 0.8f;
+            audioSource.Play();
+        }
+
+
     }
 }
