@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class EnemyList : MonoBehaviour
 {
     [SerializeField]
-    private float levelEndDelay = 0.6f;
+    private float levelEndDelay = 0.5f;
     [SerializeField]
     private string nextLevel = "Scene1";
     [SerializeField]
