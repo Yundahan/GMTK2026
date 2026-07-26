@@ -20,12 +20,14 @@ public class EnemyBehaviourTwo : MonoBehaviour
     private Animator animator;
 
     private float rayDist = 1f;
+    [SerializeField]
     private State attackState = State.IDLE;
     private int groundLayer;
     private int wallLayer;
 
     private bool isPathing = true;
     private bool isCharging = false;
+    private float deltaX = 1f;
 
     private PlayerHealth playerHealth;
     private EnemyAttack enemyAttack;
@@ -34,8 +36,8 @@ public class EnemyBehaviourTwo : MonoBehaviour
     void Start()
     {
         playerHealth = FindFirstObjectByType<PlayerHealth>();
-        enemyAttack = FindFirstObjectByType<EnemyAttack>();
-        enemyAttackCollider = GetComponentInChildren<EnemyAttack>().GetComponent<Collider2D>();
+        enemyAttack = GetComponentInChildren<EnemyAttack>();
+        enemyAttackCollider = enemyAttack.GetComponent<Collider2D>();
         wallLayer = LayerMask.GetMask("Wall");
         groundLayer = LayerMask.GetMask("Ground");
     }
@@ -53,9 +55,8 @@ public class EnemyBehaviourTwo : MonoBehaviour
         if (attackState == State.CHARGE)
         {
             ChangeState(State.SLAPPIN);
-            enemyAttack.SetDamageActive(true);
         }
-        else if (attackState == State.SLAPPIN && enemyAttackCollider.IsTouching(playerHealth.GetHitbox())) //check if in slappin state and able to slap player
+        else if (attackState == State.SLAPPIN && deltaX * (playerHealth.transform.position.x - transform.position.x) < 0f) //check if in slappin state, but past the players x position
         {
             ChangeState(State.IDLE);
             enemyAttack.SetDamageActive(false);
@@ -69,9 +70,10 @@ public class EnemyBehaviourTwo : MonoBehaviour
 
         if (attackState == State.IDLE)
         {
+            deltaX = playerHealth.transform.position.x - transform.position.x;
             ChangeState(State.CHARGE);
+            enemyAttack.SetDamageActive(true);
         }
-
     }
 
     public void OnPlayerLeftDetection()
@@ -109,22 +111,16 @@ public class EnemyBehaviourTwo : MonoBehaviour
         return Physics2D.BoxCast(transform.position + direction, boxSize, 0, -transform.up, castDist, groundLayer);
     }
 
+    private bool IsWallOrGroundAhead(Vector3 direction)
+    {
+        return Physics2D.Raycast(transform.position, direction, rayDist, wallLayer) ||
+            Physics2D.Raycast(transform.position, direction, rayDist, groundLayer);
+    }
+
     private void ChangeState(State state)
     {
         this.attackState = state;
         SetAnimationVariables(state);
-    }
-
-    private bool IsWallOrGroundAhead(Vector3 direction)
-    {
-        if (Physics2D.Raycast(transform.position, direction, rayDist, wallLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return Physics2D.Raycast(transform.position, direction, rayDist, groundLayer);
-        }
     }
 
     private void SetAnimationVariables(State state)
