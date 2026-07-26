@@ -8,8 +8,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Collider2D feetCollider;
     [SerializeField]
-    private Collider2D frontCollider;
-    [SerializeField]
     private float SPEED = 7f;
     [SerializeField]
     private Animator animator;
@@ -31,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private List<Collider2D> wallColliders = new();
     private Rigidbody2D rigidBody;
     private PlayerSFX playerSFX;
+    private PlayerHealth playerHealth;
 
     private Vector3 velocity = Vector3.zero;
     private Vector2 spawnPoint;
@@ -43,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         playerSFX = GetComponent<PlayerSFX>();
+        playerHealth = GetComponent<PlayerHealth>();
         spawnPoint = transform.position;
 
         foreach (Collider2D collider2D in FindObjectsByType<Collider2D>(FindObjectsSortMode.None))
@@ -160,11 +160,12 @@ public class PlayerMovement : MonoBehaviour
     {
         foreach (Collider2D collider in wallColliders)
         {
-            if (collider.IsTouching(frontCollider))
+            if (collider.IsTouching(playerHealth.GetHitbox()))
             {
                 return true;
             }
         }
+
         return false;
     }
 

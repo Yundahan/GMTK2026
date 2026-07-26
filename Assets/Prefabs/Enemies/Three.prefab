@@ -582,7 +582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c739a0266eba043a64ad3be2260b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  health: 100
+  health: 1
+  invulnerable: 0
 --- !u!114 &-9129479986045247343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,8 +627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c851fde1f433b749bb5ec9c52887232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  damage: 5
-  damageActive: 1
+  damage: 10
+  damageActive: 0
 --- !u!61 &8400091766778260642
 BoxCollider2D:
   m_ObjectHideFlags: 0

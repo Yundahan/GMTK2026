@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fef11b92a2da9f64180d57e370164500
+guid: 9c4c2ed615421fb498654fe5c05aa838
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5917120260771577948
-    second: Laustaerke_0
+      213: -6470460504253458178
+    second: 3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Laustaerke_0
+      name: 3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 533
-        height: 147
+        width: 352
+        height: 488
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c508e84e685dd1250800000000000000
-      internalID: 5917120260771577948
+      spriteID: ef817ce047e4436a0800000000000000
+      internalID: -6470460504253458178
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Laustaerke_0: 5917120260771577948
+      3_0: -6470460504253458178
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

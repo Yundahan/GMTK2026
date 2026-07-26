@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda8ddfad5d20634b808d5dc35e7efdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBehaviorFive
-  halfSlapDuration: 0.5
+  halfSlapDuration: 0.375
   leftAttackArea: {fileID: 7773619133547409593}
   rightAttackArea: {fileID: 5084140805824334367}
   animator: {fileID: 4127507920509710380}
@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   health: 100
+  invulnerable: 0
 --- !u!114 &1722567745836316334
 MonoBehaviour:
   m_ObjectHideFlags: 0

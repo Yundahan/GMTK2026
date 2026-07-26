@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: efee7ed3113f07649a5f1d844714f3cf
+guid: 63a6af6ef086eee478f6c863da966873
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2009847441831802004
-    second: Lautstaerken_Regeler_0
+      213: 7212449187763467749
+    second: Wand_5x5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lautstaerken_Regeler_0
+      name: Wand_5x5_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 99
-        height: 222
+        width: 513
+        height: 504
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6b43e876669b14e0800000000000000
-      internalID: -2009847441831802004
+      spriteID: 5e53235b254c71460800000000000000
+      internalID: 7212449187763467749
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lautstaerken_Regeler_0: -2009847441831802004
+      Wand_5x5_0: 7212449187763467749
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour
         {
             player.Move(moveAction.ReadValue<Vector2>().x);
 
-            if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.wKey.wasPressedThisFrame)
+            if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame)
             {
                 player.Jump();
             }
@@ -54,7 +54,7 @@ public class InputManager : MonoBehaviour
 
         if (playerAttack != null)
         {
-            if (Keyboard.current.kKey.wasPressedThisFrame)
+            if (Keyboard.current.kKey.wasPressedThisFrame || Keyboard.current.leftShiftKey.wasPressedThisFrame || Mouse.current.leftButton.wasPressedThisFrame)
             {
                 playerAttack.Attack();
             }

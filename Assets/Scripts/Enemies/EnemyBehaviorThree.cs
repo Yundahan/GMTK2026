@@ -32,6 +32,7 @@ public class EnemyBehaviorThree : MonoBehaviour
         if (state == State.FALLING_OVER && lastStateChangeTime + fallingOverDuration < Time.time)
         {
             ChangeState(State.INVULNERABLE);
+            GetComponent<EnemyAttack>().SetDamageActive(false);
             GetComponent<Health>().SetInvulnerability(true);
             idleSpriteRenderer.enabled = false;
             invulnerableSprite.enabled = true;
@@ -39,6 +40,7 @@ public class EnemyBehaviorThree : MonoBehaviour
         if (state == State.INVULNERABLE && lastStateChangeTime + invulnerableDuration < Time.time)
         {
             ChangeState(State.STANDING_UP);
+            GetComponent<EnemyAttack>().SetDamageActive(true);
             GetComponent<Health>().SetInvulnerability(false);
             idleSpriteRenderer.enabled = true;
             invulnerableSprite.enabled = false;
