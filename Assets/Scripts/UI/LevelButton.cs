@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public class LevelButton : MonoBehaviour
 {
-    public string sceneName = "Level01";
+    [SerializeField]
+    private string sceneName = "Level1";
 
     void Start()
     {
@@ -13,6 +14,7 @@ public class LevelButton : MonoBehaviour
     public void LoadLevel()
     {
         //Simulation between lvl changes
+        Debug.Log("LoadScene:" + sceneName);
         SceneLoader.Instance().LoadScene(sceneName);
     }
 }
