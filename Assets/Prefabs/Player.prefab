@@ -530,7 +530,7 @@ MonoBehaviour:
   knockBackForce: 20
   knockbackDuration: 0.2
   knockbackHeight: 1.5
-  animator: {fileID: 0}
+  animator: {fileID: 3898283132639674311}
   maxHealth: 100
 --- !u!114 &4875182658297345990
 MonoBehaviour:
