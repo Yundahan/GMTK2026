@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd04c0065ec07d94e99570ea5a4660cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  canvas: {fileID: 4137811013749897746}
   messageDuration: 5
 --- !u!1 &3211400453209379782
 GameObject:
