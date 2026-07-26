@@ -22,6 +22,11 @@ public class Simulation
         SceneLoader.Instance().ReloadScene();
     }
 
+    public bool IsSimulating()
+    {
+        return Time.timeScale > 0.5f;
+    }
+
     public static Simulation Instance()
     {
         if (instance == null)

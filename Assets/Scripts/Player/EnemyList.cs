@@ -10,10 +10,6 @@ public class EnemyList : MonoBehaviour
     private float levelEndDelay = 0.5f;
     [SerializeField]
     private string nextLevel = "Scene1";
-    [SerializeField]
-    private GameObject levelEndAnim;
-    [SerializeField]
-    private GameObject levelStartAnim;
 
     private List<EnemyNumber> allEnemies = new();
 
@@ -24,7 +20,6 @@ public class EnemyList : MonoBehaviour
 
     void Awake()
     {
-        Instantiate(levelStartAnim, transform.position, Quaternion.identity);
         playerSFX = GetComponent<PlayerSFX>();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -46,7 +41,6 @@ public class EnemyList : MonoBehaviour
 
         if (allEnemies.Count == 0)
         {
-            Instantiate(levelEndAnim, Camera.main.transform.position, Quaternion.identity);
             allEnemiesDead = true;
             allEnemiesDeadTime = Time.time;
             Simulation.Instance().ToggleSimulation();

@@ -40,9 +40,12 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
-        attacking = true;
-        attackArea.SetActive(attacking);
-        animator.SetBool("isAttacking", true);
-        playerSFX.PlayAudioClip(PlayerSFX.SfxType.ATTACK);
+        if (Simulation.Instance().IsSimulating())
+        {
+            attacking = true;
+            attackArea.SetActive(attacking);
+            animator.SetBool("isAttacking", true);
+            playerSFX.PlayAudioClip(PlayerSFX.SfxType.ATTACK);
+        }
     }
 }
