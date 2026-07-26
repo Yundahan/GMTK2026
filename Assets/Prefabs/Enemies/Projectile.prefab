@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   damage: 10
   damageActive: 1
+  knockbackActive: 0
 --- !u!114 &4508703945969877908
 MonoBehaviour:
   m_ObjectHideFlags: 0
