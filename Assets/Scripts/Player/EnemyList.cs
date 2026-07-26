@@ -61,7 +61,7 @@ public class EnemyList : MonoBehaviour
     {
         if (!allEnemies.Any())
         {
-            return 0;
+            return 1;
         }
 
         return allEnemies[^1].GetNumber();
