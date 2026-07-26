@@ -30,7 +30,7 @@ public class EnemyBehaviorOne : MonoBehaviour
     private Vector3 targetPosition;
     private State state = State.IDLE;
     private float lastStateChange = -10000f;
-    private Vector3 offset = new(0f, 2f, 0f);
+    private Vector3 offset = new(0f, 1f, 0f);
     private Quaternion targetRotation;
 
     void Start()
