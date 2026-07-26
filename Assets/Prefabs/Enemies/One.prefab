@@ -295,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   damage: 15
   damageActive: 1
+  knockbackActive: 1
 --- !u!60 &6569096329325499103
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -465,7 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   detectionRange: 20
-  speed: 15
+  speed: 30
   attackWindupTime: 2
   attackWinddownTime: 1
   animator: {fileID: 6829103120403886522}
@@ -482,6 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   health: 50
+  invulnerable: 0
 --- !u!114 &3304802108829487407
 MonoBehaviour:
   m_ObjectHideFlags: 0
