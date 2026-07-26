@@ -20,9 +20,9 @@ public class VolumeManager : MonoBehaviour
     // These are variables that persist even when the scene changes.
     Dictionary<string, float> volumes = new Dictionary<string, float>
         {
-          {VolumeType.MasterVolume.ToString(), 0.1f },
-          {VolumeType.BGMVolume.ToString(), 1f},
-          {VolumeType.SFXVolume.ToString(), 1f}
+          {VolumeType.MasterVolume.ToString(), 0.5f },
+          {VolumeType.BGMVolume.ToString(), 0.5f},
+          {VolumeType.SFXVolume.ToString(), 0.5f}
         };
 
     private void Awake()
@@ -31,7 +31,7 @@ public class VolumeManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        } 
+        }
         else if (instance != this)
         {
             Destroy(gameObject);
@@ -46,6 +46,16 @@ public class VolumeManager : MonoBehaviour
     public float GetMasterVolume()
     {
         return this.volumes[VolumeType.MasterVolume.ToString()];
+    }
+
+    public float GetSFXVolume()
+    {
+        return this.volumes[VolumeType.SFXVolume.ToString()];
+    }
+
+    public float GetBGMVolume()
+    {
+        return this.volumes[VolumeType.BGMVolume.ToString()];
     }
 
     /// <summary>
