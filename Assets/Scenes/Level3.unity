@@ -4533,7 +4533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8332172650677249928, guid: ad01aa2549cd6ed418711d8dc87d07d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.52
+      value: 15.32
       objectReference: {fileID: 0}
     - target: {fileID: 8332172650677249928, guid: ad01aa2549cd6ed418711d8dc87d07d6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15543,7 +15543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2116538632566138556, guid: 1ed3e1333a4120944b6e035d764d1f0d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 64.9
+      value: 64.3
       objectReference: {fileID: 0}
     - target: {fileID: 2116538632566138556, guid: 1ed3e1333a4120944b6e035d764d1f0d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18418,7 +18418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 357345598639159000, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 1569538081819734918, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
       propertyPath: m_text
@@ -18427,6 +18427,18 @@ PrefabInstance:
         by jumping
 
         off a wall'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569538081819734918, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_lineSpacing
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569538081819734918, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3127940726974897107, guid: 081c0cb3e46f8c448a1ba2f2d1ddc529, type: 2}
+    - target: {fileID: 1569538081819734918, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 1642152392232641949, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
       propertyPath: m_Name
@@ -18795,7 +18807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2383559523237520724, guid: c4e573a92cc215e41b78914f190b2cfc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 38.12
+      value: 37.97
       objectReference: {fileID: 0}
     - target: {fileID: 2383559523237520724, guid: c4e573a92cc215e41b78914f190b2cfc, type: 3}
       propertyPath: m_LocalPosition.z
