@@ -20,10 +20,16 @@ public class BGMManager : MonoBehaviour
     private Dictionary<string, string> sceneToBGMMapping = new Dictionary<string, string>
         {
           {"default", "Sound/Bilderbuchabenteuer" },
-          {"AndrikScene", "Sound/AhriTheme" },
-          {"DirkScene4", "Sound/Zahlentaifun" },
-          {"DirkScene5", "Sound/Zahlentaifun" },
-          {"Level1", "Sound/Tutanchatorial" }
+          {"Level1", "Sound/Tutanchatorial" },
+          {"Level2", "Sound/Tutanchatorial" },
+          {"Level3", "Sound/Tutanchatorial" },
+          {"Level4", "Sound/Bilderbuchabenteuer" },
+          {"Level5", "Sound/Bilderbuchabenteuer" },
+          {"Level6", "Sound/Bilderbuchabenteuer" },
+          {"Level7", "Sound/Zahlentaifun" },
+          {"Level8", "Sound/Zahlentaifun" },
+          {"Level9", "Sound/Zahlentaifun" },
+
 
 
         };
