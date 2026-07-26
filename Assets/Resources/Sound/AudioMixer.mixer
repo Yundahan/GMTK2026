@@ -104,10 +104,11 @@ AudioMixerController:
   - guid: 6f99c6baef2c3f4419f6fe7e6555d385
     name: SFXVolume
   - guid: 06fc01e596ce7fb45ba8fa3f16ca6db8
-    name: MyExposedParam
+    name: Wet
   m_AudioMixerGroupViews:
   - guids:
     - 4754da4ba9884ff42bc0d73ef66ba46e
+    - d04384e1db607c940a0b5329164e4a31
     - 034f4895650e357469205b3ec88dd873
     - 982b6e5336a6c86439853ccb6963ee5d
     name: View
