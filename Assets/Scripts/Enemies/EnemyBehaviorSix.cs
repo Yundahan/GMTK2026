@@ -107,12 +107,14 @@ public class EnemyBehaviorSix : MonoBehaviour
     {
         if (state == State.IDLE)
         {
+            GetComponent<EnemyAttack>().SetDamageActive(false);
             GetComponent<Pathing>().isPathing = true;
             idleSpriteRenderer.enabled = true;
             rollingSpriteRenderer.enabled = false;
         }
         else
         {
+            GetComponent<EnemyAttack>().SetDamageActive(true);
             GetComponent<Pathing>().isPathing = false;
             idleSpriteRenderer.enabled = false;
             rollingSpriteRenderer.enabled = true;

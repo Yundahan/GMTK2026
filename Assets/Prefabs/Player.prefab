@@ -413,10 +413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   feetCollider: {fileID: 678365130612628718}
-  frontCollider: {fileID: 0}
   SPEED: 40
   animator: {fileID: 3898283132639674311}
-  wallSlidingSpeed: 3
+  wallSlidingSpeed: 5
   JUMP_FORCE: 360
   SMOOTHING: 0.1
   AIR_SMOOTHING: 0.2
@@ -588,7 +587,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.22126651, y: -0.5864816}
+  m_Offset: {x: -0.033188164, y: -0.78755355}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -598,7 +597,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.4030886, y: 4.855048}
+  m_Size: {x: 3.8941813, y: 5.257191}
   m_EdgeRadius: 0
 --- !u!95 &3898283132639674311
 Animator:
