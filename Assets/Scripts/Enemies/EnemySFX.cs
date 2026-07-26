@@ -35,7 +35,7 @@ public class EnemySFX : MonoBehaviour
     {
         AudioClip clip = GetAudioClip(type);
 
-        if (clip != null)
+        if (clip != null && !VolumeManager.Instance().GetMute(VolumeManager.VolumeType.SFXVolume))
         {
             float sfxVolume = VolumeManager.Instance().GetVolume(VolumeManager.VolumeType.MasterVolume) * VolumeManager.Instance().GetVolume(VolumeManager.VolumeType.SFXVolume);
             AudioSource.PlayClipAtPoint(clip, transform.position, sfxVolume);
