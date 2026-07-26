@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isFalling = false;
     private bool controlsActive = true;
 
+    private bool wallJumpUsed = false;
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -89,6 +91,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isFalling", false);
         }
 
+        if (!IsTouchingWall())
+        {
+            wallJumpUsed = false;
+        }
+
     }
 
     public void Move(float horizontalAxis)
@@ -107,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 TransformUtils.SetTargetDirection(transform, transform.localScale.x * -1);
                 animator.SetBool("isWalking", true);
-            } 
+            }
 
             if (Mathf.Abs(horizontalAxis) <= 0.01f)
             {
@@ -177,9 +184,10 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.layer == WALL_LAYER)
+        if (collider.gameObject.layer == WALL_LAYER && !wallJumpUsed)
         {
             jumpsRemaining = maxJumps; // reset remaining jumps when hitting a wall
+            wallJumpUsed = true;
         }
     }
 }
