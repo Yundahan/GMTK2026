@@ -415,7 +415,7 @@ MonoBehaviour:
   feetCollider: {fileID: 678365130612628718}
   SPEED: 40
   animator: {fileID: 3898283132639674311}
-  wallSlidingSpeed: 5
+  wallSlidingSpeed: 10
   JUMP_FORCE: 360
   SMOOTHING: 0.1
   AIR_SMOOTHING: 0.2
