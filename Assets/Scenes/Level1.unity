@@ -2074,7 +2074,7 @@ PrefabInstance:
 
         erased the "2"
 
-        yet????'
+        yet?'
       objectReference: {fileID: 0}
     - target: {fileID: 1569538081819734918, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
       propertyPath: m_lineSpacing
