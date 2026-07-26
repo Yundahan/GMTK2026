@@ -627,8 +627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c851fde1f433b749bb5ec9c52887232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  damage: 5
-  damageActive: 1
+  damage: 10
+  damageActive: 0
 --- !u!61 &8400091766778260642
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ public class EnemyAttack : MonoBehaviour
     private int damage = 1;
     [SerializeField]
     private bool damageActive = true;
+    [SerializeField]
+    private bool knockbackActive = true;
 
     private PlayerHealth playerHealth;
 
@@ -19,7 +21,7 @@ public class EnemyAttack : MonoBehaviour
         if (damageActive && collider == playerHealth.GetHitbox())
         {
             playerHealth.SetEnemyPos(transform.position);
-            playerHealth.UpdateHealth(-damage);
+            playerHealth.UpdateHealth(-damage, knockbackActive);
             SendMessage("PlayerDamaged", SendMessageOptions.DontRequireReceiver);
         }
     }
@@ -28,7 +30,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (damageActive && collision.collider == playerHealth.GetHitbox())
         {
-            playerHealth.UpdateHealth(-damage);
+            playerHealth.UpdateHealth(-damage, knockbackActive);
         }
     }
 

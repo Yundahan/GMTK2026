@@ -54,7 +54,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void UpdateHealth(int delta)
+    public void UpdateHealth(int delta, bool knockback)
     {
         if (lastDamageTime + invulnerabilityTimer < Time.time)
         {
@@ -62,7 +62,11 @@ public class PlayerHealth : MonoBehaviour
             {
                 lastDamageTime = Time.time;
             }
-            Knockback();
+            if (knockback)
+            {
+                Knockback();
+            }
+
             currentHealth = Mathf.Min(currentHealth + delta, maxHealth);
             float healthFraction = (float)currentHealth / (float)maxHealth;
             healthFraction = Mathf.Clamp01(healthFraction);
