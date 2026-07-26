@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class NextNumber : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Text textComponent;
-    [SerializeField]
     private Image targetImage;
     [SerializeField]
     private Sprite n1;
