@@ -1568,7 +1568,7 @@ MonoBehaviour:
   gameUI: {fileID: 8625315272514273785}
   menuUI: {fileID: 8540823114882118082}
   deathMenuUI: {fileID: 4410495641236489595}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1155288588730059487}
 --- !u!114 &3019955586087965515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2177,7 +2177,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 195.23807, y: -71.306}
-  m_SizeDelta: {x: 300, y: 50}
+  m_SizeDelta: {x: 305, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6655299007304401301
 CanvasRenderer:
@@ -2211,7 +2211,7 @@ MonoBehaviour:
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -2565,10 +2565,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: -5519823592105029693, guid: 21f8d12324bc6044a88b8669951b01d4, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
