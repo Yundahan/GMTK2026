@@ -305,7 +305,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2bafb3cdf1dce5a46b7ddb23bf4c0c8b, type: 3}
   m_Color: {r: 1, g: 0.7128662, b: 0.042452812, a: 1}
@@ -430,7 +430,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2bafb3cdf1dce5a46b7ddb23bf4c0c8b, type: 3}
   m_Color: {r: 1, g: 0.7128662, b: 0.042452812, a: 1}
@@ -892,6 +892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   damage: 25
   damageActive: 0
+  knockbackActive: 1
 --- !u!60 &6965325799036663235
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1125,7 +1126,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2bafb3cdf1dce5a46b7ddb23bf4c0c8b, type: 3}
   m_Color: {r: 1, g: 0.7128662, b: 0.042452812, a: 1}
