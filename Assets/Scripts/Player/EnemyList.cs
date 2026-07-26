@@ -59,6 +59,11 @@ public class EnemyList : MonoBehaviour
 
     public int GetHighestNumber()
     {
+        if (!allEnemies.Any())
+        {
+            return 0;
+        }
+
         return allEnemies[^1].GetNumber();
     }
 
