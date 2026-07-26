@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f360cf55deb75f145b23815ede187a80
+guid: ba0885e77c6c7734184d89151c9f104f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7632193521659312389
-    second: Banner_l.u.r_0
+      213: -4552140547601228076
+    second: Banner_oben 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,56 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Banner_l.u.r_0
+      name: Banner_oben 1_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 4
         y: 0
-        width: 729
-        height: 1111
+        width: 3836
+        height: 357
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5097a83229ffae960800000000000000
-      internalID: 7632193521659312389
+      spriteID: 4de939c4a4c83d0c0800000000000000
+      internalID: -4552140547601228076
       vertices: []
       indices: 
       edges: []
@@ -135,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Banner_l.u.r_0: 7632193521659312389
+      Banner_oben 1_0: -4552140547601228076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
