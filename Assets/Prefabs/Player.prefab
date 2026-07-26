@@ -467,6 +467,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   levelEndDelay: 0.6
   nextLevel: Scene1
+  levelEndAnim: {fileID: 8929406586417528427, guid: 36495879423b0f3438ca4fa21afba428, type: 3}
+  levelStartAnim: {fileID: 6737216956940832485, guid: 3bc85eab650e69542b67194b822cab46, type: 3}
 --- !u!212 &1594173797006831353
 SpriteRenderer:
   serializedVersion: 2
@@ -800,7 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteResolver
   m_CategoryHash: 1.877808e-33
-  m_labelHash: 4.3130232e-33
+  m_labelHash: 1.2079726e-29
   m_SpriteKey: 0
   m_SpriteHash: 728470432
 --- !u!82 &7084627429109622454
