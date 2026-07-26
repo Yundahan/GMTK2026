@@ -4018,6 +4018,111 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35dbedf5cddd6424b94e77d8aed94f1c, type: 3}
+--- !u!1001 &1248655220
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 298143242781932966, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 298143242781932966, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 357345598639159000, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569538081819734918, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_text
+      value: 'Press "Space"
+
+        while Jumping
+
+        to Double-Jump'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642152392232641949, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_Name
+      value: HintArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -94.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 24.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2796878800880568465, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: messageDuration
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211400453209379782, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137811013749897746, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697702079560846425, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751687835719254646, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5072405843360921709, guid: d4db78af424e31f439d5a0f44e2ca0e6, type: 3}
+    - target: {fileID: 8178430521645673379, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178430521645673379, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
 --- !u!1 &1294184646
 GameObject:
   m_ObjectHideFlags: 0
@@ -5516,79 +5621,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71d509e9695611241afa639ec33f1356, type: 3}
---- !u!1001 &1721777261
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 298143242781932966, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 4.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 357345598639159000, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1569538081819734918, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_text
-      value: "Press \"Space\" \nwhile jumping\nto double-jump"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1642152392232641949, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_Name
-      value: HintArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -93.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 24.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196750765908941024, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8178430521645673379, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0519cc8cc50d46347b0a24405d311864, type: 3}
 --- !u!1 &1774990802
 GameObject:
   m_ObjectHideFlags: 0
@@ -7840,4 +7872,4 @@ SceneRoots:
   - {fileID: 1598232480}
   - {fileID: 1138991998}
   - {fileID: 1354802535}
-  - {fileID: 1721777261}
+  - {fileID: 1248655220}

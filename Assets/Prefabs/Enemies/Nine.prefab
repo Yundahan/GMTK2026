@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   health: 100
+  invulnerable: 0
 --- !u!114 &6864681223966596976
 MonoBehaviour:
   m_ObjectHideFlags: 0
