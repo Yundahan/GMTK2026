@@ -5,15 +5,6 @@ public class Simulation
 {
     private static Simulation instance;
 
-    // This is a variable that persists even when the scene changes.
-    private int eCount = 0;
-
-    public int IncreaseECount()
-    {
-        eCount++;
-        return eCount;
-    }
-
     /// <summary>
     /// Pauses the simulation if previously unpaused, unpauses the simulation if previously paused.
     /// Only those actions are paused which depend on Time.deltaTime!
