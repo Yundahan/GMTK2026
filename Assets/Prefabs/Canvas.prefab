@@ -217,7 +217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5133279838882713120, guid: c0a2c373b6bb4b84ea7cd429d3e24aad, type: 3}
+  m_Sprite: {fileID: 4120901811166270815, guid: 19c5d1cbd85b24f4daad490d7553f084, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -285,7 +285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858636cc3623f0d48b5a021f4c533614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NextNumber
-  textComponent: {fileID: 0}
   targetImage: {fileID: 3181816766438257633}
   n1: {fileID: 4120901811166270815, guid: 19c5d1cbd85b24f4daad490d7553f084, type: 3}
   n2: {fileID: 6937817954938267909, guid: 5726c4d2e388c5f47928b5aad6020af7, type: 3}
@@ -922,7 +921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48.5, y: -125}
+  m_AnchoredPosition: {x: 14, y: -693}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3604321200750968705
@@ -953,7 +952,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level
+  m_text: Level select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 081c0cb3e46f8c448a1ba2f2d1ddc529, type: 2}
   m_sharedMaterial: {fileID: -3127940726974897107, guid: 081c0cb3e46f8c448a1ba2f2d1ddc529, type: 2}
@@ -2331,7 +2330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4178046375966092550, guid: 329d99ad408a79440a675551b13a152d, type: 3}
+  m_Sprite: {fileID: 3326971659086699885, guid: 400c77bb6fe9b0e48aad644425b4517b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
