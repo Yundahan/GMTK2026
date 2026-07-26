@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerSFX))]
@@ -40,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool wallJumpUsed = false;
 
+    private bool wallrideSoundIsPlaying = false;
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -76,23 +79,35 @@ public class PlayerMovement : MonoBehaviour
             // Player was falling last frame, but isnt anymore, so we landed
             if (isFalling)
             {
-                isFalling = false;
                 playerSFX.PlayAudioClip(PlayerSFX.SfxType.LAND);
+                isFalling = false;
                 animator.SetBool("isFalling", false);
                 animator.SetBool("isSliding", false);
                 animator.SetBool("isJumping", false);
+               
             }
         }
 
         if (IsTouchingWall() && !IsGrounded())
         {
+
+            if (!wallrideSoundIsPlaying)
+            {
+                playerSFX.PlayAudioClip(PlayerSFX.SfxType.WALLRIDE);
+                wallrideSoundIsPlaying = true;
+            }
+     
             rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocityX, Mathf.Clamp(rigidBody.linearVelocityY, -wallSlidingSpeed, float.MaxValue));
             animator.SetBool("isSliding", true);
             animator.SetBool("isFalling", false);
+
+           
         }
 
         if (!IsTouchingWall())
         {
+            playerSFX.StopWallride();
+            wallrideSoundIsPlaying = false;      
             wallJumpUsed = false;
         }
 

@@ -10,7 +10,8 @@ public class PlayerSFX : MonoBehaviour
         LAND,
         ONHIT,
         ONKILL,
-        ATTACK
+        ATTACK,
+        WALLRIDE
     }
     [SerializeField]
     private AudioSource audioSource;
@@ -24,7 +25,9 @@ public class PlayerSFX : MonoBehaviour
         { SfxType.LAND, new SFXData (3, "Sound/SFX/Land", 1f, false)},
         { SfxType.ONHIT, new SFXData (7, "Sound/SFX/OnHit", 1f, false)},
         { SfxType.ONKILL, new SFXData(20, "Sound/SFX/OnKillGeneric", 1f, true) },
-        { SfxType.ATTACK, new SFXData(1, "Sound/SFX/Attack", 1f, false) }
+        { SfxType.ATTACK, new SFXData(1, "Sound/SFX/Attack", 1f, false) },
+        { SfxType.WALLRIDE, new SFXData(1, "Sound/SFX/WallrideSFX", 1f, false) }
+
 
     };
 
@@ -59,6 +62,19 @@ public class PlayerSFX : MonoBehaviour
             audioSource.Play();
         }
 
+
+    }
+
+    public void StopWallride()
+    {
+        if (audioSource.isPlaying)
+        {
+            if (audioSource.clip.name == "Sound/SFX/WallrideSFX1")
+            {
+                audioSource.Stop();
+            }
+        }
+       
 
     }
 }
