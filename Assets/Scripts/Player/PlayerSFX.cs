@@ -21,7 +21,7 @@ public class PlayerSFX : MonoBehaviour
     {
         { SfxType.JUMP, new SFXData(12, "Sound/SFX/Jump", 0.7f, false)},
         { SfxType.DOUBLE_JUMP, new SFXData(10, "Sound/SFX/DoubleJump", 0.8f, false) },
-        { SfxType.LAND, new SFXData (8, "Sound/SFX/Land", 0.3f, false)},
+        { SfxType.LAND, new SFXData (3, "Sound/SFX/Land", 1f, false)},
         { SfxType.ONHIT, new SFXData (7, "Sound/SFX/OnHit", 1f, false)},
         { SfxType.ONKILL, new SFXData(20, "Sound/SFX/OnKillGeneric", 1f, true) },
         { SfxType.ATTACK, new SFXData(1, "Sound/SFX/Attack", 1f, false) }
