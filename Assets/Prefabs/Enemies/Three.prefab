@@ -629,6 +629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   damage: 10
   damageActive: 0
+  knockbackActive: 1
 --- !u!61 &8400091766778260642
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -663,7 +664,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.084115386, y: 0.6877804}
+  m_Offset: {x: 0.22842062, y: 0.8144014}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -673,7 +674,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.0264845, y: 3.601716}
+  m_Size: {x: 2.8489068, y: 4.8468223}
   m_EdgeRadius: 0
 --- !u!82 &8650004643196255107
 AudioSource:
