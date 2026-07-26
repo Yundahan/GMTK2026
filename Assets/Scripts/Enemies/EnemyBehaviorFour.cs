@@ -68,13 +68,17 @@ public class EnemyBehaviorFour : MonoBehaviour
                 animator.SetBool("isRetracting", true);
                 animator.SetBool("isIdle", true);
                 animator.SetBool("isAttacking", false);
+                animator.SetBool("isHopping", false);
                 break;
             case State.HOPPING:
+                animator.SetBool("isHopping", true);
+                animator.SetBool("isIdle", false);
                 break;
             case State.ATTACKING:
                 animator.SetBool("isAttacking", true);
                 animator.SetBool("isIdle", false);
                 animator.SetBool("isRetracting", false);
+                animator.SetBool("isHopping", false);
                 break;
         }
     }

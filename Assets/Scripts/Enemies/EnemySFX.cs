@@ -12,7 +12,7 @@ public class EnemySFX : MonoBehaviour
 
     private Dictionary<SfxType, SFXData> clipData = new Dictionary<SfxType, SFXData>
     {
-        { SfxType.ONKILL, new SFXData(9, "Sound/SFX/OnKillGeneric", 1f) },
+        { SfxType.ONKILL, new SFXData(9, "Sound/SFX/OnKillGeneric", 1f, true) },
     };
 
     void Start()
