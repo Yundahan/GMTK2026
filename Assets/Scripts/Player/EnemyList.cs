@@ -28,6 +28,7 @@ public class EnemyList : MonoBehaviour
     {
         if (allEnemiesDead && Time.unscaledTime - allEnemiesDeadTime > levelEndDelay)
         {
+            FindAnyObjectByType<BGMManager>().PlayLevelTransition();
             Simulation.Instance().ToggleSimulation();
             SceneLoader.Instance().LoadScene(nextLevel);
         }

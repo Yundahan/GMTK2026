@@ -100,6 +100,12 @@ public class BGMManager : MonoBehaviour
         return bgmAudioSource.clip != null && fileName == bgmAudioSource.clip.name;
     }
 
+    public void PlayLevelTransition()
+    {
+        AudioClip clip = Resources.Load<AudioClip>("Sound/SFX/NextLevelSFX");
+        bgmAudioSource.PlayOneShot(clip);
+    }
+
     public static BGMManager Instance()
     {
         if (instance == null)
