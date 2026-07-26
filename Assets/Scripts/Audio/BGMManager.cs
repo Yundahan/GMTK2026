@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Unity.Properties;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class BGMManager : MonoBehaviour
@@ -11,6 +13,9 @@ public class BGMManager : MonoBehaviour
 
     [SerializeField]
     private AudioSource godSFX;
+
+    [SerializeField]
+    private AudioMixer mixer;
 
     private Dictionary<string, string> sceneToBGMMapping = new Dictionary<string, string>
         {
@@ -65,7 +70,7 @@ public class BGMManager : MonoBehaviour
             }
         }
 
-       
+
     }
 
     /// <summary>
@@ -76,9 +81,9 @@ public class BGMManager : MonoBehaviour
     public void SetBGMForScene(string sceneName, string bgmFilePath)
     {
         if (sceneToBGMMapping.ContainsKey(sceneName))
-            {
+        {
             sceneToBGMMapping[sceneName] = bgmFilePath;
-            }
+        }
         else
         {
             sceneToBGMMapping["default"] = bgmFilePath;
@@ -96,9 +101,9 @@ public class BGMManager : MonoBehaviour
     /// </summary>
     /// <param name="bgmFilePath">Path of the BGM file.</param>
     public bool IsTrackCurrentlyPlaying(string bgmFilePath)
-    {   
+    {
 
-        
+
         string[] pathArray = bgmFilePath.Split('/');
         string fileName = pathArray[pathArray.Length - 1];
         return bgmAudioSource.clip != null && fileName == bgmAudioSource.clip.name;
@@ -119,4 +124,20 @@ public class BGMManager : MonoBehaviour
 
         return instance;
     }
+
+    public void ToggleMuffle()
+    {
+        mixer.GetFloat("Wet", out float wetness);
+        if (wetness == 0)
+        {
+            mixer.SetFloat("Wet", -80f);
+
+        }
+        else
+        {
+            mixer.SetFloat("Wet", 0);
+        }
+    }
+    
+
 }

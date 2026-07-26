@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmAudioSource: {fileID: 7803922483250491521}
   godSFX: {fileID: 3878505204154882860}
+  mixer: {fileID: 24100000, guid: f6f2154d91e903c4e90915845ed6d75c, type: 2}
 --- !u!82 &7803922483250491521
 AudioSource:
   m_ObjectHideFlags: 0

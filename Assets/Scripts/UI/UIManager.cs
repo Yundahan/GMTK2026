@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour
         gameUI.SetActive(!gameUI.activeSelf);
         menuUI.SetActive(!menuUI.activeSelf);
 
+        FindFirstObjectByType<BGMManager>().ToggleMuffle();
+
         if (!menuUI.activeSelf)
         {
             menuUI.GetComponent<BannerAnimation>().Reset();

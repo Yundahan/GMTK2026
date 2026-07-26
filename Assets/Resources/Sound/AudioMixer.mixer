@@ -97,12 +97,14 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: 3fd511abb242c6f4ea46b62124d67ec4
-    name: MasterVolume
   - guid: c8bc62bd3ca8c6544baa7a6c8f0d275e
     name: BGMVolume
+  - guid: 3fd511abb242c6f4ea46b62124d67ec4
+    name: MasterVolume
   - guid: 6f99c6baef2c3f4419f6fe7e6555d385
     name: SFXVolume
+  - guid: 06fc01e596ce7fb45ba8fa3f16ca6db8
+    name: MyExposedParam
   m_AudioMixerGroupViews:
   - guids:
     - 4754da4ba9884ff42bc0d73ef66ba46e
@@ -161,6 +163,7 @@ AudioMixerSnapshotController:
     ab4cacd1d43725c4188a86036cbb66d9: 0
     590c4192a7b024e4c9d61f74201d5e99: 0
     5e44d9d584e57b44ab003b869d401843: 545
+    06fc01e596ce7fb45ba8fa3f16ca6db8: -80
     93cb29f684a969a4a9637bd708a903c4: 1.76
     1ee7a09782ae26f439414e82ff03d0a7: 10
     6f99c6baef2c3f4419f6fe7e6555d385: 0
@@ -246,7 +249,7 @@ AudioMixerEffectController:
   - m_ParameterName: Resonance
     m_GUID: 93cb29f684a969a4a9637bd708a903c4
   m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
+  m_EnableWetMix: 1
   m_Bypass: 0
 --- !u!244 &8810109676729374255
 AudioMixerEffectController:
