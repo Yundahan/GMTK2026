@@ -433,7 +433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   attackArea: {fileID: 5215732801242031165}
   animator: {fileID: 3898283132639674311}
-  timeToAttack: 0.5
+  timeToAttack: 0
 --- !u!114 &8663128943594594061
 MonoBehaviour:
   m_ObjectHideFlags: 0
