@@ -6,7 +6,11 @@ public class BGMManager : MonoBehaviour
 {
     private static BGMManager instance;
 
+    [SerializeField]
     private AudioSource bgmAudioSource;
+
+    [SerializeField]
+    private AudioSource godSFX;
 
     private Dictionary<string, string> sceneToBGMMapping = new Dictionary<string, string>
         {
@@ -103,7 +107,7 @@ public class BGMManager : MonoBehaviour
     public void PlayLevelTransition()
     {
         AudioClip clip = Resources.Load<AudioClip>("Sound/SFX/NextLevelSFX");
-        bgmAudioSource.PlayOneShot(clip);
+        godSFX.PlayOneShot(clip);
     }
 
     public static BGMManager Instance()
