@@ -14,6 +14,8 @@ public class BGMManager : MonoBehaviour
           {"AndrikScene", "Sound/AhriTheme" },
           {"DirkScene4", "Sound/Zahlentaifun" },
           {"DirkScene5", "Sound/Zahlentaifun" },
+          {"Level1", "Sound/Tutanchatorial" }
+
 
         };
 
