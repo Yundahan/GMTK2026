@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 3222696918835083581}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.9870875, w: 0.16018225}
-  m_LocalPosition: {x: 1.9066018, y: -1.4760662, z: 0}
+  m_LocalPosition: {x: 1.9066018, y: -1.476066, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -595,7 +595,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 321f6976b0f7fc24aa3fc2813c279d49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22dcd09d0aec0484189c1550564e7a80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -870,9 +870,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteResolver
   m_CategoryHash: 1.877808e-33
-  m_labelHash: 1.9983696e-13
+  m_labelHash: 1.2079726e-29
   m_SpriteKey: 0
-  m_SpriteHash: 802689112
+  m_SpriteHash: 728470432
 --- !u!1 &6104343129544282119
 GameObject:
   m_ObjectHideFlags: 0
