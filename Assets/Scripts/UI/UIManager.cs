@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
         menuUI.SetActive(!menuUI.activeSelf);
 
         FindFirstObjectByType<BGMManager>().ToggleMuffle();
+        FindFirstObjectByType<BGMManager>().ButtonPressed();
 
         if (!menuUI.activeSelf)
         {

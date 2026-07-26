@@ -132,15 +132,17 @@ public class BGMManager : MonoBehaviour
 
     public void ToggleMuffle()
     {
-        mixer.GetFloat("Wet", out float wetness);
+        mixer.GetFloat("Wet1", out float wetness);
         if (wetness == 0)
         {
-            mixer.SetFloat("Wet", -80f);
+            mixer.SetFloat("Wet1", -80f);
+            mixer.SetFloat("Wet2", -80f);
 
         }
         else
         {
-            mixer.SetFloat("Wet", 0);
+            mixer.SetFloat("Wet1", 0);
+            mixer.SetFloat("Wet2", 0);
         }
     }
     

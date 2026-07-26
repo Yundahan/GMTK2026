@@ -5,9 +5,6 @@ using System.Collections;
 public class ButtonSFX : MonoBehaviour
 {
     private Button button;
-    
-    [SerializeField]
-    private AudioSource audioSource;
 
     void Start()
     {
@@ -17,7 +14,7 @@ public class ButtonSFX : MonoBehaviour
 
     void PlaySFXOnClick()
     {
-        audioSource.Play();
+        FindFirstObjectByType<BGMManager>().ButtonPressed();
     }
     
 }
