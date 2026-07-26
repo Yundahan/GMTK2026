@@ -16,7 +16,6 @@ public class NextNumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(enemyList.GetHighestNumber());
         textComponent.text = enemyList.GetHighestNumber().ToString();
     }
 }

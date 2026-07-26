@@ -14,7 +14,6 @@ public class LevelButton : MonoBehaviour
     public void LoadLevel()
     {
         //Simulation between lvl changes
-        Debug.Log("LoadScene:" + sceneName);
         SceneLoader.Instance().LoadScene(sceneName);
     }
 }
