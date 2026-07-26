@@ -1,16 +1,21 @@
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 
 public class MessageArea : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI text;
-
-    [SerializeField]
     private float messageDuration = 5f;
+
+    private Canvas canvas;
 
     private bool messageShown = false;
     private float messageTime = -10000f;
+
+    void Awake()
+    {
+        canvas = GetComponentInChildren<Canvas>();
+    }
 
     void Update()
     {
@@ -34,12 +39,12 @@ public class MessageArea : MonoBehaviour
         {
             messageShown = true;
             messageTime = Time.time;
-            text.gameObject.SetActive(true);
+            canvas.gameObject.SetActive(true);
         }
     }
 
     protected void HideMessage()
     {
-        text.gameObject.SetActive(false);
+        canvas.gameObject.SetActive(false);
     }
 }
