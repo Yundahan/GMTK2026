@@ -13,6 +13,14 @@ public class PlayerAttack : MonoBehaviour
     private float timeToAttack = 0.25f;
     private float timer = 0f;
 
+
+    private PlayerSFX playerSFX;
+
+    private void Awake()
+    {
+        playerSFX= GetComponent<PlayerSFX>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -35,5 +43,6 @@ public class PlayerAttack : MonoBehaviour
         attacking = true;
         attackArea.SetActive(attacking);
         animator.SetBool("isAttacking", true);
+        playerSFX.PlayAudioClip(PlayerSFX.SfxType.ATTACK);
     }
 }

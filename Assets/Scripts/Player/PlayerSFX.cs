@@ -9,7 +9,8 @@ public class PlayerSFX : MonoBehaviour
         DOUBLE_JUMP,
         LAND,
         ONHIT,
-        ONKILL
+        ONKILL,
+        ATTACK
     }
     [SerializeField]
     private AudioSource audioSource;
@@ -18,11 +19,13 @@ public class PlayerSFX : MonoBehaviour
 
     private Dictionary<SfxType, SFXData> clipData = new Dictionary<SfxType, SFXData>
     {
-        { SfxType.JUMP, new SFXData(12, "Sound/SFX/Jump", 1f, false)},
-        { SfxType.DOUBLE_JUMP, new SFXData(10, "Sound/SFX/DoubleJump", 0.5f, false) },
+        { SfxType.JUMP, new SFXData(12, "Sound/SFX/Jump", 0.7f, false)},
+        { SfxType.DOUBLE_JUMP, new SFXData(10, "Sound/SFX/DoubleJump", 0.8f, false) },
         { SfxType.LAND, new SFXData (8, "Sound/SFX/Land", 0.3f, false)},
         { SfxType.ONHIT, new SFXData (7, "Sound/SFX/OnHit", 1f, false)},
-        { SfxType.ONKILL, new SFXData(20, "Sound/SFX/OnKillGeneric", 1f, true) }
+        { SfxType.ONKILL, new SFXData(20, "Sound/SFX/OnKillGeneric", 1f, true) },
+        { SfxType.ATTACK, new SFXData(1, "Sound/SFX/Attack", 1f, false) }
+
     };
 
     void Start()
