@@ -28,6 +28,7 @@ public class EnemyList : MonoBehaviour
     {
         if (allEnemiesDead && Time.unscaledTime - allEnemiesDeadTime > levelEndDelay)
         {
+            FindAnyObjectByType<BGMManager>().PlayLevelTransition();
             Simulation.Instance().ToggleSimulation();
             SceneLoader.Instance().LoadScene(nextLevel);
         }
@@ -58,6 +59,11 @@ public class EnemyList : MonoBehaviour
 
     public int GetHighestNumber()
     {
+        if (!allEnemies.Any())
+        {
+            return 1;
+        }
+
         return allEnemies[^1].GetNumber();
     }
 

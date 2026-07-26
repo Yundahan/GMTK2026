@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class NextNumber : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Text textComponent;
-    [SerializeField]
     private Image targetImage;
     [SerializeField]
     private Sprite n1;
@@ -52,7 +50,6 @@ public class NextNumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         changeSprite(enemyList.GetHighestNumber().ToString());
     }
 

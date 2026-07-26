@@ -275,7 +275,7 @@ MonoBehaviour:
   spriteTransform: {fileID: 5556632152110438922}
   animator: {fileID: 4367941755180951222}
   rollingDuration: 1
-  rollingSpeed: 10
+  rollingSpeed: 20
   rotationsPerSecond: 3
   cooldown: 2
   gravity: 9.81
@@ -320,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   damage: 25
   damageActive: 0
+  knockbackActive: 1
 --- !u!114 &7954668052846739010
 MonoBehaviour:
   m_ObjectHideFlags: 0
