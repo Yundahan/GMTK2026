@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     {
         gameUI.SetActive(!gameUI.activeSelf);
         menuUI.SetActive(!menuUI.activeSelf);
+
         if (!menuUI.activeSelf)
         {
             menuUI.GetComponent<BannerAnimation>().Reset();
@@ -46,7 +47,6 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 1; // unfreeze everything
         }
-
     }
 
     /// <summary>

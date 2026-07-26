@@ -16,9 +16,9 @@ public class Health : MonoBehaviour
     private EnemySFX enemySFX;
 
 
-    private void Awake()
+    void Awake()
     {
-        enemySFX= GetComponent<EnemySFX>();
+        enemySFX = GetComponent<EnemySFX>();
     }
 
     void Start()
@@ -54,6 +54,7 @@ public class Health : MonoBehaviour
     private void Die()
     {
         enemyList.RemoveEnemyFromList(GetComponent<EnemyNumber>());
+        //enemySFX.PlayAudioClipOnNewSource(EnemySFX.SfxType.ONKILL);
         Destroy(gameObject);
     }
 

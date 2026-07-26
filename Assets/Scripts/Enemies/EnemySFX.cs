@@ -22,17 +22,37 @@ public class EnemySFX : MonoBehaviour
 
     public void PlayAudioClip(SfxType type)
     {
+        AudioClip clip = GetAudioClip(type);
+
+        if (clip != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+    }
+
+    public void PlayAudioClipOnNewSource(SfxType type)
+    {
+        AudioClip clip = GetAudioClip(type);
+
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position, VolumeManager.Instance().GetVolume(VolumeManager.VolumeType.SFXVolume));
+        }
+    }
+
+    public AudioClip GetAudioClip(SfxType type)
+    {
         SFXData sfxData = clipData[type];
 
         if (Random.Range(0f, 1f) > sfxData.GetClipPlayChance())
         {
-            return;
+            return null;
         }
 
         int randomCount = Random.Range(1, sfxData.GetNumberOfClips());
         string clipName = sfxData.GetClipBaseName() + randomCount;
         AudioClip clip = Resources.Load<AudioClip>(clipName);
-        audioSource.clip = clip;
-        audioSource.Play();
+        return clip;
     }
 }
