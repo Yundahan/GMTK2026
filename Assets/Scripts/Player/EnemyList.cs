@@ -11,7 +11,7 @@ public class EnemyList : MonoBehaviour
     [SerializeField]
     private string nextLevel = "Scene1";
 
-    private List<EnemyNumber> allEnemies = new ();
+    private List<EnemyNumber> allEnemies = new();
 
     private bool allEnemiesDead = false;
     private float allEnemiesDeadTime = -10000f;
@@ -54,6 +54,11 @@ public class EnemyList : MonoBehaviour
         }
 
         return number >= allEnemies[^1].GetNumber();
+    }
+
+    public int GetHighestNumber()
+    {
+        return allEnemies[^1].GetNumber();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
