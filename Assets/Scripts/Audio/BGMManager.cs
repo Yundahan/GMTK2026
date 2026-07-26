@@ -114,6 +114,11 @@ public class BGMManager : MonoBehaviour
         AudioClip clip = Resources.Load<AudioClip>("Sound/SFX/NextLevelSFX");
         godSFX.PlayOneShot(clip);
     }
+    public void ButtonPressed()
+    {
+        AudioClip clip = Resources.Load<AudioClip>("Sound/SFX/ButtonSFX");
+        godSFX.PlayOneShot(clip);
+    }
 
     public static BGMManager Instance()
     {
