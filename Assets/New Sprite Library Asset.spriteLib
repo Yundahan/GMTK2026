@@ -27,8 +27,13 @@ MonoBehaviour:
       m_Sprite: {fileID: 21300000, guid: 321f6976b0f7fc24aa3fc2813c279d49, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: 321f6976b0f7fc24aa3fc2813c279d49, type: 3}
+    - m_Name: countfarbespiegelneu
+      m_Hash: 162736110
+      m_Sprite: {fileID: 21300000, guid: 4f0c09c30afec174abf49695129fb8d1, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 4f0c09c30afec174abf49695129fb8d1, type: 3}
     m_FromMain: 0
-    m_EntryOverrideCount: 2
+    m_EntryOverrideCount: 3
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 639206201107426258
+  m_ModificationHash: 639206563142633266
   m_Version: 1
