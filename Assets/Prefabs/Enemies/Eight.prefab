@@ -689,7 +689,7 @@ MonoBehaviour:
   leftSnapper: {fileID: 942802608784406393}
   rightSnapper: {fileID: 1086333844878112491}
   animator: {fileID: 8145057552123778843}
-  openingDuration: 1
+  openingDuration: 0.6
   snappingDuration: 0.3
   closingDuration: 1
   cooldown: 2

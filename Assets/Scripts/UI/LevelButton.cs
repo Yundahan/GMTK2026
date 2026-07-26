@@ -14,6 +14,7 @@ public class LevelButton : MonoBehaviour
     public void LoadLevel()
     {
         //Simulation between lvl changes
+        FindFirstObjectByType<BGMManager>().ToggleMuffle();
         SceneLoader.Instance().LoadScene(sceneName);
     }
 }
